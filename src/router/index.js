@@ -9,7 +9,7 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
@@ -17,7 +17,7 @@ const routes = [
     name: 'About',
     component: () => import('../views/About.vue'),
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
@@ -39,7 +39,7 @@ router.beforeEach((to, from, next) => {
   }
 
   if (to.matched.some(record => record.meta.requiresAuth) && !auth.currentUser) {
-    next('/login')
+    next('/')
     return;
   }
 
