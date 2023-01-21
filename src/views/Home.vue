@@ -248,6 +248,17 @@ a {
     backdrop-filter: saturate(0.8)brightness(0.9);
 }
 
+.bg::after {
+    background-image: url(https://64.media.tumblr.com/96bfcda9ab211b730d680a052d19f83d/tumblr_o7w2veChcr1runoqyo4_540.gifv);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    content: '';
+    position: fixed;
+    top: 0px;
+    mix-blend-mode: screen;
+}
+
 a:hover {
     transform: translatey(2px);
     letter-spacing: 2px;
