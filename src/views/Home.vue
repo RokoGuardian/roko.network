@@ -2,13 +2,13 @@
     <div class="top3d" style="" @click="isthreedee = !isthreedee">
         <h1 v-if="isthreedee">
             2D</h1>
-        <h1 style=" animation: neon 3s infinite;" v-if="!isthreedee">
+        <h1 style="" v-if="!isthreedee">
             3D</h1>
     </div>
     <div class="topdata" style="" @click="data = !data">
         <h1 v-if="data">
             - DATA</h1>
-        <h1 style=" animation: neon 3s infinite;" v-if="!data">
+        <h1 style="" v-if="!data">
             + DATA</h1>
     </div>
     <div class="bg1" v-if="isthreedee" style="">
@@ -534,13 +534,16 @@ p {
             background-repeat: no-repeat;
             padding: 0rem;
             margin-right: auto;
-            animation: neon 3s infinite;
+            animation: none;
+            text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
         }
         .row {
             max-width: 100vw;
         }
         .logo-1 {
             font-size: 8vw;
+            animation: unset !important;
+            filter: unset !important;
         }
         .logo b {
             font: 400 20vw 'Permanent Marker';
@@ -567,6 +570,7 @@ p {
         }
     }
     .bg2 {
+        animation: unset;
         .middle2 {
             transform: unset;
             margin: auto;
@@ -599,11 +603,16 @@ p {
             bottom: -5rem;
             color: black;
             text-shadow: unset;
+            font-size: 1.5rem;
             padding-bottom: 6.5rem;
             width: calc(100vw - 2rem);
             left: 1rem;
             box-shadow: 0px 0px 100px black;
         }
+    }
+    :root {
+        --shadow-color: #ff9e9e29;
+        --shadow-color-light: rgba(255, 255, 255, 0.397);
     }
 }
 </style>
