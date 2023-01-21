@@ -525,6 +525,9 @@ p {
 
 @media screen and (max-width:600px) {
     .bg1 {
+        .cover {
+            mix-blend-mode: unset;
+        }
         &::before {
             width: 100vw;
             height: 100vh;
@@ -570,10 +573,21 @@ p {
         }
         .logo b {
             font: 400 20vw 'Permanent Marker';
-            color: #fee;
-            filter: hue-rotate(-100deg);
+            color: rgb(255, 255, 255);
+            filter: hue-rotate(-50deg);
             animation: unset;
-            text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3, 0 10px 3px #000;
+            text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3;
+        }
+        .logo b {
+            animation: unset;
+        }
+        .logo b span {
+            filter: hue-rotate(10deg);
+            animation: unset;
+        }
+        .logo b span:nth-of-type(2) {
+            animation: unset;
+            filter: hue-rotate(20deg);
         }
         .rowlogo {
             transition: all .5s ease;
