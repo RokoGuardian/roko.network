@@ -1,6 +1,7 @@
 <template>
     <div class="bg" style="">
-        <div class="cover" style="perspective:100vh;height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;">
+        <div class="cover" style="z-index: 5;
+                        position: relative;perspective:100vh;height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;">
     
             <div class="middle">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
@@ -66,7 +67,7 @@ body {
 }
 
 .logo b {
-    font: 400 8vw 'Rock Salt';
+    font: 400 10vw 'Permanent Marker';
     color: #fee;
     filter: hue-rotate(-100deg);
     animation: neon 3s infinite;
@@ -117,16 +118,16 @@ body {
 }
 
 h1 {
-    font-family: 'Rock Salt', cursive;
-}
-
-p {
     font-family: 'Permanent Marker', cursive;
 }
 
+p {
+    font-family: 'Rock Salt', cursive;
+}
+
 :root {
-    --shadow-color: #FF9E9E;
-    --shadow-color-light: white;
+    --shadow-color: #ff9e9e69;
+    --shadow-color-light: rgba(255, 255, 255, 0.813);
 }
 
 * {
@@ -294,12 +295,49 @@ a:nth-of-type(0) {
     }
     .middle {
         margin-right: 11vw;
-        transform: rotatey(12deg)rotatez(-5deg)translatey(-2rem);
+        transform: rotatey(20deg)rotatez(-2deg)translatey(-2rem);
+    }
+    .row {
+        max-width: 35vw;
     }
     a>p {
-        font-size: 4vw;
+        font-size: 3vw;
         font-weight: bold;
         margin: 0.5rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .middle {
+        transform: unset;
+        margin: auto;
+        margin-right: auto;
+        background-size: contain;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        padding: 0rem;
+        margin-right: auto;
+        animation: neon 3s infinite;
+    }
+    .row {
+        max-width: 100vw;
+    }
+    .row>a>p {
+        font-size: 5vw;
+    }
+    .logo b {
+        font: 400 20vw 'Permanent Marker';
+        color: #fee;
+        filter: hue-rotate(-100deg);
+        animation: neon 3s infinite;
+        text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3, 0 10px 3px #000;
+    }
+    a>p {
+        transition: all .5s ease;
+        font-size: 8vw;
+        font-weight: 700;
+        color: #fff;
+        margin: .5rem;
     }
 }
 </style>
