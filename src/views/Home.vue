@@ -9,7 +9,7 @@
                         <p>TWITTER</p>
                     </a>
                     <a href="https://dexscreener.com/ethereum/0x1ad651a07b98464aa42f6cad68d0ce8639b659a5">
-                        <p>TWITTER</p>
+                        <p>TOKEN</p>
                     </a>
                 </div>
             </div>
