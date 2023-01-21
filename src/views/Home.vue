@@ -520,6 +520,33 @@ p {
             color: #fff;
             margin: .5rem;
         }
+    }    .bg2 {
+        .middle2 {
+            transform: unset;
+            margin: auto;
+            margin-right: auto;
+            background-size: contain;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            padding: 0rem;
+            margin-right: auto;
+        }
+        .row {
+            max-width: 100vw;
+        }
+        .logo-1 {
+            font-size: 8vw;
+        }
+        .logo b {
+            font: 400 20vw 'Permanent Marker';
+          
+        }
+        .rowlogo {
+            transition: all .5s ease;
+            font-size: 5vw;
+            font-weight: 700;
+            margin: .5rem;
+        }
     }
 }
 </style>
