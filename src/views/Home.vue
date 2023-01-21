@@ -1,6 +1,6 @@
 <template>
     <div class="bg" style="">
-        <div class="cover" style="perspective:600px;height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;">
+        <div class="cover" style="perspective:100vh;height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;">
     
             <div class="middle">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
@@ -73,14 +73,13 @@ body {
 }
 
 .logo b span {
-    animation: neon 3s infinite;
-    animation: blink linear infinite 2s;
+    animation: blink linear infinite 2s, neon 3s infinite;
     filter: hue-rotate(50deg);
 }
 
 .logo b span:nth-of-type(2) {
     filter: hue-rotate(-50deg);
-    animation: blink linear infinite 3s;
+    animation: blink linear infinite 3s, neon 3s infinite;
 }
 
 @keyframes blink {
@@ -280,7 +279,7 @@ a:nth-of-type(0) {
         color: white;
     }
     .middle {
-        margin-right: 10vw;
+        margin-right: 12vw;
         transform: rotatey(12deg)rotatez(-5deg)translatey(-2rem);
     }
     a>p {
