@@ -38,6 +38,10 @@
     
     <div class="bg2" v-if="!isthreedee" style="">
         <div class="cover" style="">
+            <div class="data" v-if="data">
+                MEZZ Token is the utility token of MEZZ.Finance, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder.
+    
+            </div>
             <div class="middle2">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
                     <p class="logo-1">BUY MEZZ</p>
@@ -250,6 +254,7 @@ p {
         justify-content: center;
     }
     .data {
+        background-image: radial-gradient(#0000, black);
         filter: hue-rotate(300deg);
         box-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
         width: 480px;
@@ -258,7 +263,7 @@ p {
         color: white;
         animation: neon 3s infinite;
         font-family: 'Klee One', cursive;
-        padding: 1rem;
+        padding: 1.5rem 2rem;
         border-radius: 1rem;
     }
     &::before {
@@ -356,6 +361,7 @@ p {
         transform: scale(1.1);
     }
 }
+
 .topdata {
     cursor: pointer;
     position: fixed;
@@ -377,6 +383,16 @@ p {
     background-repeat: no-repeat;
     position: fixed;
     background-image: url(/bg.png);
+    .data {
+        width: 500px;
+        font-size: 2rem;
+        margin: auto;
+        color: rgb(0, 0, 0);
+        font-family: 'Klee One', cursive;
+        padding: 1rem;
+        text-shadow: 1px 1px white, 1px -1px white, -1px 1px white, -1px -1px white, 0px 0px 5px black;
+        border-radius: 1rem;
+    }
     .logo-1 {
         color: black;
         text-shadow: 0px 1.5px white, 0px -1.5px white, -1.5px 0px white, 1.5px 0px white, 2.5px 2.5px white, 2.5px -2.5px white, -2.5px 2.5px white, -2.5px -2.5px white, 1.5px 1.5px white, 1.5px -1.5px white, -1.5px 1.5px white, -1.5px -1.5px white, 0px 0px 50px black;
@@ -387,6 +403,14 @@ p {
         margin: auto;
         position: relative;
         user-select: none;
+        transition: all 0.5s ease;
+        &:hover {
+            b {
+                span {
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
     .logo b {
         font: 400 10vw 'Permanent Marker';
@@ -411,16 +435,6 @@ p {
         flex-flow: row;
         justify-content: center;
         background-image: radial-gradient(#0000, black);
-    }
-    .data {
-        box-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
-        width: 480px;
-        font-size: 1.5rem;
-        margin: auto;
-        color: rgb(0, 0, 0);
-        font-family: 'Klee One', cursive;
-        padding: 1rem;
-        border-radius: 1rem;
     }
     &::before {
         width: 100vw;
@@ -469,13 +483,12 @@ p {
         display: flex;
         border-radius: 5rem;
         transition: all 0.5s ease;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
     .cover {
         backdrop-filter: saturate(1)brightness(0.8);
-    }
-    a:hover {
-        transform: translatey(0px);
-        letter-spacing: 0px;
     }
     a>p {
         transition: all 0.5s ease;
@@ -543,6 +556,15 @@ p {
             color: #fff;
             margin: .5rem;
         }
+        .data {
+            position: absolute;
+            z-index: 10;
+            bottom: -5rem;
+            text-shadow: unset;
+            padding-bottom: 6.5rem;
+            width: calc(100vw - 2rem);
+            left: 1rem;
+        }
     }
     .bg2 {
         .middle2 {
@@ -569,6 +591,18 @@ p {
             font-size: 5vw;
             font-weight: 700;
             margin: .5rem;
+        }
+        .data {
+            position: absolute;
+            z-index: 10;
+            background: white;
+            bottom: -5rem;
+            color: black;
+            text-shadow: unset;
+            padding-bottom: 6.5rem;
+            width: calc(100vw - 2rem);
+            left: 1rem;
+            box-shadow: 0px 0px 100px black;
         }
     }
 }
