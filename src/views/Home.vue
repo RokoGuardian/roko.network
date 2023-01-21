@@ -1,7 +1,7 @@
 <template>
     <div class="bg" style="">
         <div class="cover" style="z-index: 5;
-                        position: relative;perspective:100vh;height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;">
+                                position: relative;perspective:100vh;height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;">
     
             <div class="middle">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
@@ -10,10 +10,10 @@
                 <div class="logo"><b><span>M</span>E<span>Z</span>Z</b></div>
                 <div class="row">
                     <a href="https://twitter.com/MEZZTOKEN">
-                        <p class="logo-1">TWITTER</p>
+                        <p class="logo-1 rowlogo">TWITTER</p>
                     </a>
                     <a href="https://dexscreener.com/ethereum/0x1ad651a07b98464aa42f6cad68d0ce8639b659a5">
-                        <p class="logo-1">TOKEN</p>
+                        <p class="logo-1 rowlogo">TOKEN</p>
                     </a>
                 </div>
             </div>
@@ -322,8 +322,8 @@ a:nth-of-type(0) {
     .row {
         max-width: 100vw;
     }
-    .row>a>p {
-        font-size: 5vw;
+    .logo-1 {
+        font-size: 8vw;
     }
     .logo b {
         font: 400 20vw 'Permanent Marker';
@@ -332,9 +332,9 @@ a:nth-of-type(0) {
         animation: neon 3s infinite;
         text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3, 0 10px 3px #000;
     }
-    a>p {
+    .rowlogo {
         transition: all .5s ease;
-        font-size: 8vw;
+        font-size: 5vw;
         font-weight: 700;
         color: #fff;
         margin: .5rem;
