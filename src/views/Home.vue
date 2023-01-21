@@ -39,7 +39,7 @@ p {
 
 .middle>h1 {
     font-size: 10vh;
-    color: white;
+    color: white;margin-bottom:unset;
     text-shadow: 0px 0px 100px white;
 }
 
