@@ -207,6 +207,8 @@ p {
 }
 
 .middle {
+    z-index: 3;
+    position: relative;
     transform: rotatey(-17deg)rotatez(-5deg)translatey(-2rem);
     margin: auto;
     background-size: contain;
