@@ -1,9 +1,9 @@
 <template>
-    <div class="h1" style="    animation: neon 3s infinite;
-    cursor:pointer;position:fixed;z-index:10;top:1rem;right:2rem;color:white;" @click="isthreedee = !isthreedee">
+    <div class="h1" style="   
+                                                                        cursor:pointer;position:fixed;z-index:10;top:1rem;right:2rem;color:white;" @click="isthreedee = !isthreedee">
         <h1 v-if="isthreedee">
             2D</h1>
-        <h1 v-if="!isthreedee">
+        <h1 style=" animation: neon 3s infinite;" v-if="!isthreedee">
             3D</h1>
     </div>
     <div class="bg1" v-if="isthreedee" style="">
@@ -199,11 +199,6 @@ p {
     box-sizing: border-box;
 }
 
-.logo-1 {
-    color: white;
-    animation: neon 3s infinite;
-}
-
 .bg1 {
     width: 100vw;
     height: 100vh;
@@ -212,6 +207,10 @@ p {
     background-repeat: no-repeat;
     position: fixed;
     background-image: url(/mezz-fgv.png);
+    .logo-1 {
+        color: white;
+        animation: neon 3s infinite;
+    }
     .logo {
         text-align: center;
         height: inherit;
@@ -347,6 +346,10 @@ p {
     background-repeat: no-repeat;
     position: fixed;
     background-image: url(/bg.png);
+    .logo-1 {
+        color: black;
+        text-shadow: 0px 1.5px white, 0px -1.5px white, -1.5px 0px white, 1.5px 0px white, 2.5px 2.5px white, 2.5px -2.5px white, -2.5px 2.5px white, -2.5px -2.5px white, 1.5px 1.5px white, 1.5px -1.5px white, -1.5px 1.5px white, -1.5px -1.5px white, 0px 0px 50px black;
+    }
     .logo {
         text-align: center;
         height: inherit;
@@ -356,15 +359,15 @@ p {
     }
     .logo b {
         font: 400 10vw 'Permanent Marker';
-        color: #fee;
-        filter: hue-rotate(-100deg);
-        animation: neon 3s infinite;
-        text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3, 0 10px 3px #000;
+        color: black;
+        text-shadow: 0px 5px white, 0px -5px white, -5px 0px white, 5px 0px white, 2.5px 2.5px white, 2.5px -2.5px white, -2.5px 2.5px white, -2.5px -2.5px white, 5px 5px white, 5px -5px white, -5px 5px white, -5px -5px white, 0px 0px 50px black;
     }
     .logo b span {
         filter: hue-rotate(50deg);
+        text-shadow: 0px 5px white, 0px -5px white, -5px 0px white, 5px 0px white, 2.5px 2.5px white, 2.5px -2.5px white, -2.5px 2.5px white, -2.5px -2.5px white, 5px 5px white, 5px -5px white, -5px 5px white, -5px -5px white, 0px 0px 50px black;
     }
     .logo b span:nth-of-type(2) {
+        text-shadow: 0px 5px white, 0px -5px white, -5px 0px white, 5px 0px white, 2.5px 2.5px white, 2.5px -2.5px white, -2.5px 2.5px white, -2.5px -2.5px white, 5px 5px white, 5px -5px white, -5px 5px white, -5px -5px white, 0px 0px 50px black;
         filter: hue-rotate(-50deg);
     }
     .cover {
@@ -383,8 +386,7 @@ p {
         width: 480px;
         font-size: 1.5rem;
         margin: auto;
-        color: white;
-        animation: neon 3s infinite;
+        color: rgb(0, 0, 0);
         font-family: 'Klee One', cursive;
         padding: 1rem;
         border-radius: 1rem;
@@ -410,9 +412,9 @@ p {
         mix-blend-mode: screen;
     }
     .middle2 {
+        transform: rotate(-10deg);
         z-index: 3;
         position: relative;
-        transform: unset;
         margin: auto;
         background-size: contain;
         background-position: center;
@@ -449,8 +451,8 @@ p {
         backdrop-filter: saturate(0.8)brightness(0.9);
     }
     a:hover {
-        transform: translatey(2px);
-        letter-spacing: 2px;
+        transform: translatey(0px);
+        letter-spacing: 0px;
     }
     a>p {
         transition: all 0.5s ease;
@@ -459,15 +461,9 @@ p {
         color: white;
         margin: 0.5rem;
     }
-    .row>a:nth-of-type(1) {
-        filter: hue-rotate(-100deg);
-    }
-    .row>a:nth-of-type(2) {
-        filter: hue-rotate(50deg);
-    }
-    a:nth-of-type(0) {
-        filter: hue-rotate(100deg);
-    }
+    .row>a:nth-of-type(1) {}
+    .row>a:nth-of-type(2) {}
+    a:nth-of-type(0) {}
 }
 
 @media screen and (min-width: 100vh) {
