@@ -1,6 +1,6 @@
 <template>
-    <div class="bg" style="width:100vw;height:100vh;background-size:cover;background-repeat:no-repeat;position:fixed;background-image:url(/bg.png);">
-        <div class="cover" style="height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;backdrop-filter:blur(10px)brightness(0.5);">
+    <div class="bg" style="width:100vw;height:100vh;background-position:center;background-size:cover;background-repeat:no-repeat;position:fixed;background-image:url(/bg.png);">
+        <div class="cover" style="height:100vh;width:100vw;display:flex;flex-flow:column;justify-content:center;backdrop-filter:blur(10px)contrast(2)brightness(0.5);">
     
             <div class="middle">
                 <h1>MEZZ</h1>
@@ -29,18 +29,38 @@ h1 {
 }
 
 p {
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Permanent Marker', cursive;
+}
+
+@keyframes hr {
+    0% {
+        filter: hue-rotate(0deg)
+    }
+    50% {
+        filter: hue-rotate(80deg)
+    }
+    100% {
+        filter: hue-rotate(0deg)
+    }
 }
 
 .middle {
     margin: auto;
     transform: rotate(-20deg);
+    background-image: url(/mezz-back2.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 6rem;
+    animation: hr 10s linear infinite;
 }
 
 .middle>h1 {
+    margin-top: -2rem;
     font-size: 10vh;
-    color: white;margin-bottom:unset;
-    text-shadow: 0px 0px 100px white;
+        color: white;
+    margin-bottom: unset;
+    text-shadow: 0px 0px 50px rgb(0, 183, 255);
 }
 
 .row {
@@ -50,19 +70,36 @@ p {
 }
 
 a {
+    background: black;
+    padding: 0rem 0.5rem;
     color: white;
     text-decoration: unset;
+    border-radius: 1rem;
+    box-shadow: 0px 5px 2px rgb(0, 255, 225);
+}
+
+a:hover {
+    transform: translatey(2px);
+    box-shadow: 0px 2px 2px rgb(0, 255, 225);
 }
 
 a>p {
-    text-shadow: 0px 0px 10px white;
+    font-size: 2vh;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    font-weight: bold;
+    margin: 0.5rem;
 }
 
 @media screen and (min-width: 100vh) {
     .middle>h1 {
         font-size: 10vw;
         color: white;
-        text-shadow: 0px 0px 100px white;
     }
+a>p {
+    font-size: 2vw;
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
+    font-weight: bold;
+    margin: 0.5rem;
+}
 }
 </style>
