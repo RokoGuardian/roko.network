@@ -525,6 +525,29 @@ p {
 
 @media screen and (max-width:600px) {
     .bg1 {
+        &::before {
+            width: 100vw;
+            height: 100vh;
+            background-position: right center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 0px;
+            content: '';
+            animation: unset;
+            display: none;
+            background-image: url(/mezz-bgv.png);
+        }
+        &::after {
+            background-image: url(https://64.media.tumblr.com/96bfcda9ab211b730d680a052d19f83d/tumblr_o7w2veChcr1runoqyo4_540.gifv);
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            content: '';
+            position: fixed;
+            top: 0px;
+            display: none;
+        }
         .middle {
             transform: unset;
             margin: auto;
@@ -534,7 +557,7 @@ p {
             background-repeat: no-repeat;
             padding: 0rem;
             margin-right: auto;
-            animation: none;
+            mix-blend-mode: normal;
             text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
         }
         .row {
@@ -549,7 +572,7 @@ p {
             font: 400 20vw 'Permanent Marker';
             color: #fee;
             filter: hue-rotate(-100deg);
-            animation: neon 3s infinite;
+            animation: unset;
             text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3, 0 10px 3px #000;
         }
         .rowlogo {
@@ -570,7 +593,6 @@ p {
         }
     }
     .bg2 {
-        animation: unset;
         .middle2 {
             transform: unset;
             margin: auto;
