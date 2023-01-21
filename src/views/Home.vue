@@ -5,6 +5,12 @@
         <h1 style=" animation: neon 3s infinite;" v-if="!isthreedee">
             3D</h1>
     </div>
+    <div class="topdata" style="" @click="data = !data">
+        <h1 v-if="data">
+            - DATA</h1>
+        <h1 style=" animation: neon 3s infinite;" v-if="!data">
+            + DATA</h1>
+    </div>
     <div class="bg1" v-if="isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
@@ -233,6 +239,7 @@ p {
         animation: blink linear infinite 3s, neon 3s infinite;
     }
     .cover {
+        mix-blend-mode: hard-light;
         z-index: 5;
         position: relative;
         perspective: 100vh;
@@ -343,6 +350,18 @@ p {
     z-index: 10;
     top: 1rem;
     right: 2rem;
+    color: white;
+    transition: transform 0.2s ease;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+.topdata {
+    cursor: pointer;
+    position: fixed;
+    z-index: 10;
+    top: 1rem;
+    left: 2rem;
     color: white;
     transition: transform 0.2s ease;
     &:hover {
