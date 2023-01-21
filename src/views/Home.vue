@@ -293,7 +293,7 @@ a:nth-of-type(0) {
         color: white;
     }
     .middle {
-        margin-right: 12vw;
+        margin-right: 11vw;
         transform: rotatey(12deg)rotatez(-5deg)translatey(-2rem);
     }
     a>p {
