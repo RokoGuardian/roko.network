@@ -1,6 +1,5 @@
 <template>
-    <div class="h1" style="   
-                                                                        cursor:pointer;position:fixed;z-index:10;top:1rem;right:2rem;color:white;" @click="isthreedee = !isthreedee">
+    <div class="top3d" style="" @click="isthreedee = !isthreedee">
         <h1 v-if="isthreedee">
             2D</h1>
         <h1 style=" animation: neon 3s infinite;" v-if="!isthreedee">
@@ -338,6 +337,19 @@ p {
     }
 }
 
+.top3d {
+    cursor: pointer;
+    position: fixed;
+    z-index: 10;
+    top: 1rem;
+    right: 2rem;
+    color: white;
+    transition: transform 0.2s ease;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
 .bg2 {
     width: 100vw;
     height: 100vh;
@@ -381,7 +393,6 @@ p {
         justify-content: center;
     }
     .data {
-        filter: hue-rotate(300deg);
         box-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
         width: 480px;
         font-size: 1.5rem;
@@ -422,13 +433,6 @@ p {
         padding: 6rem;
         margin-right: auto;
     }
-    .middle2>h1 {
-        margin-top: -2rem;
-        font-size: 8vw;
-        color: white;
-        margin-bottom: unset;
-        text-shadow: 0px 0px 50px rgb(0, 183, 255);
-    }
     .row {
         width: 100%;
         display: flex;
@@ -447,8 +451,7 @@ p {
         transition: all 0.5s ease;
     }
     .cover {
-        background-image: linear-gradient(to top, #00000038, #0004ff36);
-        backdrop-filter: saturate(0.8)brightness(0.9);
+        backdrop-filter: saturate(1)brightness(0.8);
     }
     a:hover {
         transform: translatey(0px);
@@ -520,7 +523,8 @@ p {
             color: #fff;
             margin: .5rem;
         }
-    }    .bg2 {
+    }
+    .bg2 {
         .middle2 {
             transform: unset;
             margin: auto;
@@ -539,7 +543,6 @@ p {
         }
         .logo b {
             font: 400 20vw 'Permanent Marker';
-          
         }
         .rowlogo {
             transition: all .5s ease;
