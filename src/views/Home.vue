@@ -47,7 +47,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Klee+One:wght@400;600&family=Permanent+Marker&family=Rock+Salt&display=swap');
 html,
 body {
-    height: 100%
+    height: 100%;
+    background: black;
 }
 
 body {
