@@ -226,7 +226,6 @@ p {
 }
 
 .row {
-    max-width: 600px;
     width: 100%;
     display: flex;
     flex-flow: row;
@@ -281,8 +280,8 @@ a:nth-of-type(0) {
         color: white;
     }
     .middle {
-        margin-right: 18vh;
-        transform: rotatey(17deg)rotatez(-5deg)translatey(-2rem);
+        margin-right: 10vw;
+        transform: rotatey(12deg)rotatez(-5deg)translatey(-2rem);
     }
     a>p {
         font-size: 4vw;
