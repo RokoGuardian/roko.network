@@ -14,7 +14,16 @@
     <div class="bg1" v-if="isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder. <a href="/MEZZ.pdf" style="background:black;color:pink;" target="download"> Read Whitepaper</a>
+                The name Mezz is inspired by mezzanine finance, which in traditional finance is used in mergers and acquisitions. With the MEZZ platform, the acquisition of an NFT or other crypto assets functions as the target acquisition in analogy to mezzanine finance,
+                with an undercollateralized buyer being supported by the mezzanine financier to complete an acquisition.
+                <a href="/MEZZ.pdf" style="background: black;
+                color: pink;
+                border-radius: 0px;
+                margin: 1rem 0rem;
+                padding: 0rem 0.75rem 0.5rem 0.75rem;
+                text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
+                font-weight: bold;
+                font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
     
             </div>
             <div class="middle">
@@ -39,8 +48,16 @@
     <div class="bg2" v-if="!isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder. <a href="/MEZZ.pdf" style="background:black;color:pink;"  target="download"> Read Whitepaper</a>
-            </div>
+                The name Mezz is inspired by mezzanine finance, which in traditional finance is used in mergers and acquisitions. With the MEZZ platform, the acquisition of an NFT or other crypto assets functions as the target acquisition in analogy to mezzanine finance,
+                with an undercollateralized buyer being supported by the mezzanine financier to complete an acquisition.
+                <a href="/MEZZ.pdf" style="background: pink;
+                color: black;
+                border-radius: 0px;
+                margin: 1rem 0rem;box-shadow:0px 0px 10px black;
+                padding: 0rem 0.75rem 0.5rem 0.75rem;
+                text-shadow: 0px 0px;
+                font-weight: bold;
+                font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
             <div class="middle2">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
                     <p class="logo-1">BUY MEZZ</p>
@@ -249,7 +266,8 @@ p {
         height: 100vh;
         width: 100vw;
         display: flex;
-        flex-flow: row;
+        flex-flow: wrap;
+        overflow-y: auto;
         justify-content: center;
     }
     .data {
@@ -487,6 +505,8 @@ p {
         }
     }
     .cover {
+        flex-flow: wrap;
+        overflow-y: auto;
         backdrop-filter: saturate(1)brightness(0.8);
     }
     a>p {
@@ -598,7 +618,7 @@ p {
         .data {
             position: absolute;
             z-index: 10;
-font-size: 1.25rem;
+            font-size: 1.25rem;
             bottom: -5rem;
             text-shadow: unset;
             padding-bottom: 8.5rem;
