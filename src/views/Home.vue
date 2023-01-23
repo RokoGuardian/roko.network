@@ -14,7 +14,7 @@
     <div class="bg1" v-if="isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                MEZZ Token is the utility token of MEZZ.Finance, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder.
+                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder.
     
             </div>
             <div class="middle">
@@ -39,7 +39,7 @@
     <div class="bg2" v-if="!isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                MEZZ Token is the utility token of MEZZ.Finance, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder.
+                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder.
     
             </div>
             <div class="middle2">
@@ -599,9 +599,10 @@ p {
         .data {
             position: absolute;
             z-index: 10;
+font-size: 1.25rem;
             bottom: -5rem;
             text-shadow: unset;
-            padding-bottom: 6.5rem;
+            padding-bottom: 8.5rem;
             width: calc(100vw - 2rem);
             left: 1rem;
         }
@@ -639,8 +640,8 @@ p {
             bottom: -5rem;
             color: black;
             text-shadow: unset;
-            font-size: 1.5rem;
-            padding-bottom: 6.5rem;
+            font-size: 1.25rem;
+            padding-bottom: 8.5rem;
             width: calc(100vw - 2rem);
             left: 1rem;
             box-shadow: 0px 0px 100px black;
