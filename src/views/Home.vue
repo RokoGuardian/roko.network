@@ -17,13 +17,13 @@
                 The name Mezz is inspired by mezzanine finance, which in traditional finance is used in mergers and acquisitions. With the MEZZ platform, the acquisition of an NFT or other crypto assets functions as the target acquisition in analogy to mezzanine finance,
                 with an undercollateralized buyer being supported by the mezzanine financier to complete an acquisition.
                 <a href="/MEZZ.pdf" style="background: black;
-                                color: pink;
-                                border-radius: 0px;
-                                margin: 1rem 0rem;
-                                padding: 0rem 0.75rem 0.5rem 0.75rem;
-                                text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
-                                font-weight: bold;
-                                font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
+                                            color: pink;
+                                            border-radius: 0px;
+                                            margin: 1rem 0rem;
+                                            padding: 0rem 0.75rem 0.5rem 0.75rem;
+                                            text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
+                                            font-weight: bold;
+                                            font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
     
             </div>
             <div class="middle">
@@ -51,13 +51,13 @@
                 The name Mezz is inspired by mezzanine finance, which in traditional finance is used in mergers and acquisitions. With the MEZZ platform, the acquisition of an NFT or other crypto assets functions as the target acquisition in analogy to mezzanine finance,
                 with an undercollateralized buyer being supported by the mezzanine financier to complete an acquisition.
                 <a href="/MEZZ.pdf" style="background: pink;
-                                color: black;
-                                border-radius: 0px;
-                                margin: 1rem 0rem;box-shadow:0px 0px 10px black;
-                                padding: 0rem 0.75rem 0.5rem 0.75rem;
-                                text-shadow: 0px 0px;
-                                font-weight: bold;
-                                font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
+                                            color: black;
+                                            border-radius: 0px;
+                                            margin: 1rem 0rem;box-shadow:0px 0px 10px black;
+                                            padding: 0rem 0.75rem 0.5rem 0.75rem;
+                                            text-shadow: 0px 0px;
+                                            font-weight: bold;
+                                            font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
             <div class="middle2">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
                     <p class="logo-1">BUY MEZZ</p>
@@ -280,7 +280,7 @@ p {
         color: white;
         animation: neon 3s infinite;
         font-family: 'Klee One', cursive;
-        padding: 1.5rem 2rem;
+        padding: 1rem;
         border-radius: 1rem;
     }
     &::before {
@@ -549,6 +549,7 @@ p {
     .bg1 {
         .cover {
             mix-blend-mode: unset;
+            overflow-y: hidden;
         }
         &::before {
             width: 100vw;
@@ -627,6 +628,7 @@ p {
             padding-bottom: 8.5rem;
             width: calc(100vw - 2rem);
             left: 1rem;
+            background: #000e;
         }
     }
     .bg2 {
@@ -667,6 +669,9 @@ p {
             width: calc(100vw - 2rem);
             left: 1rem;
             box-shadow: 0px 0px 100px black;
+        }
+        .cover {
+            overflow-y: hidden;
         }
     }
     :root {
