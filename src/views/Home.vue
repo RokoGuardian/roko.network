@@ -14,8 +14,7 @@
     <div class="bg1" v-if="isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                The name Mezz is inspired by mezzanine finance, which in traditional finance is used in mergers and acquisitions. With the MEZZ platform, the acquisition of an NFT or other crypto assets functions as the target acquisition in analogy to mezzanine finance,
-                with an undercollateralized buyer being supported by the mezzanine financier to complete an acquisition.
+             MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
                 <a href="/MEZZ.pdf" style="background: black;
                                             color: pink;
                                             border-radius: 0px;
@@ -48,8 +47,7 @@
     <div class="bg2" v-if="!isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                The name Mezz is inspired by mezzanine finance, which in traditional finance is used in mergers and acquisitions. With the MEZZ platform, the acquisition of an NFT or other crypto assets functions as the target acquisition in analogy to mezzanine finance,
-                with an undercollateralized buyer being supported by the mezzanine financier to complete an acquisition.
+                MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
                 <a href="/MEZZ.pdf" style="background: pink;
                                             color: black;
                                             border-radius: 0px;
