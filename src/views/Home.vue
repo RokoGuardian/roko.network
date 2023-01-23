@@ -14,7 +14,7 @@
     <div class="bg1" v-if="isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder. <a href="/MEZZ.pdf" target="download"> Read Whitepaper</a>
+                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder. <a href="/MEZZ.pdf" style="background:black;color:pink;" target="download"> Read Whitepaper</a>
     
             </div>
             <div class="middle">
@@ -39,7 +39,7 @@
     <div class="bg2" v-if="!isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder. <a href="/MEZZ.pdf" target="download"> Read Whitepaper</a>
+                MEZZ Token is the utility token of the MEZZ platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets with an innovative bidding-backed collateral extender and fees rewarder. <a href="/MEZZ.pdf" style="background:black;color:pink;"  target="download"> Read Whitepaper</a>
             </div>
             <div class="middle2">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
