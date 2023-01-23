@@ -274,7 +274,7 @@ p {
         background-image: radial-gradient(#0000, black);
         filter: hue-rotate(300deg);
         box-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light), 0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light), 0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
-        width: 480px;
+        width: 600px;
         font-size: 1.5rem;
         margin: auto;
         color: white;
@@ -401,7 +401,7 @@ p {
     position: fixed;
     background-image: url(/bg.png);
     .data {
-        width: 500px;
+        width: 600px;
         font-size: 2rem;
         margin: auto;
         color: rgb(0, 0, 0);
