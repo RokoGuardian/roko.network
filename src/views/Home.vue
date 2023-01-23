@@ -313,7 +313,7 @@ p {
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        padding: 6rem;
+        padding: 5rem;
         margin-right: auto;
     }
     .middle>h1 {
@@ -481,7 +481,7 @@ p {
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        padding: 6rem;
+        padding: 5rem;
         margin-right: auto;
     }
     .row {
