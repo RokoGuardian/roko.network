@@ -640,7 +640,7 @@ p {
             top: 5rem;
             padding: 1rem 1.5rem;
             right: 1rem;
-            transform: rotatey(-20deg);
+            transform: rotatey(-32deg);
             transform-origin: left;
             top: 10rem;
         }
