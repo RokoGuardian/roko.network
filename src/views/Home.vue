@@ -14,15 +14,15 @@
     <div class="bg1" v-if="isthreedee" style="">
         <div class="cover" style="">
             <div class="data" v-if="data">
-             MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
+                MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
                 <a href="/MEZZ.pdf" style="background: black;
-                                            color: pink;
-                                            border-radius: 0px;
-                                            margin: 1rem 0rem;
-                                            padding: 0rem 0.75rem 0.5rem 0.75rem;
-                                            text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
-                                            font-weight: bold;
-                                            font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
+                                                                                                color: pink;
+                                                                                                border-radius: 0px;
+                                                                                                margin: 1rem 0rem;
+                                                                                                padding: 0rem 0.75rem 0.5rem 0.75rem;
+                                                                                                text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
+                                                                                                font-weight: bold;
+                                                                                                font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
     
             </div>
             <div class="middle">
@@ -32,10 +32,11 @@
                 <div class="logo"><b><span>M</span>E<span>Z</span>Z</b></div>
                 <div class="row">
                     <a href="https://twitter.com/MEZZTOKEN">
-                        <p class="logo-1 rowlogo">TWITTER</p>
+                        <p class="logo-1 rowlogo" style="width:8vw;height:8vw;min-height:116px;min-width:116px;"><img style="width:100%;height:100%;" src="~/@/assets/Twitter-gl.svg" alt=""></p>
                     </a>
                     <a href="https://dexscreener.com/ethereum/0x1ad651a07b98464aa42f6cad68d0ce8639b659a5">
-                        <p class="logo-1 rowlogo">TOKEN</p>
+                        <p class="logo-1 rowlogo" style="width:6vw;height:6vw;min-height:60px;min-width:60px;"><img style="width:100%;height:100%;left:0px;position:absolute;" src="~/@/assets/dexs.svg" alt=""><img style="width:100%;height:100%;left:0px;position:absolute;filter:blur(20px);" src="~/@/assets/dexs.svg" alt=""><img style="width:100%;height:100%;left:0px;position:absolute;filter:blur(5px);"
+                                src="~/@/assets/dexs.svg" alt=""></p>
                     </a>
                 </div>
             </div>
@@ -49,13 +50,13 @@
             <div class="data" v-if="data">
                 MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
                 <a href="/MEZZ.pdf" style="background: pink;
-                                            color: black;
-                                            border-radius: 0px;
-                                            margin: 1rem 0rem;box-shadow:0px 0px 10px black;
-                                            padding: 0rem 0.75rem 0.5rem 0.75rem;
-                                            text-shadow: 0px 0px;
-                                            font-weight: bold;
-                                            font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
+                                                                                                color: black;
+                                                                                                border-radius: 0px;
+                                                                                                margin: 1rem 0rem;box-shadow:0px 0px 10px black;
+                                                                                                padding: 0rem 0.75rem 0.5rem 0.75rem;
+                                                                                                text-shadow: 0px 0px;
+                                                                                                font-weight: bold;
+                                                                                                font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
             <div class="middle2">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
                     <p class="logo-1">BUY MEZZ</p>
@@ -63,10 +64,10 @@
                 <div class="logo"><b><span>M</span>E<span>Z</span>Z</b></div>
                 <div class="row">
                     <a href="https://twitter.com/MEZZTOKEN">
-                        <p class="logo-1 rowlogo">TWITTER</p>
+                        <p class="logo-1 rowlogo" style="width:8vw;height:8vw;min-height:100px;min-width:100px;"><img style="width:100%;height:100%;" src="~/@/assets/Twitter-mz.svg" alt=""></p>
                     </a>
                     <a href="https://dexscreener.com/ethereum/0x1ad651a07b98464aa42f6cad68d0ce8639b659a5">
-                        <p class="logo-1 rowlogo">TOKEN</p>
+                        <p class="logo-1 rowlogo" style="width:6vw;height:6vw;min-height:100px;min-width:100px;"><img style="width:100%;height:100%;" src="~/@/assets/dex-ol.svg" alt=""></p>
                     </a>
                 </div>
             </div>
@@ -240,10 +241,12 @@ p {
         margin: auto;
         position: relative;
         user-select: none;
+        line-height: 1;
     }
     .logo b {
         font: 400 10vw 'Permanent Marker';
         color: #fee;
+        line-height: 10vw;
         filter: hue-rotate(-100deg);
         animation: neon 3s infinite;
         text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff0090, 0 0 0.5em #ff44eb, 0 0 0.1em #ff44f3, 0 10px 3px #000;
@@ -306,7 +309,7 @@ p {
     .middle {
         z-index: 3;
         position: relative;
-        transform: rotatey(-17deg)rotatez(-5deg)translatey(-2rem);
+        transform: rotatey(25deg) rotatez(-1deg) translatey(-2rem) translatez(5vw) translatex(-8vw);
         margin: auto;
         background-size: contain;
         background-position: center;
@@ -343,20 +346,22 @@ p {
         backdrop-filter: saturate(0.8)brightness(0.9);
     }
     a:hover {
-        transform: translatey(2px);
-        letter-spacing: 2px;
+        transform: scale(1.1);
     }
     a>p {
         transition: all 0.5s ease;
-        font-size: 2vh;
+        font-size: 4vh;
         font-weight: bold;
         color: white;
         margin: 0.5rem;
     }
     .row>a:nth-of-type(1) {
-        filter: hue-rotate(-100deg);
+        filter: hue-rotate(280deg)brightness(1.5);
     }
     .row>a:nth-of-type(2) {
+        p {
+            img {}
+        }
         filter: hue-rotate(50deg);
     }
     a:nth-of-type(0) {
@@ -530,11 +535,9 @@ p {
         }
         .middle {
             margin-right: 11vw;
-            transform: rotatey(20deg)rotatez(-2deg)translatey(-2rem)translatez(5vw)translatex(-5vw);
+            transform: rotatey(25deg) rotatez(-1deg) translatey(-2rem) translatez(5vw) translatex(-18vh);
         }
-        .row {
-            max-width: 35vw;
-        }
+        .row {}
         a>p {
             font-size: 3vw;
             font-weight: bold;
@@ -548,6 +551,7 @@ p {
         .cover {
             mix-blend-mode: unset;
             overflow-y: hidden;
+            flex-flow: wrap-reverse;
         }
         &::before {
             width: 100vw;
@@ -611,6 +615,10 @@ p {
             filter: hue-rotate(20deg);
         }
         .rowlogo {
+            img {
+                width: 5vw;
+                height: 5vw;
+            }
             transition: all .5s ease;
             font-size: 5vw;
             font-weight: 700;
@@ -618,15 +626,12 @@ p {
             margin: .5rem;
         }
         .data {
-            position: absolute;
             z-index: 10;
             font-size: 1.25rem;
-            bottom: -5rem;
             text-shadow: unset;
-            padding-bottom: 8.5rem;
             width: calc(100vw - 2rem);
-            left: 1rem;
             background: #000e;
+            margin-top: 0px;
         }
     }
     .bg2 {
@@ -656,20 +661,18 @@ p {
             margin: .5rem;
         }
         .data {
-            position: absolute;
             z-index: 10;
             background: white;
-            bottom: -5rem;
             color: black;
             text-shadow: unset;
             font-size: 1.25rem;
-            padding-bottom: 8.5rem;
             width: calc(100vw - 2rem);
-            left: 1rem;
             box-shadow: 0px 0px 100px black;
+            margin-top: 0px;
         }
         .cover {
             overflow-y: hidden;
+            flex-flow: wrap-reverse;
         }
     }
     :root {
