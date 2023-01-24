@@ -16,13 +16,13 @@
             <div class="data" :style="[data ? {'right': '1rem'} : {'right': '200vw'}]">
                 MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
                 <a href="/MEZZ.pdf" style="background: black;
-                                                                                                                    color: pink;
-                                                                                                                    border-radius: 0px;
-                                                                                                                    margin: 1rem 0rem;
-                                                                                                                    padding: 0rem 0.75rem 0.5rem 0.75rem;
-                                                                                                                    text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
-                                                                                                                    font-weight: bold;
-                                                                                                                    font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
+                                                                                                                        color: pink;
+                                                                                                                        border-radius: 0px;
+                                                                                                                        margin: 1rem 0rem;
+                                                                                                                        padding: 0rem 0.75rem 0.5rem 0.75rem;
+                                                                                                                        text-shadow: 0px 0px;box-shadow:0px 0px 10px pink;
+                                                                                                                        font-weight: bold;
+                                                                                                                        font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a>
     
             </div>
             <div class="middle">
@@ -50,13 +50,13 @@
             <div class="data" :style="[data ? {'right': '1rem'} : {'right': '200vw'}]">
                 MEZZ Token is the utility token of The MEZZ Platform, a DeFi platform for users to engage in acquisition and liquidation of NFTs and other crypto assets through bidding-backed collateral extension.
                 <a href="/MEZZ.pdf" style="background: pink;
-                                                                                                                    color: black;
-                                                                                                                    border-radius: 0px;
-                                                                                                                    margin: 1rem 0rem;box-shadow:0px 0px 10px black;
-                                                                                                                    padding: 0rem 0.75rem 0.5rem 0.75rem;
-                                                                                                                    text-shadow: 0px 0px;
-                                                                                                                    font-weight: bold;
-                                                                                                                    font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
+                                                                                                                        color: black;
+                                                                                                                        border-radius: 0px;
+                                                                                                                        margin: 1rem 0rem;box-shadow:0px 0px 10px black;
+                                                                                                                        padding: 0rem 0.75rem 0.5rem 0.75rem;
+                                                                                                                        text-shadow: 0px 0px;
+                                                                                                                        font-weight: bold;
+                                                                                                                        font-family: 'Permanent Marker';" target="download"> Read Whitepaper </a> </div>
             <div class="middle2">
                 <a href="https://app.sushi.com/swap?inputCurrency=ETH&outputCurrency=0xC4c346eDc55504574cCEB00AA1091d22404A4bC3&chainId=1">
                     <p class="logo-1">BUY MEZZ</p>
@@ -223,7 +223,8 @@ p {
     box-sizing: border-box;
 }
 
-.bg1 {transition:opacity 0.5s ease;
+.bg1 {
+    transition: opacity 0.5s ease;
     width: 100vw;
     height: 100vh;
     background-position: right center;
@@ -386,6 +387,7 @@ p {
     cursor: pointer;
     position: fixed;
     z-index: 10;
+    display: none;
     top: 1rem;
     left: 2rem;
     color: white;
@@ -395,7 +397,8 @@ p {
     }
 }
 
-.bg2 {transition:opacity 0.5s ease;
+.bg2 {
+    transition: opacity 0.5s ease;
     width: 100vw;
     height: 100vh;
     background-position: right center;
@@ -577,7 +580,7 @@ p {
             display: none;
         }
         .middle {
-            transform: rotatey(-40deg) rotatez(1deg) translatey(-4rem) translatez(8vw) translatex(20vw);
+            transform: rotatey(-40deg) rotatez(1deg) translatey(-4rem) translatez(5vw) translatex(20vw);
             margin: auto;
             margin-right: auto;
             background-size: contain;
@@ -625,7 +628,8 @@ p {
             color: #fff;
             margin: .5rem;
         }
-        .data {transition:right 0.5s ease;
+        .data {transition:transform 0.5s ease;
+            transition: right 0.5s ease;
             z-index: 10;
             font-size: 1.25rem;
             text-shadow: unset;
@@ -635,7 +639,14 @@ p {
             position: absolute;
             top: 5rem;
             padding: 1rem 1.5rem;
+            right: 1rem;
+            transform: rotatey(-20deg);
+            transform-origin: left;
+            top: 10rem;
         }
+    }
+    .topdata {
+        display: flex;
     }
     .bg2 {
         .middle2 {
@@ -663,7 +674,8 @@ p {
             font-weight: 700;
             margin: .5rem;
         }
-        .data {transition:right 0.5s ease;
+        .data {
+            transition: right 0.5s ease;
             position: absolute;
             top: 5rem;
             z-index: 10;
