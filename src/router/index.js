@@ -6,16 +6,16 @@ import { auth } from '../firebase'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'About',
+    component: () => import('../views/About.vue'),
     meta: {
       requiresAuth: false
     }
   },
   {
     path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue'),
+    name: 'Home',    
+    component: Home,
     meta: {
       requiresAuth: false
     }
