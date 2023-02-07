@@ -159,7 +159,6 @@ export default ({
 }
 
 .title {
-    filter: brightness(1.2)saturate(1.5);
     cursor: pointer;
     line-height: 30vw;
     margin: auto;
@@ -179,16 +178,14 @@ export default ({
     z-index: 2;
     display: flex;
     flex-flow: row;
-    justify-content: center;
+    justify-content: center;overflow:visible;
     &:active {
         text-shadow: 0px 0px 10px white;
     }
     &:before {
         content: 'MEZZ';
-        filter: brightness(1.2)saturate(1.5)blur(50px);
+        filter: brightness(1.2) saturate(1.7) blur(20px);
         position: absolute;
-        z-index: -1;
-        mix-blend-mode: plus-lighter;
         left: auto;
         cursor: pointer;
         line-height: 30vw;
