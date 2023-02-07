@@ -12,7 +12,7 @@
                 <a href="https://twitter.com/MEZZTOKEN"><svg width="8vw" height="8vw" fill="#1da0f1" viewBox="0 0 24 24" aria-hidden="true" class="r-13v1u17 r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg><p>TWITTER</p></a>
                 <a href="http://t.me/mezzcommunity"><svg fill="#aaffee" width="8vw" id="Bold" enable-background="new 0 0 24 24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z"/></svg><p>TELEGRAM</p></a>
                 <a href="https://medium.com/@mezzfinance/mezz-an-introduction-to-bidding-backed-collateral-extension-for-defi-c5268721ce04"><svg height="8vw" fill="orange" viewBox="0 0 1043.63 592.71" class="at au"><g data-name="Layer 2"><g data-name="Layer 1"><path d="M588.67 296.36c0 163.67-131.78 296.35-294.33 296.35S0 460 0 296.36 131.78 0 294.34 0s294.33 132.69 294.33 296.36M911.56 296.36c0 154.06-65.89 279-147.17 279s-147.17-124.94-147.17-279 65.88-279 147.16-279 147.17 124.9 147.17 279M1043.63 296.36c0 138-23.17 249.94-51.76 249.94s-51.75-111.91-51.75-249.94 23.17-249.94 51.75-249.94 51.76 111.9 51.76 249.94"></path></g></g></svg>
-                                                                                                                                                                                                                                                                                                                        <p>MEDIUM</p></a>
+                                                                                                                                                                                                                                                                                                                            <p>MEDIUM</p></a>
             </div>
         </div>
     </main>
@@ -177,6 +177,9 @@ export default ({
     background-image: url(/mezz.gif);
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
     &:active {
         text-shadow: 0px 0px 10px white;
     }
@@ -186,7 +189,7 @@ export default ({
         position: absolute;
         z-index: -1;
         mix-blend-mode: plus-lighter;
-        left: 0px;
+        left: auto;
         cursor: pointer;
         line-height: 30vw;
         margin: auto;
