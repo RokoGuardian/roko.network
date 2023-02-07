@@ -169,7 +169,6 @@ export default ({
     user-select: none;
     text-align: center;
     height: min-content;
-    mix-blend-mode: plus-lighter;
     background-size: cover;
     font-size: 25vw;
     transition: all 0.2s ease-out;
