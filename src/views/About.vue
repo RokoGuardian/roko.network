@@ -127,6 +127,9 @@ export default ({
             svg {
                 transform: scale(1.05);
             }
+            img {
+                transform: scale(1.05);
+            }
             p {
                 opacity: 1;
             }
