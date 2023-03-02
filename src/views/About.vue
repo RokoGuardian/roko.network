@@ -178,7 +178,7 @@ export default {
 h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to top, transparent, #0005);
+    background-image: linear-gradient(to top, transparent, #000f);
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -208,7 +208,7 @@ body {
         padding-bottom: 4rem;
     }
     .text-stack {
-        margin: 1rem;
+        margin: 0rem;
         padding-bottom: 10rem;
         margin-top: -33rem;
         .textrow {
@@ -216,30 +216,29 @@ body {
             flex-flow: wrap;
             .textcol {
                 box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
-                margin: 1rem;
+                margin: 0.5rem  1rem;
                 margin-right: 1rem;
                 padding: 2rem;
                 backdrop-filter: blur(10px);
                 background-image: linear-gradient(to top, #fff5, #fffa);
                 p {
-                    padding: 1rem 1rem;
+                    padding: 1rem 1rem;padding-left:1rem!important;
                 }
                 &:nth-child(2) {
                     margin-left: 1rem;
-                    margin-right: 1rem;
+                    margin-right: 1rem;padding-left:2rem!important;
                 }
             }
         }
     }
     .left {
-        padding: 1rem;
-        margin: 2rem;
-        transform: rotatey(0deg)translatez(0px);
+        padding: 1rem;    backdrop-filter: blur(5px) brightness(1.5);
+
         box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
         h1 {
             text-align: center;
             line-height: 5rem;
-            font-weight: 100;
+            font-weight: 800;
             margin: unset;
             font-size: 5rem;
             &:nth-child(2) {
@@ -260,12 +259,9 @@ body {
             padding: 1rem;
             font-weight: bold;
             font-size: 1.2rem;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-image: linear-gradient(to top, #ffffffaa, white, white);
         }
         height:calc(100% - 2rem);
-        width:calc(100% - 6rem);
+        width:calc(100% - 0rem);
         display:flex;
         flex-flow:column;
         justify-content:center;
