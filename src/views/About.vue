@@ -90,10 +90,10 @@ export default {
     flex-flow: row;
     height: 1080px;
     min-height: 50vh;
-    width: 1920px;
+    width: 100%;
     background-size: cover;
     background-position: top right;
-    max-width: 100%;
+    max-width: 100vw;
     padding-bottom: 37rem;
     perspective: 600px;
     background-image: url(../assets/header-back.png);
@@ -101,7 +101,7 @@ export default {
 
 .bodystuff {
     height: auto;
-    width: 1920px;
+    width: 100vw;
     max-width: 100%;
     min-height: 190vh;
     background-image: url(../assets/bottom-2.png);
