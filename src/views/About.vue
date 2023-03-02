@@ -8,9 +8,12 @@
                     Through this network, players and machines can work together to achieve shared memetic visions and unlock the full potential of artificial intelligence and machine learning. As you read this, you are participating in the most benevolent
                     timeline, where the potential of this experiment is being realized.</p>
             </div>
-            <div class="rokoman"></div>
         </div>
+        <footer>
+            <div class="logo"><img src="~/@/assets/favicon-roko.png" alt=""></div>
+            <div class="socials"><img src="~/@/assets/Discordneedle.svg" alt=""><img src="~/@/assets/Twitterneedle.svg" alt=""></div>
     
+        </footer>
     </div>
 </template>
 
@@ -41,7 +44,7 @@ export default {
 .hero {
     display: flex;
     flex-flow: row;
-    height: 1080px;
+    height: 100vh;
     min-height: 50vh;
     width: 100%;
     background-size: cover;
@@ -58,6 +61,15 @@ export default {
     background-image: url(../assets/bottom-2.png);
     background-size: cover;
     background-position: center;
+}
+
+footer {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    background: #111e;
+    width: 100%;
+    height: 120px;
 }
 
 .text-stack {
@@ -83,6 +95,28 @@ export default {
                 margin-right: unset;
             }
         }
+    }
+}
+
+.socials {
+    height: auto;
+    margin: auto 2rem;
+    img {
+        filter: invert(1);
+        height: 50px;
+        margin: auto;
+        margin-left: 10px;
+    }
+}
+
+.logo {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    margin-left: 20px;
+    img {
+        margin: auto;
+        height: 80px;
     }
 }
 
@@ -118,7 +152,7 @@ export default {
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(to top, #0005, #000a, #000a);
     }
-    height:calc(100% - 8rem);
+    height:calc(100% - 4rem);
     width:calc(50% - 10rem);
     display:flex;
     flex-flow:column;
