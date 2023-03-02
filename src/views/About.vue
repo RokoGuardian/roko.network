@@ -222,7 +222,7 @@ body {
             .textcol {
                 box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
                 margin: 1rem;
-                margin-right: 1rem;
+                margin-right: 1rem;padding:2rem;
                 backdrop-filter: blur(10px);
                 background-image: linear-gradient(to top, #fff5, #fffa);
                 p {
