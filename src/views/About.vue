@@ -85,6 +85,10 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+@font-face {
+  font-family: eg;
+  src: url(../assets/Eriega-515dB.ttf);
+}
 .hero {
     display: flex;
     flex-flow: row;
@@ -179,14 +183,14 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(to top, transparent, #000f);
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'eg', serif;
 }
 
 body {
     position: relative;
     top: 0px;
     margin: unset;
-    font-family: 'Cormorant', serif;
+    font-family: 'eg', serif;
     scroll-behavior: auto;
     scroll-behavior: smooth;
 }
