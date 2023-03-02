@@ -111,39 +111,36 @@ export default {
 }
 
 .text-stack {
-    margin: 2rem;
     padding-bottom: 10rem;
     margin-top: -20rem;
     .textrow {
         display: flex;
         flex-flow: wrap;
-        .textcol {border-radius:2px;
-            box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
-            margin: 2rem;
+        .textcol {
+            border-radius: 2px;
+            margin: 2rem 0rem;
             margin-right: calc(50% - 8rem);
-            backdrop-filter: blur(10px)brightness(2);
-            background-image: linear-gradient(to right, #fff5, #fffa);
+            background-image: linear-gradient(to right, #ffff, #ffff, #ffff, #ffff, #fffa, #fffa, transparent);
             p {
                 font-weight: bold;
                 font-size: 1.2rem;
                 padding: 1rem 2rem;
+                padding-right: 20%;
             }
             &:nth-child(2) {
+                padding-left: 20%;
                 margin-left: calc(50% - 8rem);
-                background-image: linear-gradient(to left, #fff5, #fffa);
+                background-image: linear-gradient(to left, #ffff, #ffff, #ffff, #ffff, #fffa, #fffa, transparent);
                 margin-right: unset;
             }
         }
     }
 }
 
-.left {border-radius:2px;
-    backdrop-filter: blur(10px) brightness(0.2);
+.left {
+    border-radius: 2px;
+    backdrop-filter: blur(10px) brightness(1.2);
     padding: 2rem;
-    margin: 2rem;
-    border: 1px solid black;
-    transform: rotatey(2deg)translatez(-50px);
-    box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
     h1 {
         text-align: center;
         line-height: 15rem;
@@ -169,7 +166,7 @@ export default {
         font-size: 1.2rem;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(to top, #ffffffaa, white, white);
+        background-image: linear-gradient(to top, #0005, #000f, #000f);
     }
     height:calc(100% - 8rem);
     width:calc(50% - 10rem);
@@ -181,7 +178,7 @@ export default {
 h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to top, transparent, white);
+    background-image: linear-gradient(to top, transparent, #0005);
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -260,6 +257,7 @@ body {
             }
         }
         p {
+            padding: 1rem;
             font-weight: bold;
             font-size: 1.2rem;
             -webkit-background-clip: text;
