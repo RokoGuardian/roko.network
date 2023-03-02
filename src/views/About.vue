@@ -117,8 +117,7 @@ export default {
     .textrow {
         display: flex;
         flex-flow: wrap;
-        .textcol {
-            border: 1px solid black;
+        .textcol {border-radius:2px;
             box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
             margin: 2rem;
             margin-right: calc(50% - 8rem);
@@ -138,9 +137,8 @@ export default {
     }
 }
 
-.left {
-    background-image: linear-gradient(to top, #11111155, black);
-    backdrop-filter: blur(10px)brightness(1.1);
+.left {border-radius:2px;
+    backdrop-filter: blur(10px) brightness(0.2);
     padding: 2rem;
     margin: 2rem;
     border: 1px solid black;
@@ -167,7 +165,7 @@ export default {
         }
     }
     p {
-        padding: 2rem;
+        padding: 4rem;
         font-size: 1.2rem;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -202,27 +200,28 @@ body {
 }
 
 @media screen and (max-width:1000px) {
-.bodystuff {
-    height: auto;
-    width: 1920px;
-    max-width: 100%;
-    min-height: 190vh;
-    background-image: url(../assets/bottom-2.png);
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 4rem;
-}
-
+    .bodystuff {
+        height: auto;
+        width: 1920px;
+        max-width: 100%;
+        min-height: 190vh;
+        background-image: url(../assets/bottom-2.png);
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 4rem;
+    }
     .text-stack {
         margin: 1rem;
-        padding-bottom: 10rem;margin-top:-33rem;
+        padding-bottom: 10rem;
+        margin-top: -33rem;
         .textrow {
             display: flex;
             flex-flow: wrap;
             .textcol {
                 box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
                 margin: 1rem;
-                margin-right: 1rem;padding:2rem;
+                margin-right: 1rem;
+                padding: 2rem;
                 backdrop-filter: blur(10px);
                 background-image: linear-gradient(to top, #fff5, #fffa);
                 p {
@@ -236,8 +235,6 @@ body {
         }
     }
     .left {
-        background-image: linear-gradient(to top, #11111122, #000a);
-        backdrop-filter: blur(10px)brightness(1.1);
         padding: 1rem;
         margin: 2rem;
         transform: rotatey(0deg)translatez(0px);
