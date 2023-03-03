@@ -162,6 +162,7 @@ export default {
     border-radius: 2px;
     padding: 2rem;
     h1 {
+        width: min-content;
         text-align: left;
         line-height: 3vw;
         font-weight: 400;
