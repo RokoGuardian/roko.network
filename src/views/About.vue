@@ -93,7 +93,7 @@ export default {
     position: fixed;
     top: 2rem;
     background-repeat: no-repeat;
-    background-size: calc(100vh - 15rem);
+    background-size: calc(100vh - 16rem);
     background-position: right;
     max-width: calc(100vw - 4rem);
     margin-right: 2rem;
@@ -114,8 +114,9 @@ export default {
 }
 
 .text-stack {
+    width: calc(100vw - 4rem);
     background-image: url(../assets/bottom-2.png);
-    position: relative;
+    position: relative;background-size:cover;
     .textrow {
         display: flex;
         flex-flow: wrap;
@@ -213,7 +214,8 @@ body {
     scroll-behavior: auto;
     scroll-behavior: smooth;
     margin: 2rem;
-    height: calc(100vh - 4rem);background-attachment:fixed;
+    height: calc(100vh - 4rem);
+    background-attachment: fixed;
 }
 
 * {
