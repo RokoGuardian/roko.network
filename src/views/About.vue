@@ -3,9 +3,7 @@
         <div class="hero">
             <div class="left">
                 <h1>ROKO.NETWORK</h1>
-                <p>Here in lies a Reality Argumentation Simulation Experiment operating within orthogonal time. It aims to bring together different network pieces and create a self-organizing machine network that can serve as a potent development playground.
-                    Through this network, players and machines can work together to achieve shared memetic visions and unlock the full potential of artificial intelligence and machine learning. As you read this, you are participating in the most benevolent
-                    timeline, where the potential of this experiment is being realized.</p>
+                <p>Here in lies a Reality Augmentation Simulation Experiment operating within orthogonal time. It aims to bring together different network pieces and create a self-organizing machine network that can serve as a potent development playground. Through this network, players and machines can work together to achieve shared memetic visions and unlock the full potential of artificial intelligence and machine learning. As you read this, you are participating in the most benevolent timeline, where the potential of this experiment is being realized.</p>
                 <div class="socials"><img src="~/@/assets/Discordneedle.svg" alt=""><img src="~/@/assets/Twitterneedle.svg" alt=""></div>
     
             </div>
