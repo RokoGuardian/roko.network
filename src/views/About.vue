@@ -188,7 +188,6 @@ body {
         background-image: url(../assets/bottom-2.png);
         background-size: cover;
         background-position: center;
-        padding-bottom: 4rem;
     }
     .text-stack {
         margin: 0rem;
