@@ -93,7 +93,7 @@ export default {
     position: fixed;
     top: 2rem;
     background-repeat: no-repeat;
-    background-size: calc(100vh - 16rem);
+    background-size: calc(100vh - 17rem);
     background-position: right;
     max-width: calc(100vw - 4rem);
     margin-right: 2rem;
@@ -118,13 +118,14 @@ export default {
     background-image: url(../assets/bottom-2.png);
     position: relative;
     background-size: cover;
+    background-position: bottom;
     .textrow {
         display: flex;
         flex-flow: wrap;
         .textcol {
             margin: 0rem;
-            margin-right: calc(50% - 8rem);
-            background-image: linear-gradient(to right, #ffff, #ffff, #ffff, #ffff, #fffa, #fffa, transparent);
+            backdrop-filter: blur(4px);
+            background-image: linear-gradient(to right, #ffff, #ffff, #fffa, #fffa, transparent);
             p {
                 font-size: 1rem;
                 padding: 1rem 2rem;
@@ -133,8 +134,8 @@ export default {
             }
             &:nth-child(2) {
                 padding-left: 20%;
-                margin-left: calc(50% - 8rem);
-                background-image: linear-gradient(to left, #ffff, #ffff, #ffff, #ffff, #fffa, #fffa, transparent);
+                backdrop-filter: blur(4px);
+                background-image: linear-gradient(to left, #ffff, #ffff, #fffa, #fffa, transparent);
                 margin-right: unset;
             }
         }
@@ -207,7 +208,7 @@ h1 {
 }
 
 body {
-    background-image: url(https://fractionalrobots.com/img/concrete-wall.0277c785.png);
+    background-image: url(https://fractionalrobots.com/img/concrete-wall.0277c785.png), linear-gradient(to top, #dbdbdb, #eee);
     position: relative;
     top: 0px;
     margin: unset;
