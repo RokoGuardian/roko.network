@@ -121,7 +121,7 @@ export default {
     background-position: bottom;
     .textrow {
         display: flex;
-        flex-flow: wrap;
+        flex-flow: column;
         .textcol {
             margin: 0rem;    width:50%;            margin-left: unset;margin-right:auto;
 
@@ -132,7 +132,6 @@ export default {
                 font-weight: 200;
             }
             &:nth-child(2) {
-                backdrop-filter: blur(4px);
                 background-image: linear-gradient(to left, #ffff, #ffff, #fffa, #fffa, transparent);
                 margin-right: unset;margin-left:auto;
             }
