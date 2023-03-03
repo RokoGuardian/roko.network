@@ -160,7 +160,6 @@ export default {
 
 .left {
     border-radius: 2px;
-    padding: 2rem;
     h1 {
         width: min-content;
         text-align: left;
@@ -206,6 +205,7 @@ h1 {
 }
 
 body {
+    background-image: url(https://fractionalrobots.com/img/concrete-wall.0277c785.png);
     position: relative;
     top: 0px;
     margin: unset;
@@ -213,7 +213,7 @@ body {
     scroll-behavior: auto;
     scroll-behavior: smooth;
     margin: 2rem;
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 4rem);background-attachment:fixed;
 }
 
 * {
