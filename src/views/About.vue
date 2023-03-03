@@ -2,18 +2,15 @@
     <div class="bodystuff">
         <div class="hero">
             <div class="left">
-                <h1>ROKO</h1>
-                <h1>NETWORK</h1>
+                <h1>ROKO.NETWORK</h1>
                 <p>Here in lies a Reality Argumentation Simulation Experiment operating within orthogonal time. It aims to bring together different network pieces and create a self-organizing machine network that can serve as a potent development playground.
                     Through this network, players and machines can work together to achieve shared memetic visions and unlock the full potential of artificial intelligence and machine learning. As you read this, you are participating in the most benevolent
                     timeline, where the potential of this experiment is being realized.</p>
+                <div class="socials"><img src="~/@/assets/Discordneedle.svg" alt=""><img src="~/@/assets/Twitterneedle.svg" alt=""></div>
+    
             </div>
         </div>
-        <footer>
-            <div class="logo"><img src="~/@/assets/favicon-roko.png" alt=""></div>
-            <div class="socials"><img src="~/@/assets/Discordneedle.svg" alt=""><img src="~/@/assets/Twitterneedle.svg" alt=""></div>
     
-        </footer>
     </div>
 </template>
 
@@ -40,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 .hero {
     display: flex;
     flex-flow: row;
@@ -50,8 +47,8 @@ export default {
     background-size: cover;
     background-position: top right;
     max-width: 100vw;
-    perspective: 600px;
-    background-image: url(../assets/header-back.png);
+    background-attachment: fixed;
+    background-image: url(../assets/header.png);
 }
 
 .bodystuff {
@@ -61,15 +58,6 @@ export default {
     background-image: url(../assets/bottom-2.png);
     background-size: cover;
     background-position: center;
-}
-
-footer {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    background: #111e;
-    width: 100%;
-    height: 120px;
 }
 
 .text-stack {
@@ -99,13 +87,10 @@ footer {
 }
 
 .socials {
-    height: auto;
-    margin: auto 2rem;
+    margin: 0 4rem;
     img {
-        filter: invert(1);
         height: 50px;
-        margin: auto;
-        margin-left: 10px;
+        margin-left: 20px;
     }
 }
 
@@ -122,15 +107,14 @@ footer {
 
 .left {
     border-radius: 2px;
-    backdrop-filter: blur(10px) brightness(1.2);
     padding: 2rem;
-    background: #fffa;
     h1 {
-        text-align: center;
-        line-height: 16rem;
-        font-weight: 100;
-        margin: unset;
-        font-size: 16rem;
+        text-align: left;
+        line-height: 4rem;
+        font-weight: 200;
+        margin: 0rem 4rem;
+        font-size: 4rem;
+        letter-spacing: 0.8rem;
         &:nth-child(2) {
             line-height: 4rem;
             font-weight: 100;
@@ -146,11 +130,12 @@ footer {
         }
     }
     p {
+        font-weight: 200;
         padding: 4rem;
         font-size: 1.2rem;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(to top, #0005, #000a, #000a);
+        background-image: linear-gradient(to top, #000a, #000c, #000c);
     }
     height:calc(100% - 4rem);
     width:calc(50% - 10rem);
@@ -162,17 +147,18 @@ footer {
 h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to top, #0005, #000a);
-    font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(to top, #000c, #000a);
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     position: relative;
     top: 0px;
     margin: unset;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: auto;
     scroll-behavior: smooth;
+    margin: 2rem;
 }
 
 * {
@@ -202,7 +188,7 @@ body {
                 margin-right: 1rem;
                 padding: 2rem;
                 backdrop-filter: blur(10px);
-                background-image: linear-gradient(to top, #fff5, #fffa);
+                background-image: linear-gradient(to top, #fffc, #fffa);
                 p {
                     padding: 1rem 1rem;
                     padding-left: 1rem !important;
