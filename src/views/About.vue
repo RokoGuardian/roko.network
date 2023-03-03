@@ -116,7 +116,8 @@ export default {
 .text-stack {
     width: calc(100vw - 4rem);
     background-image: url(../assets/bottom-2.png);
-    position: relative;background-size:cover;
+    position: relative;
+    background-size: cover;
     .textrow {
         display: flex;
         flex-flow: wrap;
@@ -225,5 +226,73 @@ body {
     scroll-behavior: smooth;
 }
 
-@media screen and (max-width:1000px) {}
+@media screen and (max-width:1000px) {
+    .bodystuff {
+        height: auto;
+        width: 1920px;
+        max-width: 100%;
+        background-image: url(../assets/bottom-2.png);
+        background-size: cover;
+        background-position: center;
+    }
+    .text-stack {
+        margin: 0rem;
+        margin-top: 100vh;
+        .textrow {
+            display: flex;
+            flex-flow: wrap;
+            .textcol {
+                box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
+                margin-right: 0rem;
+                padding: 2rem;
+                background-image: linear-gradient(to top, #fff5, #fff5);
+                p {
+                    padding: 1rem 0rem;
+                    padding-left: 1rem !important;
+                }
+                &:nth-child(2) {
+                    margin-left: 0rem;
+                    margin-right: 0rem;
+                    padding-left: 2rem !important;
+                }
+            }
+        }
+    }
+    .left {
+        padding: 1rem;
+        backdrop-filter: blur(5px) brightness(1.5);
+        box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
+        background-image: linear-gradient(to top, #fffa, #fffa);
+        h1 {
+            text-align: center;
+            line-height: 1rem;
+            font-weight: 800;
+            margin: 2rem auto;
+            font-size: 1rem;
+            &:nth-child(2) {
+                line-height: 2rem;
+                font-weight: 100;
+                margin: unset;
+                font-size: 2rem;
+                margin-left: 0.9rem;
+                letter-spacing: 0.65rem;
+            }
+            b {
+                line-height: 1vw;
+                font-size: 5vw;
+                font-weight: 100;
+            }
+        }
+        p {
+            padding: 1rem;
+            font-weight: 1200;
+            font-size: 0.9rem;
+        }
+        height:calc(100% - 2rem);
+        width:calc(100% - 0rem);
+        display:flex;
+        flex-flow:column;
+        justify-content:center;
+    }
+}
 </style>
