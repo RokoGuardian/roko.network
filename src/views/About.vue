@@ -111,7 +111,7 @@ export default {
     h1 {
         text-align: left;
         line-height: 4rem;
-        font-weight: 200;
+        font-weight: 400;
         margin: 0rem 4rem;
         font-size: 4rem;
         letter-spacing: 0.8rem;
