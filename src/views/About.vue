@@ -96,7 +96,7 @@ export default {
     max-width: calc(100vw - 4rem);
     margin-right: 2rem;
     background-attachment: fixed;
-    background-image: url(../assets/head2.png);
+    background-image: url(../assets/head2.png);background-position-x: 50vw;
 }
 
 .bodystuff {
@@ -116,7 +116,7 @@ export default {
     background-image: url(../assets/bottom-2.png);
     position: relative;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     .textrow {
         display: flex;
         flex-flow: column;
@@ -164,8 +164,8 @@ export default {
         line-height: 3vw;
         font-weight: 400;
         margin: 0rem 4rem;
-        font-size: 3vw;
-        letter-spacing: 0.8rem;
+        font-size: 3vw;width:750px;
+        letter-spacing: 0.8rem;max-width:calc(100% - 4rem);
         &:nth-child(2) {
             line-height: 4rem;
             font-weight: 100;
