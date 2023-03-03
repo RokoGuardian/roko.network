@@ -123,20 +123,18 @@ export default {
         display: flex;
         flex-flow: wrap;
         .textcol {
-            margin: 0rem;
-            backdrop-filter: blur(4px);
+            margin: 0rem;    width:50%;            margin-left: unset;margin-right:auto;
+
             background-image: linear-gradient(to right, #ffff, #ffff, #fffa, #fffa, transparent);
             p {
                 font-size: 1rem;
                 padding: 1rem 2rem;
-                padding-right: 20%;
                 font-weight: 200;
             }
             &:nth-child(2) {
-                padding-left: 20%;
                 backdrop-filter: blur(4px);
                 background-image: linear-gradient(to left, #ffff, #ffff, #fffa, #fffa, transparent);
-                margin-right: unset;
+                margin-right: unset;margin-left:auto;
             }
         }
     }
@@ -245,7 +243,7 @@ body {
             .textcol {
                 box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
                 margin-right: 0rem;
-                padding: 2rem;
+                padding: 2rem;width:100%;
                 background-image: linear-gradient(to top, #fff5, #fff5);
                 p {
                     padding: 1rem 0rem;
