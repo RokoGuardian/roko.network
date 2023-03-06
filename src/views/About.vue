@@ -116,7 +116,7 @@ export default {
     background-image: url(../assets/bottom-2.png);
     position: relative;
     background-size: cover;
-    background-position: center;
+    background-position: center;padding-bottom: 80rem;
     .textrow {
         display: flex;
         flex-flow: column;
