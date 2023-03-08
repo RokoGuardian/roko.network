@@ -197,7 +197,7 @@ export default {
         background-image: linear-gradient(to top, #000a, #000c, #000c);
     }
     height:calc(100% - 4rem);
-    width:calc(60% - 10rem);
+    width:calc(50% - 10rem);
     display:flex;
     flex-flow:column;
     justify-content:center;
