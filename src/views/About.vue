@@ -165,7 +165,7 @@ export default {
         font-weight: 400;
         margin: 0rem 4rem;
         font-size: 3vw;width:auto;
-        letter-spacing: 0.8rem;max-width:calc(100% - 4rem);
+        letter-spacing: 0.8rem;
         &:nth-child(2) {
             line-height: 4rem;
             font-weight: 100;
