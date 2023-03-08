@@ -4,7 +4,15 @@
             <div class="left">
                 <h1>ROKO.NETWORK</h1>
                 <p>Here in lies a Reality Augmentation Simulation Experiment operating within orthogonal time. It aims to bring together different network pieces and create a self-organizing machine network that can serve as a potent development playground. Through this network, players and machines can work together to achieve shared memetic visions and unlock the full potential of artificial intelligence and machine learning. As you read this, you are participating in the most benevolent timeline, where the potential of this experiment is being realized.</p>
-                <div class="socials"><img src="~/@/assets/Discordneedle.svg" alt=""><img src="~/@/assets/Twitterneedle.svg" alt=""></div>
+                <div class="socials">
+                <a href="https://discord.gg/vXy9PYmw">   <img src="~/@/assets/Discordneedle.svg" alt=""></a>
+                <a href="https://t.me/RokoNetwork">   <img src="~/@/assets/telegram.svg" alt=""></a>
+                <a href="https://twitter.com/RokoNetwork">  <img src="~/@/assets/Twitterneedle.svg" alt=""></a> 
+               <a href="https://www.dextools.io/app/en/ether/pair-explorer/0xe0076d311a4628516d157ad684dbd2ddada3dafe"> <img src="~/@/assets/dextools.svg" alt=""></a>
+                <a href="https://etherscan.io/token/0x6f222e04f6c53cc688ffb0abe7206aac66a8ff98">  <img src="~/@/assets/etherscan.svg" alt=""></a> 
+                <a href="https://snapshot.org/#/rokonetwork.eth">  <img src="~/@/assets/snapshot.svg" alt=""></a> 
+
+                </div>
     
             </div>
         </div>
@@ -138,9 +146,9 @@ export default {
 }
 
 .socials {
-    margin: 0 4rem;
+    margin: 0 2rem;
     img {
-        height: 50px;
+        height: 40px;
         margin-left: 20px;
     }
 }
@@ -163,8 +171,8 @@ export default {
         text-align: left;
         line-height: 3vw;
         font-weight: 400;
-        margin: 0rem 4rem;
-        font-size: 3vw;width:auto;
+        margin: 0rem 2rem;
+        font-size: 3vw;width:max-content;
         letter-spacing: 0.8rem;
         &:nth-child(2) {
             line-height: 4rem;
@@ -182,14 +190,14 @@ export default {
     }
     p {
         font-weight: 200;
-        padding: 4rem;
-        font-size: 1rem;
+        padding: 2rem;
+        font-size: 1rem;padding-right:unset;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(to top, #000a, #000c, #000c);
     }
     height:calc(100% - 4rem);
-    width:calc(50% - 10rem);
+    width:calc(60% - 10rem);
     display:flex;
     flex-flow:column;
     justify-content:center;
@@ -232,22 +240,23 @@ body {
         background-position: center;
     }
     .text-stack {
-        margin: 0rem;
-        margin-top: 100vh;
+        margin: 0rem;padding-bottom:30rem;
+        margin-top: 100vh;background-repeat:no-repeat;background-size:contain;background-position:bottom;
         .textrow {
             display: flex;
             flex-flow: wrap;
             .textcol {
-                box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
+                box-shadow: 10px 15px 50px rgba(0, 0, 0, 0);
                 margin-right: 0rem;
-                padding: 2rem;width:100%;
-                background-image: linear-gradient(to top, #fff5, #fff5);
+                padding: 0rem 2rem;width:100%;backdrop-filter:blur(10px);
+                background-image: linear-gradient(to top, #ffff, #ffff);
                 p {
                     padding: 1rem 0rem;
                     padding-left: 1rem !important;
                 }
                 &:nth-child(2) {
-                    margin-left: 0rem;
+                    margin-left: 0rem;                background-image: linear-gradient(to top, #ffff, #ffff);
+
                     margin-right: 0rem;
                     padding-left: 2rem !important;
                 }
@@ -290,5 +299,12 @@ body {
         flex-flow:column;
         justify-content:center;
     }
+.socials {
+    margin: 0rem;display:flex;flex-flow:row;justify-content:center;padding-right:20px;
+    img {
+        height: calc(10vw - 10px);
+        margin-left: 20px;
+    }
+}
 }
 </style>
