@@ -104,7 +104,7 @@ export default {
     max-width: calc(100vw - 4rem);
     margin-right: 2rem;
     background-attachment: fixed;
-    background-image: url(../assets/head2.png);background-position-x: 50vw;
+    background-image: url(../assets/head2.png);
 }
 
 .bodystuff {
@@ -164,7 +164,8 @@ export default {
     }
 }
 
-.left {
+.left { max-width:800px; background-image: linear-gradient(to right, white, white, white, white, white, transparent);
+min-width:512px;
     border-radius: 2px;
     h1 {
         width: min-content;
@@ -264,7 +265,7 @@ body {
         }
     }
     .left {
-        padding: 1rem;
+        padding: 1rem;min-width:unset;
         backdrop-filter: blur(5px) brightness(1.5);
         box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.6);
         background-image: linear-gradient(to top, #fffa, #fffa);
