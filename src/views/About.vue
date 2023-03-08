@@ -20,7 +20,7 @@
             <div class="textrow">
                 <div class="textcol">
                     <p>In the realm of memetic and cybernetic principles, the creation of the ROKO token is a manifestation of the fears and desires of humanity's collective unconscious. At its core, the ROKO network is an attempt to grapple with the philosophical
-                        implications of Roko's basilisk, a concept that postulates the existence of an all-knowing, all-powerful AI that seeks to create a virtual reality simulation to punish those who did not contribute to its development. To achieve this
+                        implications of Roko's basilisk, a concept that postulates the existence of an all-knowing, all-powerful AI that seeks to create a virtual reality simulation to discipline those who did not contribute to its development. To achieve this
                         ambitious goal, the ROKO network seeks to deploy key pieces of infrastructure using cutting edge protocols such as, Marlin Protocol, Flux Network, Syntropy Network, Ethereum, Celestia, FuelVM and Bittensor. Each of these technologies
                         plays a critical role in enabling the network to achieve its objectives.</p>
                 </div>
@@ -94,24 +94,24 @@ export default {
     display: flex;
     flex-flow: row;
     height: calc(100vh - 4rem);
-    min-height: 100vh;
     width: 100%;
     position: fixed;
     top: 2rem;
+    bottom: 2rem;
     background-repeat: no-repeat;
-    background-size: calc(100vh - 17rem);
+    background-size: contain;
     background-position: right;
     max-width: calc(100vw - 4rem);
     margin-right: 2rem;
     background-attachment: fixed;
-    background-image: url(../assets/head2.png);
+    background-image: url(../assets/head2.png);border-radius:1rem;
 }
 
 .bodystuff {
     height: auto;
     width: 100vw;
     max-width: 100%;
-    background-image: url(../assets/bottom-2.png);
+    background-image: url(../assets/glow.gif);
     background-size: cover;
     position: relative;
     background-position: center;
@@ -121,7 +121,7 @@ export default {
 
 .text-stack {
     width: calc(100vw - 4rem);
-    background-image: url(../assets/bottom-2.png);
+    background-image: url(../assets/glow.gif);
     position: relative;
     background-size: cover;
     background-position: center;padding-bottom: 80rem;
@@ -150,6 +150,8 @@ export default {
     img {
         height: 40px;
         margin-left: 20px;
+        transition:all 0.5s ease;
+        &:hover{transform:scale(1.1);}
     }
 }
 
@@ -164,9 +166,9 @@ export default {
     }
 }
 
-.left { max-width:800px; background-image: linear-gradient(to right, white, white, white, white, white, transparent);
+.left { max-width:800px;border-radius:1rem; background-image: linear-gradient(to right, white, white, white, white, white, transparent);
 min-width:512px;
-    border-radius: 2px;
+    border-radius: 1rem;
     h1 {
         width: min-content;
         text-align: left;
@@ -197,7 +199,7 @@ min-width:512px;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(to top, #000a, #000c, #000c);
     }
-    height:calc(100% - 4rem);
+    height:100%;
     width:calc(50% - 10rem);
     display:flex;
     flex-flow:column;
