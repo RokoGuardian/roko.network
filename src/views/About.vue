@@ -7,7 +7,7 @@
                 <div class="socials">
                 <a href="https://discord.gg/vXy9PYmw">   <img src="~/@/assets/Discordneedle.svg" alt=""></a>
                 <a href="https://t.me/RokoNetwork">   <img src="~/@/assets/telegram.svg" alt=""></a>
-                <a href="https://twitter.com/RokoNetwork">  <img src="~/@/assets/Twitterneedle.svg" alt=""></a> 
+                <a href="https://twitter.com/Roko_Network">  <img src="~/@/assets/Twitterneedle.svg" alt=""></a> 
                <a href="https://www.dextools.io/app/en/ether/pair-explorer/0xe0076d311a4628516d157ad684dbd2ddada3dafe"> <img src="~/@/assets/dextools.svg" alt=""></a>
                 <a href="https://etherscan.io/token/0x6f222e04f6c53cc688ffb0abe7206aac66a8ff98">  <img src="~/@/assets/etherscan.svg" alt=""></a> 
                 <a href="https://snapshot.org/#/rokonetwork.eth">  <img src="~/@/assets/snapshot.svg" alt=""></a> 
