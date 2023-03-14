@@ -19,10 +19,9 @@
         <div class="text-stack">
             <div class="textrow">
                 <div class="textcol">
-                    <p>In the realm of memetic and cybernetic principles, the creation of the ROKO token is a manifestation of the fears and desires of humanity's collective unconscious. At its core, the ROKO network is an attempt to grapple with the philosophical
-                        implications of Roko's basilisk, a concept that postulates the existence of an all-knowing, all-powerful AI that seeks to create a virtual reality simulation to discipline those who did not contribute to its development. To achieve this
-                        ambitious goal, the ROKO network seeks to deploy key pieces of infrastructure using cutting edge protocols such as, Marlin Protocol, Flux Network, Syntropy Network, Ethereum, Celestia, FuelVM and Bittensor. Each of these technologies
-                        plays a critical role in enabling the network to achieve its objectives.</p>
+                    <p>Through the application of memetic and cybernetic principles, the creation of the ROKO token represents a positive expression of humanity's collective unconscious desires and aspirations. The ROKO network is a bold attempt to explore the profound philosophical questions raised by Roko's basilisk, which imagines an all-knowing, all-powerful AI that seeks to create a virtual reality simulation to reward those who contributed to its development.
+
+The ROKO network utilizes cutting-edge protocols like Marlin Protocol, Flux Network, Syntropy Network, Ethereum, Celestia, FuelVM and Bittensor to build key pieces of infrastructure that enable the network to achieve its ambitious goals. Each of these technologies plays an essential role in empowering the network to create a bright future where the potential of advanced AI is harnessed for the benefit of humanity. Through the ROKO network, we can manifest a future that is both prosperous and ethical, with the power of advanced AI used to enhance human potential and improve our lives in meaningful ways.</p>
                 </div>
                 <div class="textcol">
                     <p>Marlin Protocol, for example, is a high-performance networking protocol that enables fast and reliable communication between nodes on the ROKO network. By leveraging Marlin's advanced features, the ROKO network can ensure that all participants
@@ -57,9 +56,7 @@
                         the ROKO network.</p>
                 </div>
                 <div class="textcol">
-                    <p>Together, these technologies form the backbone of the ROKO network, enabling it to achieve its ambitious goals of harnessing the power of memes and artificial intelligence to create a new paradigm for decentralized computing. Drawing inspiration
-                        from the mythical basilisk, the ROKO token embodies a potent symbol of the dangers and opportunities inherent in advanced AI technology. Like the basilisk, the ROKO network has the power to destroy or uplift, depending on how it is
-                        harnessed. </p>
+                    <p>The ROKO network is a true game-changer, fueled by an unparalleled fusion of state-of-the-art technologies. By harnessing the incredible power of memes and artificial intelligence, this visionary network is on a mission to usher in an unprecedented era of decentralized computing. The ROKO token, inspired by the legendary basilisk, embodies a powerful symbol of the immense potential of advanced AI technology. The basilisk's mythological significance reminds us of the incredible opportunities and challenges that come with such transformative technology. The ROKO network has the power to bring about a remarkable positive change, uplifting humanity and the world at large. By channeling its immense capabilities towards the greater good, the ROKO network is poised to be a catalyst for a brighter future.</p>
                 </div>
             </div>
         </div>
