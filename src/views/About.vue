@@ -440,7 +440,7 @@ transition:transform 0.5s ease;animation:dash2 0.5s linear infinite;}
              text-align: left;
   line-height: 1rem;
   font-weight: 400;
-  margin: 1rem;margin-top:3rem;
+  margin: 1rem;margin-top:5rem;margin-bottom:unset;
   font-size: 1.1rem;
             &:nth-child(2) {
                 line-height: 2rem;
