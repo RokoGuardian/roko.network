@@ -437,11 +437,11 @@ transition:transform 0.5s ease;animation:dash2 0.5s linear infinite;}
     .left {
         padding: 0rem;padding-top:20vw;min-width:unset;
         h1 {
-            text-align: center;
-            line-height: 1rem;
-            font-weight: 100;
-            margin: 1rem auto;
-            font-size: 1.1rem;
+             text-align: left;
+  line-height: 1rem;
+  font-weight: 400;
+  margin: 1rem;
+  font-size: 1.1rem;
             &:nth-child(2) {
                 line-height: 2rem;
                 font-weight: 100;
