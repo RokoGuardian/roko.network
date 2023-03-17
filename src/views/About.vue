@@ -44,6 +44,8 @@
                 <div class="svg-stack"><svg class="imagesvg" viewBox="0 0 1003 1117" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="position:absolute;z-index:1;fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
     <g transform="matrix(1,0,0,1,-375.105,-359.796)">
         <g transform="matrix(0.383384,0,0,0.383384,301.596,343.051)">
+            <circle v-if="section == 9" cx="1500" cy="1500" r="325.123" style="fill:transparent;stroke:white;stroke-width:21.74px;transform: scale(1.2);transform-origin: 150% 135%;"/>
+            <circle v-if="section == 9" cx="1500" cy="1500" r="325.123" style="fill:transparent;stroke:white;stroke-width:21.74px;transform: scale(1.2);transform-origin: 150% 135%;filter:blur(10px);"/>
             <circle cx="1500" cy="1500" r="325.123" style="fill:transparent;stroke:white;stroke-width:21.74px;"/>
             <circle cx="1500" cy="1500" r="325.123" style="fill:white;stroke:white;stroke-width:21.74px;"/>
             <circle cx="1500" cy="1500" r="325.123" style="fill:white;stroke:white;stroke-width:21.74px;filter:blur(10px);"/>
