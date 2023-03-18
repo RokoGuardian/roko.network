@@ -69,7 +69,7 @@ canvas {
   
   const int maxIterations = 256;
   const float stopThreshold = 0.001;
-  const float stepScale = .4;
+  const float stepScale = .2;
   const float eps = 0.005;
   const vec3 clipColour = vec3(0.);
   const vec3 fogColour = vec3(0.);
@@ -108,7 +108,7 @@ canvas {
       p.x = mod(p.x, 3.) - 1.5;
     }
     vec2 q = vec2(length(p.xz), atan(p.x, p.z) );
-    float pillar = length( q.x + clamp(abs(sin(q.y * 8.)), 0.5, 1.) * .02) - .25;
+    float pillar = length( q.x + clamp(abs(sin(q.y * 9.)), 0.4, 2.) * .02) - .25;
     pillar = min(pillar, sdCappedCylinder(p + vec3(0, .5, 0), .28, .2));
     world = min(world, pillar);
     
@@ -247,7 +247,7 @@ canvas {
     
     // Camera and look-at
     vec3 cam = vec3(1,4,-20);
-    vec3 lookAt = vec3(sin(clamp(cos(u_time*2.), 0., 1.)+u_time)*.5 + cos(u_time*3.)*.3,.05+cos(u_time*2.)*.2,0);
+    vec3 lookAt = vec3(sin(clamp(cos(u_time*2.), 0., 1.)+u_time)*.9 + cos(u_time*3.)*.3,.05+cos(u_time*2.)*.2,0);
     if(length(u_mouse) > 0.) {
       lookAt.xy = u_mouse*2.;
     }
@@ -262,7 +262,7 @@ canvas {
     vec3 up = normalize(cross(forward, right));
     
     // FOV
-    float FOV = .8;
+    float FOV = .5;
     
     // Ray origin and ray direction
     vec3 ro = cam;

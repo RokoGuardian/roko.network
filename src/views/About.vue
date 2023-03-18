@@ -262,20 +262,20 @@ export default {
 }
 .hero {
     display: flex;
-    flex-flow: row;
-    height: calc(100vh - 4rem);
-    width: auto;
-    position: fixed;
-    top: 2rem;
-    bottom: 2rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-    max-width: calc(100vw - 4rem);
-    margin-right: 2rem;
-    background-attachment: fixed;border-radius:1rem;
+flex-flow: row;
+height: min-content;
+width: auto;
+position: fixed;
+top: calc(50vh - 200px);
+background-repeat: no-repeat;
+background-size: contain;
+background-position: 100%;
+max-width: calc(100vw - 4rem);
+background-attachment: fixed;
+border-radius: 1rem;
+margin: auto;
 }.imagesvg{width:22vw;height:22vw;top:-0vw;left:-0.5vw;}
-.text-sections{height:300px;display:flex;flex-flow:row;
+.text-sections{height:300px;display:flex;flex-flow:row;cursor:pointer;
 svg{cursor:pointer;filter:invert(1);position:absolute;right:-60px;&:active{transform:translatex(5px);}transition:transform 0.2s ease;}}
 .svglines{position:absolute;top:2vw;left:0px;width:20vw;height:19vw;fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;}
 .svg-stack{position:fixed;right:50vw;top:calc(50vh - 10vw);}
@@ -337,8 +337,7 @@ svg{cursor:pointer;filter:invert(1);position:absolute;right:-60px;&:active{trans
     }
 }
 .iconss{&:hover{}}
-.left {width:auto;max-width:1000px;min-width:600px;border-radius:1rem;
-    border-radius: 1rem;
+.left {
     h1 {filter:invert(1);
         width: min-content;
         text-align: left;
@@ -370,12 +369,16 @@ margin: auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(to top, #000, #000, #000);
-    }
-    height:100%;
-    width:calc(50% - 10rem);
-    display:flex;
-    flex-flow:column;
-    justify-content:center;
+    } 
+     max-width: 1000px;
+  min-width: 600px;
+  border-radius: 1rem;
+  height: fit-content;
+  width: calc(50% - 10rem);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: auto;
 }
 
 h1 {
@@ -410,12 +413,23 @@ transition:transform 0.5s ease;animation:dash2 0.5s linear infinite;}
 &:hover{
     circle{filter:blur(100px);transform: scale(1.2);transition:transform 0.5s ease;transition:filter 0.5s ease;
 }}}
-@media screen and (max-width:1000px) {iframe{filter:brightness(0.5);}
+
+
+@media screen and (max-width:1400px) {.svg-stack{position:fixed;right:30vw;top:calc(50vh - 10vw);}
+}
+@media screen and (max-width:1000px) {.svg-stack{position:fixed;right:30vw;top:calc(15vh - 10vw);}
+}
+@media screen and (max-width:700px) {iframe{filter:brightness(0.5);}
 .text-sections{svg{right:-30px;}}
     .imagesvg{width:50vw;height:50vw;top:-0.5vw;left:-1.5vw;}
 
 .svglines{position:absolute;top:2vw;left:0px;width:45vw;height:45vw;fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;}
-.svg-stack{position:fixed;right:72vw;top:10vw;}
+.svg-stack{  position: fixed;
+  right: 23vw;
+  top: 10vw;
+  height: 50vw;
+  width: 50vw;
+  display: flex;}
     .bodystuff {
         height: auto;
         width: 1920px;
