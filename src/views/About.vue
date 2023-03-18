@@ -37,6 +37,7 @@
                 <a href="https://t.me/RokoNetwork">   <img src="~/@/assets/telegram.svg" alt=""></a>
                 <a href="https://twitter.com/RokoNetwork">  <img src="~/@/assets/Twitterneedle.svg" alt=""></a> 
                <a href="https://www.dextools.io/app/en/ether/pair-explorer/0xe0076d311a4628516d157ad684dbd2ddada3dafe"> <img src="~/@/assets/dextools.svg" alt=""></a>
+               <a href="https://www.coingecko.com/en/coins/roko-network"> <img src="~/@/assets/cg.svg" alt=""></a>
                 <a href="https://etherscan.io/token/0x6f222e04f6c53cc688ffb0abe7206aac66a8ff98">  <img src="~/@/assets/etherscan.svg" alt=""></a> 
                 <a href="https://snapshot.org/#/rokonetwork.eth">  <img src="~/@/assets/snapshot.svg" alt=""></a> 
 
@@ -462,7 +463,7 @@ transition:transform 0.5s ease;animation:dash2 0.5s linear infinite;}
             }
         }
     }
-    .left {
+    .left {position: relative;
         padding: 0rem;padding-top:20vw;min-width:unset;
         h1 {
              text-align: left;
@@ -496,10 +497,17 @@ transition:transform 0.5s ease;animation:dash2 0.5s linear infinite;}
         justify-content:center;
     }
 .socials {
-    margin: 0rem;display:flex;flex-flow:row;justify-content:center;padding-right:20px;
-    img {
+  margin: 0rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  padding-left: 10px;
+  position: fixed;
+  bottom: 2rem;
+  width: calc(100vw - 4rem);    img {
         height: calc(10vw - 10px);
-        margin-left: 20px;
+        margin-left: 0px;
+        margin-right: 10px;
     }
 }
 }
