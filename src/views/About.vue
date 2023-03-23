@@ -194,7 +194,7 @@ export default {
     name: 'app',
     data() {
         return {
-            section:1,
+            section:0,
 
         }
     },
