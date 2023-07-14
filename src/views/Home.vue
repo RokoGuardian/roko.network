@@ -6,9 +6,6 @@
             <Circle class="circ" />
         </div>
         <div class="perspective">
-            <Dots />
-            <Dots />
-            <Dots />
             <Glorp />
     
         </div>
@@ -18,7 +15,6 @@
 <script>
 import TyperComponent from '@/components/TyperComponent.vue';
 import Circle from '@/components/Circle.vue';
-import Dots from '@/components/Dots.vue';
 import Glorp from '@/components/Glorp.vue';
 
 
@@ -39,7 +35,7 @@ export default {
 
     },
     watch: {},
-    components: { TyperComponent, Glorp, Circle, Dots },
+    components: { TyperComponent, Glorp, Circle,  },
 };
 </script>
 
