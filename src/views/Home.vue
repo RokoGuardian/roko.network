@@ -60,7 +60,7 @@ p {
     left: 0px;
     top: 0px;
     display: flex;
-    flex-flow: column;
+    flex-flow: column;z-index:-1;
     justify-content: center;
     .dot-grid {
         &:nth-child(1) {
@@ -96,14 +96,13 @@ p {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    .centered {
-        transform: rotate(45deg);
-        width: auto;
+    .centered {width:1024px;
         max-width: calc(100% - 4rem);
         display: flex;
         flex-flow: row;
         margin: auto;
         justify-content: center;
+        .typer{margin-left:auto;}
         h1 {
             margin: auto 0px;
             margin-right: 1rem;

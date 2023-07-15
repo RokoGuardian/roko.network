@@ -109,7 +109,7 @@ export default {
                 ease: Power3.easeOut,
                 onUpdate: function() {
                     elapsedTime.value += 1; // Increment elapsed time
-                    console.log(props.x);
+                    //console.log(props.x);
                     drawProgress(props.x);
                 }
             });
