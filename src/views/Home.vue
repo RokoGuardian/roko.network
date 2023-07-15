@@ -1,9 +1,10 @@
 <template>
     <div class="apparea">
         <div class="centered">
+    
+            <Circle class="circ" />
             <TyperComponent text="ROKO          " search="ROKO          " :replace="['DATASETS', 'COMMUNICATION', 'ROBOTICS', 'NETWORK', 'BLOCKCHAIN', 'URBIT', 'DISTRIBUTED', 'COMPUTE']"></TyperComponent>
             <div class="line"></div>
-            <Circle class="circ" />
         </div>
         <div class="perspective">
             <Glorp />
@@ -35,7 +36,7 @@ export default {
 
     },
     watch: {},
-    components: { TyperComponent, Glorp, Circle,  },
+    components: { TyperComponent, Glorp, Circle, },
 };
 </script>
 
@@ -60,7 +61,8 @@ p {
     left: 0px;
     top: 0px;
     display: flex;
-    flex-flow: column;z-index:-1;
+    flex-flow: column;
+    z-index: -1;
     justify-content: center;
     .dot-grid {
         &:nth-child(1) {
@@ -96,13 +98,16 @@ p {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    .centered {width:1024px;
+    .centered {
+        width: 1024px;
         max-width: calc(100% - 4rem);
         display: flex;
-        flex-flow: row;
+        flex-flow: column;
         margin: auto;
         justify-content: center;
-        .typer{margin-left:auto;}
+        .typer {
+            margin: auto;padding-left: 0px;
+        }
         h1 {
             margin: auto 0px;
             margin-right: 1rem;
@@ -120,7 +125,7 @@ p {
             background: white;
             width: 4rem;
             margin-right: 1rem;
-            position: relative;
+            position: absolute;
             &::before {
                 position: absolute;
                 content: '';
@@ -147,6 +152,9 @@ p {
             }
         }
         .circ {
+            position: absolute;
+            width: 512px;
+            left: calc(50% - 256px);
             transform: rotate(-90deg);
         }
     }

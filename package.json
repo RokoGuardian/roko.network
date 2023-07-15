@@ -19,6 +19,7 @@
     "gsap": "^3.12.2",
     "postprocessing": "^6.32.2",
     "three": "^0.154.0",
+    "three-noise": "^1.1.2",
     "twgl.js": "^3.0.1",
     "vue": "^3.2.36",
     "vue-clipboard3": "^2.0.0",
