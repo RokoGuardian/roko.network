@@ -66,7 +66,7 @@
             <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor4"  />
         </Text>
-            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/UnoEstado_Regular.json" align="center" :size="10" :height="3" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="true">
+            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/UnoEstado_Regular.json" align="center" :size="10" :height="5" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor4"  />
         </Text>
             <VRButton class="vr" ref="vrbutton" />
