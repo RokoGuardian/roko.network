@@ -1,10 +1,17 @@
 <template>
-    <div class="apparea" >
+    <div class="apparea">
         <div class="centered">
+            <div class="socials">
+                <a href="https://discord.gg/fZXkYMAchQ">   <img src="~/@/assets/Discordneedle.svg" alt="">  <img src="~/@/assets/Discordneedle.svg" alt=""></a>
+                <a href="https://t.me/RokoNetwork">   <img src="~/@/assets/telegram.svg" alt=""> <img src="~/@/assets/telegram.svg" alt=""></a>
+                <a href="https://twitter.com/RokoNetwork">  <img src="~/@/assets/Twitterneedle.svg" alt=""> <img src="~/@/assets/Twitterneedle.svg" alt=""></a>
+                <a href="https://www.dextools.io/app/en/ether/pair-explorer/0xe0076d311a4628516d157ad684dbd2ddada3dafe"> <img src="~/@/assets/dextools.svg" alt=""> <img src="~/@/assets/dextools.svg" alt=""></a>
+                <a href="https://www.coingecko.com/en/coins/roko-network"> <img src="~/@/assets/cg.svg" alt=""> <img src="~/@/assets/cg.svg" alt=""></a>
+                <a href="https://etherscan.io/token/0x6f222e04f6c53cc688ffb0abe7206aac66a8ff98">  <img src="~/@/assets/etherscan.svg" alt=""> <img src="~/@/assets/etherscan.svg" alt=""></a>
+                <a href="https://snapshot.org/#/rokonetwork.eth">  <img src="~/@/assets/snapshot.svg" alt=""> <img src="~/@/assets/snapshot.svg" alt=""></a>
     
-            <Circle class="circ" />
-            <TyperComponent text="ROKO          " search="ROKO          " :replace="['DATASETS', 'COMMUNICATION', 'ROBOTICS', 'NETWORK', 'BLOCKCHAIN', 'URBIT', 'DISTRIBUTED', 'COMPUTE']"></TyperComponent>
-            <div class="line"></div>
+            </div>
+    
         </div>
         <div class="perspective">
             <Glorp />
@@ -14,8 +21,6 @@
 </template>
 
 <script>
-import TyperComponent from '@/components/TyperComponent.vue';
-import Circle from '@/components/Circle.vue';
 import Glorp from '@/components/Glorp.vue';
 
 
@@ -36,7 +41,7 @@ export default {
 
     },
     watch: {},
-    components: { TyperComponent, Glorp, Circle, },
+    components: { Glorp, },
 };
 </script>
 
@@ -101,12 +106,13 @@ p {
     .centered {
         width: 1024px;
         max-width: calc(100% - 4rem);
-        display: none;
+        display: flex;
         flex-flow: column;
         margin: auto;
         justify-content: center;
         .typer {
-            margin: auto;padding-left: 0px;
+            margin: auto;
+            padding-left: 0px;
         }
         h1 {
             margin: auto 0px;
@@ -156,6 +162,31 @@ p {
             width: 512px;
             left: calc(50% - 256px);
             transform: rotate(-90deg);
+        }
+    }
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 0px !important;
+    filter: invert(1);gap:1rem;
+    a {
+        display: flex;
+        position: relative;
+        transition: all 0.5s ease;
+        transform-origin: 50% 50%;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+    img {
+        height: 32px;
+        transition: all 0.5s ease;
+        &:nth-child(2) {
+            position: absolute;
+            filter: blur(2px)brightness(2);
         }
     }
 }

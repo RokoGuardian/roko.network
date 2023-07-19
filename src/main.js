@@ -6,4 +6,5 @@ import VueTyper from 'vue3-typer'
 import AFRAME from 'aframe'
 import { TroisJSVuePlugin } from 'troisjs';
 import { createNoise2D } from 'simplex-noise';
-createApp(App).use(store).use(TroisJSVuePlugin).use(createNoise2D).use(AFRAME).use(router).use(VueTyper).mount('#app')
+import { postprocessing } from 'postprocessing';
+createApp(App).use(store).use(TroisJSVuePlugin).use(postprocessing).use(createNoise2D).use(AFRAME).use(router).use(VueTyper).mount('#app')

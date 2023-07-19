@@ -1,6 +1,6 @@
 <template>
-    <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{ enableDamping: true, target }" resize shadow>
-        <Camera :position="{ x: 100, y: 200, z: 300 }" :lookAt="{x: 10}" />
+    <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{autoRotate: false, enableDamping: true, target }" resize shadow>
+        <Camera :position="{ x: -50, y: 200, z: 500 }" :lookAt="Group" />
         <Scene ref="scene" background="#555555">
             <HemisphereLight />
     
@@ -11,18 +11,37 @@
             </Plane>
     
     
-            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 40 }" cast-shadow="true" receive-shadow>
+            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 40 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial color="#ff0000" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus style="transition:all 0.5s ease;" :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 80 }" cast-shadow="true" receive-shadow>
-                <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
+            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc * 1.5, y: -arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 80 }" cast-shadow="true" receive-shadow>
+                <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus style="transition:all 0.5s ease;" :arc="6.283185307179586" :radius="100" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 60 }" cast-shadow="true" receive-shadow>
-                <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
+            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc , y: arc * 1.5,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: -40 }" cast-shadow="true" receive-shadow>
+                <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
-            <Group :ref="group" :position="{x: 0, y: 150, z: 60 }" :rotation="groupRotation">
+    
+            <Torus :arc="6.283185307179586" :radius="150" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc,  y: mouseX / arc, z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 0 }" cast-shadow="true" receive-shadow>
+                <PhongMaterial :color="boxColor6" opacity="0.5" :props="{ depthWrite: true }" />
+            </Torus>
+            <Group :ref="group" :position="{x: 0, y: 150, z: 0 }" :rotation="groupRotation">
+                <Icosahedron @pointerOver="boxOver1" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: -60, y: 35, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor1" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+                <Icosahedron @pointerOver="boxOver2" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 60, y: 35, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor2" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+                <Icosahedron @pointerOver="boxOver3" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 0, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+                <Icosahedron @pointerOver="boxOver4" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: -70, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor4" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+    
+            </Group>
+            <Group :ref="group" :position="{x: 0, y: 150, z: -120 }" :rotation="groupRotation">
                 <Icosahedron @pointerOver="boxOver1" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: -60, y: 35, z: 60 }" cast-shadow="true" receive-shadow>
                     <PhongMaterial :color="boxColor1" opacity="0.5" :props="{ depthWrite: true }" />
                 </Icosahedron>
@@ -38,32 +57,34 @@
     
             </Group>
     
-            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -60, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                                            <PhongMaterial :color="boxColor1"  />
-                                                                                                                                                          </Text>
-            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -20, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                                            <PhongMaterial :color="boxColor2"  />
-                                                                                                                                                          </Text>
-            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 20, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                                            <PhongMaterial :color="boxColor3"  />
-                                                                                                                                                          </Text>
-            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                                        <PhongMaterial :color="boxColor4"  />
-                                                                                                                                                      </Text>
+            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="true">
+                                                                                                                                                                                                                                                                            <PhongMaterial :color="boxColor1"  />
+                                                                                                                                                                                                                                                                          </Text>
+            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="true">
+                                                                                                                                                                                                                                                                            <PhongMaterial :color="boxColor2"  />
+                                                                                                                                                                                                                                                                          </Text>
+            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="true">
+                                                                                                                                                                                                                                                                            <PhongMaterial :color="boxColor3"  />
+                                                                                                                                                                                                                                                                          </Text>
+            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="true">
+                                                                                                                                                                                                                                                                        <PhongMaterial :color="boxColor4"  />
+                                                                                                                                                                                                                                                                      </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer>
             <RenderPass />
-            <SMAAPass />
-            <HalftonePass :radius="1" :scatter="0.15" />
-            <UnrealBloomPass :strength="0.12" />
+            <BokehPass :focus="0.002" :aperture="2" />
+            <UnrealBloomPass :radius="0.5" :strength="0.4" />
+            <FXAAPass />
+            <GlitchPass :mode="1" :dtSize="33" :dtInterval="3000" :dtThreshold="0.9" />
+            <ZoomBlurPass :strength="0.001" :center="{ x: -mouseX  / 2, y: mouseY / 2 }" />
         </EffectComposer>
     </Renderer>
 </template>
   
 <script>
 // Model from mixamo.com
-import { AnimationMixer, Clock, Fog, GridHelper, Vector3, IcosahedronGeometry, LineSegments, WireframeGeometry } from 'three';
+import { AnimationMixer, Clock, Fog, GridHelper, Vector3, IcosahedronGeometry, LineSegments, WireframeGeometry, } from 'three';
 import {
     Camera,
     Torus,
@@ -72,15 +93,16 @@ import {
     Renderer,
     PhongMaterial,
     Plane,
+    ZoomBlurPass,
     Scene,
     EffectComposer,
     RenderPass,
-    SMAAPass,
-    HalftonePass,
+    FXAAPass,
     Text,
     UnrealBloomPass,
 } from 'troisjs';
 import VRButton from 'troisjs/src/components/misc/VRButton.vue'
+import { BokehPass, GlitchPass } from 'postprocessing';
 
 export default {
     components: {
@@ -91,12 +113,14 @@ export default {
         Renderer,
         PhongMaterial,
         Plane,
+        ZoomBlurPass,
         Scene,
         EffectComposer,
         RenderPass,
-        SMAAPass,
+        FXAAPass,
+        GlitchPass,
         Text,
-        HalftonePass,
+        BokehPass,
         UnrealBloomPass,
         VRButton
     },
@@ -107,13 +131,26 @@ export default {
             boxColor2: '#ffffff',
             boxColor3: '#ffffff',
             boxColor4: '#ffffff',
+            boxColor6: '#ffffff',
             scale2: 1,
             seg: 3,
             rotationAngle: 0,
             rotationSpeed: 0.002,
+            arc: 0,
+            mouseX: 0,
+            mouseY: 0,
         };
     },
     mounted() {
+        // Check if device orientation is supported
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', this.windowDeviceOrientationHandler);
+        }
+
+        // Check if device motion is supported
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', this.windowDeviceMotionHandler);
+        }
         document.addEventListener('mousemove', this.onMouseMove);
 
         this.$refs.vrbutton.init(this.$refs.renderer.renderer)
@@ -121,9 +158,20 @@ export default {
         scene.fog = new Fog(0x555555, 200, 1000);
 
         const grid = new GridHelper(2000, 20, 0x000000, 0x000000);
-        grid.material.opacity = 0.25;
+        grid.material.opacity = 0.8;
         grid.material.transparent = true;
         this.$refs.scene.add(grid);
+        const renderer = this.$refs.renderer;
+        renderer.onBeforeRender(() => {
+            const time = Date.now() * 0.001;
+            const d = 100;
+            this.rotationAngle = Math.sin(time * 0.1) * d;
+            this.arc = Math.sin(time * 0.1) * d / 6.283185307179586;
+
+
+
+
+        });
     },
     computed: {
         wireframe() {
@@ -136,58 +184,50 @@ export default {
         },
     },
     methods: {
-        rotateGroupElement() {
-            const groupElement = this.$refs.group;
-            let rotationAngle = 0;
+        windowDeviceOrientationHandler(event) {
+            // Update the orientation based on the device's alpha, beta, and gamma values
+            // Adjust the values as needed to match your desired effect
+            //const alpha = event.alpha || 0;
+            const beta = event.beta || 0;
+            const gamma = event.gamma || 0;
 
-            const updateRotation = () => {
-                groupElement.style.transform = `rotateZ(${rotationAngle}rad)`;
-            };
+            // Calculate the adjusted mouseX and mouseY values based on device orientation
+            const adjustedMouseX = (beta - 90) * 2;
+            const adjustedMouseY = (gamma - 90) * 2;
 
-            const animate = () => {
-                const rotationSpeed = 0.002; // Adjust the rotation speed as desired
+            this.mouseX = adjustedMouseX;
+            this.mouseY = adjustedMouseY;
+        },
 
-                rotationAngle += rotationSpeed;
+        windowDeviceMotionHandler(event) {
+            // Update the acceleration based on the device's acceleration values
+            // Adjust the values as needed to match your desired effect
+            const accelerationX = event.accelerationIncludingGravity.x || 0;
+            const accelerationY = event.accelerationIncludingGravity.y || 0;
+            //const accelerationZ = event.accelerationIncludingGravity.z || 0;
 
-                updateRotation();
+            // Calculate the adjusted mouseX and mouseY values based on device acceleration
+            const adjustedMouseX = accelerationX * 2;
+            const adjustedMouseY = accelerationY * 2;
 
-                if (!this.stopAnimation) {
-                    requestAnimationFrame(animate);
-                }
-            };
-
-            this.stopAnimation = false;
-            animate();
+            this.mouseX = adjustedMouseX;
+            this.mouseY = adjustedMouseY;
         },
         boxOver1({ over }) {
             this.boxColor1 = over ? '#ff0000' : '#ffffff';
+            this.boxColor6 = over ? '#ff0000' : '#ffffff';
         },
         boxOver2({ over }) {
             this.boxColor2 = over ? '#ff0000' : '#ffffff';
         },
         boxOver3({ over }) {
             this.boxColor3 = over ? '#ff0000' : '#ffffff';
+            this.boxColor6 = over ? '#ff0000' : '#ffffff';
         },
         boxOver4({ over }) {
             this.boxColor4 = over ? '#ff0000' : '#ffffff';
         },
-       
-    animateRotation() {
-      // Get the group element reference
-      const groupElement = this.$refs.group;
 
-      // Define the animation loop
-      const animate = () => {
-        // Rotate the group element on the z-axis
-        groupElement.rotation.z += this.rotationSpeed;
-
-        // Request the next animation frame
-        groupElement.requestAnimationFrame(animate);
-      };
-
-      // Start the animation loop
-      animate();
-    },
         boxClick(e) {
             //alert('Click');
             this.rotationAngle += Math.PI / 2;
@@ -207,14 +247,8 @@ export default {
         onMouseMove(event) {
             const windowHalfX = window.innerWidth / 2;
             const windowHalfY = window.innerHeight / 2;
-            const mouseX = event.clientX - windowHalfX;
-            const mouseY = event.clientY - windowHalfY;
-
-            // Adjust camera position based on mouse position
-            const cameraPosition = this.$refs.camera.position;
-            cameraPosition.x = mouseX * 0.5;
-            cameraPosition.y = mouseY * 0.5;
-            cameraPosition.z = 300;
+            this.mouseX = (event.clientX - windowHalfX) * 0.5;
+            this.mouseY = (event.clientY - windowHalfY) * 0.5;
         },
         onLoad(object) {
             this.mixer = new AnimationMixer(object);
