@@ -1,6 +1,6 @@
 <template>
     <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{autoRotate: false, enableDamping: true, target }" resize shadow>
-        <Camera :position="{ x: -50, y: 200, z: 500 }" :lookAt="Group" />
+        <Camera :position="{ x: 0, y: 130, z: 400 }" :lookAt="Group" />
         <Scene ref="scene" background="#AAAAAA">
             <HemisphereLight />
     
@@ -76,7 +76,7 @@
             <FXAAPass />
             <UnrealBloomPass :radius="0.05" :strength="0.4" />
             <GlitchPass :mode="1" :dtSize="33" :dtInterval="3000" :dtThreshold="0.9" />
-            <ZoomBlurPass :strength="0.00001" :center="{ x: -mouseX  / 4, y: mouseY / 4 }" />
+            <ZoomBlurPass :strength="0.0001" :center="{ x: -mouseX  / 4, y: mouseY / 4 }" />
     
         </EffectComposer>
     </Renderer>
@@ -125,7 +125,7 @@ export default {
     },
     data() {
         return {
-            target: new Vector3(0, 100, 0),
+            target: new Vector3(0, 130, 0),
             boxColor1: '#000000',
             boxColor2: '#000000',
             boxColor3: '#000000',
@@ -273,20 +273,21 @@ export default {
   
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @font-face {
     font-family: 'uno';
     src: url(../assets/unoestado.ttf);
 }
 
 .vr {
-    width: 210px !important;
+    width: 200px !important;
     left: unset !important;
     right: 20px;
     box-shadow: 0px 0px 10px;
     text-shadow: 0px 0px 10px;
     padding: 8px 8px !important;
-    font-family: 'uno' !important;
+    font-weight:400;
+    font-family: 'Poppins', sans-serif!important;
     border-radius: unset !important;
     border-width: 3px !important;
 }

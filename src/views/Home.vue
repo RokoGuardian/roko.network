@@ -13,7 +13,7 @@
             </div>
     
         </div>
-        <div class="perspective"  style="cursor:none!important;">
+        <div class="perspective"  style="cursor:crosshair!important;">
             <Glorp  />
     
         </div>
