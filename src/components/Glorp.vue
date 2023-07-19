@@ -22,7 +22,7 @@
             <Torus style="transition:all 0.5s ease;" :arc="6.283185307179586" :radius="100" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 60 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
             </Torus>
-            <Group :position="{x: 0, y: 150, z: 60 }" :rotation="groupRotation">
+            <Group :ref="group" :position="{x: 0, y: 150, z: 60 }" :rotation="groupRotation">
                 <Icosahedron @pointerOver="boxOver1" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: -60, y: 35, z: 60 }" cast-shadow="true" receive-shadow>
                     <PhongMaterial :color="boxColor1" opacity="0.5" :props="{ depthWrite: true }" />
                 </Icosahedron>
@@ -39,17 +39,17 @@
             </Group>
     
             <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -60, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                            <PhongMaterial :color="boxColor1"  />
-                                                                                                                                          </Text>
+                                                                                                                                                            <PhongMaterial :color="boxColor1"  />
+                                                                                                                                                          </Text>
             <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -20, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                            <PhongMaterial :color="boxColor2"  />
-                                                                                                                                          </Text>
+                                                                                                                                                            <PhongMaterial :color="boxColor2"  />
+                                                                                                                                                          </Text>
             <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 20, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                            <PhongMaterial :color="boxColor3"  />
-                                                                                                                                          </Text>
+                                                                                                                                                            <PhongMaterial :color="boxColor3"  />
+                                                                                                                                                          </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: seg }" :cast-shadow="true">
-                                                                                                                                        <PhongMaterial :color="boxColor4"  />
-                                                                                                                                      </Text>
+                                                                                                                                                        <PhongMaterial :color="boxColor4"  />
+                                                                                                                                                      </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer>
@@ -110,6 +110,7 @@ export default {
             scale2: 1,
             seg: 3,
             rotationAngle: 0,
+            rotationSpeed: 0.002,
         };
     },
     mounted() {
@@ -135,6 +136,29 @@ export default {
         },
     },
     methods: {
+        rotateGroupElement() {
+            const groupElement = this.$refs.group;
+            let rotationAngle = 0;
+
+            const updateRotation = () => {
+                groupElement.style.transform = `rotateZ(${rotationAngle}rad)`;
+            };
+
+            const animate = () => {
+                const rotationSpeed = 0.002; // Adjust the rotation speed as desired
+
+                rotationAngle += rotationSpeed;
+
+                updateRotation();
+
+                if (!this.stopAnimation) {
+                    requestAnimationFrame(animate);
+                }
+            };
+
+            this.stopAnimation = false;
+            animate();
+        },
         boxOver1({ over }) {
             this.boxColor1 = over ? '#ff0000' : '#ffffff';
         },
@@ -147,47 +171,37 @@ export default {
         boxOver4({ over }) {
             this.boxColor4 = over ? '#ff0000' : '#ffffff';
         },
-        animateRotation() {
-            const groupElement = this.$refs.group.$el;
+       
+    animateRotation() {
+      // Get the group element reference
+      const groupElement = this.$refs.group;
 
-            // Set initial rotation angle
-            let rotationAngle = 0;
+      // Define the animation loop
+      const animate = () => {
+        // Rotate the group element on the z-axis
+        groupElement.rotation.z += this.rotationSpeed;
 
-            const updateRotation = () => {
-                groupElement.style.transform = `rotateZ(${rotationAngle}rad)`;
-            };
+        // Request the next animation frame
+        groupElement.requestAnimationFrame(animate);
+      };
 
-            const animate = (timestamp) => {
-                const rotationSpeed = 0.002; // Adjust the rotation speed as desired
-
-                // Calculate rotation angle based on time
-                rotationAngle = rotationSpeed * timestamp;
-
-                updateRotation();
-
-                // Continue animation until stopped
-                if (!this.stopAnimation) {
-                    requestAnimationFrame(animate);
-                }
-            };
-
-            // Start animation
-            this.stopAnimation = false;
-            requestAnimationFrame(animate);
-        },
+      // Start the animation loop
+      animate();
+    },
         boxClick(e) {
             //alert('Click');
             this.rotationAngle += Math.PI / 2;
             this.scale2 = 1.2;
             this.scale1 = 1;
-            this.seg++;this.stopAnimation = true;
+            this.seg++;
 
-      // Delay before restarting the animation
-      setTimeout(() => {
-        this.stopAnimation = false;
-        this.animateRotation();
-      }, 1000); // Adjust the delay time as desired
+            // Delay before restarting the animation
+            setTimeout(() => {
+                this.stopAnimation = false;
+                this.animateRotation();
+            }, 1000); // Adjust the delay time as desired
             console.log(e);
+            this.rotateGroupElement();
 
         },
         onMouseMove(event) {
