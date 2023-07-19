@@ -1,5 +1,5 @@
 <template>
-    <div class="apparea">
+    <div class="apparea" >
         <div class="centered">
     
             <Circle class="circ" />
@@ -101,7 +101,7 @@ p {
     .centered {
         width: 1024px;
         max-width: calc(100% - 4rem);
-        display: flex;
+        display: none;
         flex-flow: column;
         margin: auto;
         justify-content: center;

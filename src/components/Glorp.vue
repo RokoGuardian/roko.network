@@ -1,515 +1,244 @@
 <template>
-    <div ref="container" class="webgl-container">
-    </div>
+    <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{ enableDamping: true, target }" resize shadow>
+        <Camera :position="{ x: 100, y: 200, z: 300 }" :lookAt="{x: 10}" />
+        <Scene ref="scene" background="#555555">
+            <HemisphereLight />
+    
+            <DirectionalLight :position="{ x: 50, y: 50, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
+    
+            <Plane :width="2000" :height="2000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
+                <PhongMaterial color="#555" :props="{ depthWrite: false }" />
+            </Plane>
+    
+    
+            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 40 }" cast-shadow="true" receive-shadow>
+                <PhongMaterial color="#ff0000" :props="{ depthWrite: true }" />
+            </Torus>
+    
+            <Torus style="transition:all 0.5s ease;" :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 80 }" cast-shadow="true" receive-shadow>
+                <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
+            </Torus>
+    
+            <Torus style="transition:all 0.5s ease;" :arc="6.283185307179586" :radius="100" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 60 }" cast-shadow="true" receive-shadow>
+                <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
+            </Torus>
+            <Group :position="{x: 0, y: 150, z: 60 }" :rotation="groupRotation">
+                <Icosahedron @pointerOver="boxOver1" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: -60, y: 35, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor1" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+                <Icosahedron @pointerOver="boxOver2" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 60, y: 35, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor2" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+                <Icosahedron @pointerOver="boxOver3" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: 0, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor3" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+                <Icosahedron @pointerOver="boxOver4" @click="boxClick" :detail="3" :radius="1" :tubularSegments="3" :scale="{ x: 1, y: 1, z: 1 }" :rotation="{ z: -Math.PI / 2 }" :position="{ x: 0, y: -70, z: 60 }" cast-shadow="true" receive-shadow>
+                    <PhongMaterial :color="boxColor4" opacity="0.5" :props="{ depthWrite: true }" />
+                </Icosahedron>
+    
+            </Group>
+    
+            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -60, y: 140, z: seg }" :cast-shadow="true">
+                                                                                                                                            <PhongMaterial :color="boxColor1"  />
+                                                                                                                                          </Text>
+            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -20, y: 140, z: seg }" :cast-shadow="true">
+                                                                                                                                            <PhongMaterial :color="boxColor2"  />
+                                                                                                                                          </Text>
+            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 20, y: 140, z: seg }" :cast-shadow="true">
+                                                                                                                                            <PhongMaterial :color="boxColor3"  />
+                                                                                                                                          </Text>
+            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: seg }" :cast-shadow="true">
+                                                                                                                                        <PhongMaterial :color="boxColor4"  />
+                                                                                                                                      </Text>
+            <VRButton class="vr" ref="vrbutton" />
+        </Scene>
+        <EffectComposer>
+            <RenderPass />
+            <SMAAPass />
+            <HalftonePass :radius="1" :scatter="0.15" />
+            <UnrealBloomPass :strength="0.12" />
+        </EffectComposer>
+    </Renderer>
 </template>
-
+  
 <script>
-import { ref, onMounted, onUnmounted } from "vue";
+// Model from mixamo.com
+import { AnimationMixer, Clock, Fog, GridHelper, Vector3, IcosahedronGeometry, LineSegments, WireframeGeometry } from 'three';
 import {
-    PerspectiveCamera,
+    Camera,
+    Torus,
+    DirectionalLight,
+    HemisphereLight,
+    Renderer,
+    PhongMaterial,
+    Plane,
     Scene,
-    WebGLRenderer,
-    sRGBEncoding,
-    Float32BufferAttribute,
-    LineBasicMaterial,
-    LineSegments,
-    Vector2,
-    PointsMaterial,
-    Points,
-    BufferGeometry,
-    BufferAttribute,
-    Color,
-} from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import { CopyShader } from "three/examples/jsm/shaders/CopyShader.js";
-import { ImprovedNoise } from "three/examples/jsm/math/ImprovedNoise.js";
+    EffectComposer,
+    RenderPass,
+    SMAAPass,
+    HalftonePass,
+    Text,
+    UnrealBloomPass,
+} from 'troisjs';
+import VRButton from 'troisjs/src/components/misc/VRButton.vue'
 
 export default {
-    name: "WebGLScene",
-    setup() {
-        const container = ref(null);
-        let scene,
-            camera,
-            renderer,
-            particles,
-            lines,
-            grid,
-            composer,
-            frameCounter = 0,
-            updateFrequency = 10;
-        const particleCount = 100;
-        const gravityStrength = 0.00001;
-        const thresholdDistance = 22;
-        const rotationSpeed = 0.01;
-        const acceleration = 0.005;
-        let rotateX = 0;
-        let rotateY = 0;
-        let rotateXTarget = 0;
-        let rotateYTarget = 0;
-        let isMouseDown = false;
-        const noise = new ImprovedNoise();
-        const noiseIntensity = 0.1;
-        const noiseScale = 0.1;
+    components: {
+        Camera,
+        Torus,
+        DirectionalLight,
+        HemisphereLight,
+        Renderer,
+        PhongMaterial,
+        Plane,
+        Scene,
+        EffectComposer,
+        RenderPass,
+        SMAAPass,
+        Text,
+        HalftonePass,
+        UnrealBloomPass,
+        VRButton
+    },
+    data() {
+        return {
+            target: new Vector3(0, 100, 0),
+            boxColor1: '#ffffff',
+            boxColor2: '#ffffff',
+            boxColor3: '#ffffff',
+            boxColor4: '#ffffff',
+            scale2: 1,
+            seg: 3,
+            rotationAngle: 0,
+        };
+    },
+    mounted() {
+        document.addEventListener('mousemove', this.onMouseMove);
 
-        function createLines(particles) {
-            const lineMaterial = new LineBasicMaterial({ color: 0xff5555 });
-            const lineGeometry = new BufferGeometry();
-            const vertices = [];
+        this.$refs.vrbutton.init(this.$refs.renderer.renderer)
+        const scene = this.$refs.scene.scene;
+        scene.fog = new Fog(0x555555, 200, 1000);
 
-            for (let i = 0; i < particles.length; i += 3) {
-                const x1 = particles[i];
-                const y1 = particles[i + 1];
-                const z1 = particles[i + 2];
+        const grid = new GridHelper(2000, 20, 0x000000, 0x000000);
+        grid.material.opacity = 0.25;
+        grid.material.transparent = true;
+        this.$refs.scene.add(grid);
+    },
+    computed: {
+        wireframe() {
+            const icosahedronGeometry = new IcosahedronGeometry(40, 3);
+            const wireframeGeometry = new WireframeGeometry(icosahedronGeometry);
+            return new LineSegments(wireframeGeometry);
+        },
+        groupRotation() {
+            return { z: this.rotationAngle };
+        },
+    },
+    methods: {
+        boxOver1({ over }) {
+            this.boxColor1 = over ? '#ff0000' : '#ffffff';
+        },
+        boxOver2({ over }) {
+            this.boxColor2 = over ? '#ff0000' : '#ffffff';
+        },
+        boxOver3({ over }) {
+            this.boxColor3 = over ? '#ff0000' : '#ffffff';
+        },
+        boxOver4({ over }) {
+            this.boxColor4 = over ? '#ff0000' : '#ffffff';
+        },
+        animateRotation() {
+            const groupElement = this.$refs.group.$el;
 
-                for (let j = i + 3; j < particles.length; j += 3) {
-                    const x2 = particles[j];
-                    const y2 = particles[j + 1];
-                    const z2 = particles[j + 2];
+            // Set initial rotation angle
+            let rotationAngle = 0;
 
-                    const distance = Math.sqrt(
-                        (x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2
-                    );
-                    if (distance < 1) {
-                        vertices.push(x1, y1, z1);
-                        vertices.push(x2, y2, z2);
-                    }
-                }
-            }
-
-            for (let i = 0; i < vertices.length; i += 6) {
-                const x1 = vertices[i];
-                const y1 = vertices[i + 1];
-                const z1 = vertices[i + 2];
-                const x2 = vertices[i + 3];
-                const y2 = vertices[i + 4];
-                const z2 = vertices[i + 5];
-
-                const nx = noise.noise(x1 * noiseScale, y1 * noiseScale, z1 * noiseScale) * noiseIntensity;
-                const ny = noise.noise(x2 * noiseScale, y2 * noiseScale, z2 * noiseScale) * noiseIntensity;
-
-                vertices[i] += nx;
-                vertices[i + 1] += ny;
-                vertices[i + 2] += nx;
-                vertices[i + 3] += ny;
-            }
-
-            lineGeometry.setAttribute(
-                "position",
-                new Float32BufferAttribute(vertices, 3)
-            );
-            lines = new LineSegments(lineGeometry, lineMaterial);
-            scene.add(lines);
-        }
-
-        function updateLines() {
-            const lineGeometry = lines.geometry;
-            const positions = particles.geometry.attributes.position.array;
-            const vertices = [];
-
-            for (let i = 0; i < positions.length; i += 3) {
-                const x1 = positions[i];
-                const y1 = positions[i + 1];
-                const z1 = positions[i + 2];
-
-                for (let j = i + 3; j < positions.length; j += 3) {
-                    const x2 = positions[j];
-                    const y2 = positions[j + 1];
-                    const z2 = positions[j + 2];
-
-                    const distance = Math.sqrt(
-                        (x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2
-                    );
-                    if (distance < 1) {
-                        vertices.push(x1, y1, z1);
-                        vertices.push(x2, y2, z2);
-                    }
-                }
-            }
-
-            lineGeometry.setAttribute(
-                "position",
-                new Float32BufferAttribute(vertices, 3)
-            );
-            lineGeometry.attributes.position.needsUpdate = true;
-        }
-
-        function createGrid() {
-            const gridMaterial = new LineBasicMaterial({
-                vertexColors: true,
-                transparent: true,
-                opacity: 1.0,
-            });
-            const gridGeometry = new BufferGeometry();
-            const gridSize = 10;
-            const divisions = 10;
-            const stepSize = gridSize / divisions;
-            const vertices = [];
-            const colors = [];
-
-            for (let i = -gridSize; i <= gridSize; i += stepSize) {
-                const alpha = Math.abs(i / gridSize); // Calculate alpha value based on distance from center
-                const color = new Color(0xff0000);
-                color.multiplyScalar(1 - alpha); // Fade out the color towards the edges
-
-                vertices.push(i, 0, -gridSize, i, 0, gridSize);
-                vertices.push(-gridSize, 0, i, gridSize, 0, i);
-
-                colors.push(color.r, color.g, color.b);
-                colors.push(color.r, color.g, color.b);
-                colors.push(color.r, color.g, color.b);
-                colors.push(color.r, color.g, color.b);
-            }
-
-            gridGeometry.setAttribute(
-                "position",
-                new Float32BufferAttribute(vertices, 3)
-            );
-            gridGeometry.setAttribute(
-                "color",
-                new Float32BufferAttribute(colors, 3)
-            );
-
-            grid = new LineSegments(gridGeometry, gridMaterial);
-            scene.add(grid);
-        }
-
-        function createParticles() {
-            const particlesGeometry = new BufferGeometry();
-            const particlesMaterial = new PointsMaterial({
-                size: 0.01,
-                vertexColors: true,
-            });
-
-            const positions = new Float32Array(particleCount * 3);
-            const velocities = new Float32Array(particleCount * 3);
-            const targets = new Float32Array(particleCount * 3);
-            for (let i = 0; i < particleCount; i++) {
-                const i3 = i * 3;
-                positions[i3] = (Math.random() - 0.5) * 10;
-                positions[i3 + 1] = (Math.random() - 0.5) * 10;
-                positions[i3 + 2] = (Math.random() - 0.5) * 10;
-                velocities[i3] = (Math.random() - 0.5) * 0.02;
-                velocities[i3 + 1] = (Math.random() - 0.5) * 0.02;
-                velocities[i3 + 2] = (Math.random() - 0.5) * 0.02;
-                targets[i3] = positions[i3];
-                targets[i3 + 1] = positions[i3 + 1];
-                targets[i3 + 2] = positions[i3 + 2];
-            }
-
-            particlesGeometry.setAttribute(
-                "position",
-                new BufferAttribute(positions, 3)
-            );
-            particlesGeometry.setAttribute(
-                "velocity",
-                new BufferAttribute(velocities, 3)
-            );
-            particlesGeometry.setAttribute(
-                "target",
-                new BufferAttribute(targets, 3)
-            );
-
-            particles = new Points(particlesGeometry, particlesMaterial);
-            scene.add(particles);
-        }
-
-        function applyGravity() {
-            const positions = particles.geometry.attributes.position.array;
-
-            for (let i = 0; i < positions.length; i += 3) {
-                const x1 = positions[i];
-                const y1 = positions[i + 1];
-                const z1 = positions[i + 2];
-
-                for (let j = i + 3; j < positions.length; j += 3) {
-                    const x2 = positions[j];
-                    const y2 = positions[j + 1];
-                    const z2 = positions[j + 2];
-
-                    const distance = Math.sqrt(
-                        (x2 - x1) ** 2 + (y2 - y1) ** 2 + (z2 - z1) ** 2
-                    );
-                    if (distance < thresholdDistance) {
-                        const force = gravityStrength / distance;
-                        const directionX = (x2 - x1) * force;
-                        const directionY = (y2 - y1) * force;
-                        const directionZ = (z2 - z1) * force;
-
-                        particles.geometry.attributes.velocity.array[i] += directionX;
-                        particles.geometry.attributes.velocity.array[i + 1] += directionY;
-                        particles.geometry.attributes.velocity.array[i + 2] += directionZ;
-
-                        particles.geometry.attributes.velocity.array[j] -= directionX;
-                        particles.geometry.attributes.velocity.array[j + 1] -= directionY;
-                        particles.geometry.attributes.velocity.array[j + 2] -= directionZ;
-                    }
-                }
-            }
-
-            particles.geometry.attributes.velocity.needsUpdate = true;
-        }
-
-        function evolveParticles() {
-            if (frameCounter % updateFrequency === 0) {
-                const positions = particles.geometry.attributes.position.array;
-                const velocities = particles.geometry.attributes.velocity.array;
-                const targets = particles.geometry.attributes.target.array;
-
-                for (let i = 0; i < positions.length; i += 3) {
-                    const x = positions[i];
-                    const y = positions[i + 1];
-                    const z = positions[i + 2];
-
-                    let liveNeighborCount = 0;
-
-                    for (let j = 0; j < positions.length; j += 3) {
-                        if (i !== j) {
-                            const neighborX = positions[j];
-                            const neighborY = positions[j + 1];
-                            const neighborZ = positions[j + 2];
-
-                            const distance = Math.sqrt(
-                                (neighborX - x) ** 2 + (neighborY - y) ** 2 + (neighborZ - z) ** 2
-                            );
-                            if (distance < thresholdDistance) {
-                                liveNeighborCount++;
-                            }
-                        }
-                    }
-
-                    if (liveNeighborCount === 2) {
-                        // Cell survives
-                        targets[i] = x;
-                        targets[i + 1] = y;
-                        targets[i + 2] = z;
-                    } else {
-                        // Cell dies or new cell is born
-                        targets[i] = (Math.random() - 0.5) * 10;
-                        targets[i + 1] = (Math.random() - 0.5) * 10;
-                        targets[i + 2] = (Math.random() - 0.5) * 10;
-                    }
-
-                    velocities[i] += (targets[i] - positions[i]) * 0.01;
-                    velocities[i + 1] += (targets[i + 1] - positions[i + 1]) * 0.01;
-                    velocities[i + 2] += (targets[i + 2] - positions[i + 2]) * 0.01;
-                    positions[i] += velocities[i];
-                    positions[i + 1] += velocities[i + 1];
-                    positions[i + 2] += velocities[i + 2];
-                }
-
-                particles.geometry.attributes.position.needsUpdate = true;
-                particles.geometry.attributes.target.needsUpdate = true;
-                updateLines();
-            }
-
-            frameCounter++; // Increment the frame counter
-        }
-
-
-        function createGodRaysPass() {
-            const godRaysShader = {
-                uniforms: {
-                    tDiffuse: { value: null },
-                    resolution: {
-                        value: new Vector2(window.innerWidth, window.innerHeight),
-                    },
-                    lightPosition: { value: new Vector2(0.5, 0.5) },
-                },
-                vertexShader: `
-        varying vec2 vUv;
-
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-                fragmentShader: `
-        varying vec2 vUv;
-        uniform sampler2D tDiffuse;
-        uniform vec2 resolution;
-        uniform vec2 lightPosition;
-
-        float random(vec2 st) {
-          return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
-        }
-
-        void main() {
-          vec2 uv = vUv;
-          vec2 direction = uv - lightPosition;
-
-          float intensity = clamp(1.0 - length(direction), 0.0, 1.0);
-          float mask = smoothstep(0.2, 0.3, intensity);
-
-          float rotationAngle = random(floor(uv * resolution));
-          float sinAngle = sin(rotationAngle);
-          float cosAngle = cos(rotationAngle);
-          direction = vec2(
-            cosAngle * direction.x - sinAngle * direction.y,
-            sinAngle * direction.x + cosAngle * direction.y
-          );
-          direction *= 0.06 / intensity;
-
-          vec4 godRayColor = texture2D(tDiffuse, uv + direction * 0.2);
-
-          // Calculate the shadow-like haze in the opposite direction
-          vec2 oppositeDirection = -direction;
-          vec4 hazeColor = texture2D(tDiffuse, uv + oppositeDirection * 0.1);
-
-          // Apply the god rays and haze
-          vec4 color = godRayColor * intensity * mask + hazeColor * (1.0 - intensity);
-
-          gl_FragColor = color;
-        }
-      `,
+            const updateRotation = () => {
+                groupElement.style.transform = `rotateZ(${rotationAngle}rad)`;
             };
 
-            const godRaysPass = new ShaderPass(godRaysShader);
-            godRaysPass.uniforms.tDiffuse.value = null;
+            const animate = (timestamp) => {
+                const rotationSpeed = 0.002; // Adjust the rotation speed as desired
 
-            return godRaysPass;
-        }
+                // Calculate rotation angle based on time
+                rotationAngle = rotationSpeed * timestamp;
 
-        function handleMouseMove(event) {
-            const { clientX, clientY } = event;
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            const mouseX = clientX - centerX;
-            const mouseY = clientY - centerY;
-            const angleX = (mouseY / centerY) * Math.PI * 0.5;
-            const angleY = (mouseX / centerX) * Math.PI * 0.5;
+                updateRotation();
 
-            // Update the rotation target only if the mouse button is not pressed
-            if (!isMouseDown) {
-                rotateXTarget = angleX;
-                rotateYTarget = angleY;
-            }
-
-            const positions = particles.geometry.attributes.position.array;
-            const targets = particles.geometry.attributes.target.array;
-
-            for (let i = 0; i < positions.length; i += 3) {
-                const x = positions[i];
-                const y = positions[i + 1];
-                const z = positions[i + 2];
-
-                const distance = Math.sqrt(
-                    (x - mouseX) ** 2 + (y - mouseY) ** 2
-                );
-
-                if (distance < 1) {
-                    targets[i] = x;
-                    targets[i + 1] = y + 1;
-                    targets[i + 2] = z;
-                } else {
-                    targets[i] = x;
-                    targets[i + 1] = y;
-                    targets[i + 2] = z;
+                // Continue animation until stopped
+                if (!this.stopAnimation) {
+                    requestAnimationFrame(animate);
                 }
-            }
-        }
-
-        function handleMouseDown() {
-            isMouseDown = true;
-        }
-
-        function handleMouseUp() {
-            isMouseDown = false;
-        }
-
-        onMounted(() => {
-            scene = new Scene();
-            camera = new PerspectiveCamera(
-                90,
-                window.innerWidth / window.innerHeight,
-                0.1,
-                1000
-            );
-            camera.position.set(0, 2, 0); // Update camera position
-            scene.add(camera);
-
-            renderer = new WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.outputEncoding = sRGBEncoding;
-
-            if (container.value) {
-                container.value.appendChild(renderer.domElement);
-            }
-            createParticles();
-            createLines(particles.geometry.attributes.position.array);
-            createGrid();
-
-            document.addEventListener("mousemove", handleMouseMove);
-            document.addEventListener("mousedown", handleMouseDown);
-            document.addEventListener("mouseup", handleMouseUp);
-            document.addEventListener("mouseout", handleMouseUp);
-
-            composer = new EffectComposer(renderer);
-            const renderPass = new RenderPass(scene, camera);
-            composer.addPass(renderPass);
-
-            const bloomPass = new UnrealBloomPass();
-            bloomPass.strength = 0.1;
-            bloomPass.radius = 0.2;
-            bloomPass.threshold = 0.1;
-            composer.addPass(bloomPass);
-
-            const godRaysPass = createGodRaysPass();
-            composer.addPass(godRaysPass);
-
-            const copyPass = new ShaderPass(CopyShader);
-            copyPass.renderToScreen = true;
-            composer.addPass(copyPass);
-
-            const animate = () => {
-                requestAnimationFrame(animate);
-
-                const rotateXDelta = rotateXTarget - rotateX;
-                const rotateYDelta = rotateYTarget - rotateY;
-
-                rotateX += rotateXDelta * acceleration;
-                rotateY += rotateYDelta * acceleration;
-
-                rotateX = Math.max(-Math.PI * 0.25, Math.min(Math.PI * 0.25, rotateX)); // Limit rotation
-
-                camera.position.x = Math.sin(rotateY) * Math.cos(rotateX) * 5;
-                camera.position.y = Math.max(0, camera.position.y); // Prevent camera from going below the grid
-                camera.position.z = Math.cos(rotateY) * Math.cos(rotateX) * 5;
-
-                camera.lookAt(scene.position);
-
-                applyGravity();
-                evolveParticles();
-
-                particles.rotation.x += rotationSpeed;
-                particles.rotation.y += rotationSpeed;
-
-                composer.render();
             };
 
-            animate();
-        });
+            // Start animation
+            this.stopAnimation = false;
+            requestAnimationFrame(animate);
+        },
+        boxClick(e) {
+            //alert('Click');
+            this.rotationAngle += Math.PI / 2;
+            this.scale2 = 1.2;
+            this.scale1 = 1;
+            this.seg++;this.stopAnimation = true;
 
-        onUnmounted(() => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mousedown", handleMouseDown);
-            document.removeEventListener("mouseup", handleMouseUp);
-            document.removeEventListener("mouseout", handleMouseUp);
-            // Clean up code if needed
-        });
+      // Delay before restarting the animation
+      setTimeout(() => {
+        this.stopAnimation = false;
+        this.animateRotation();
+      }, 1000); // Adjust the delay time as desired
+            console.log(e);
 
-        return { container };
+        },
+        onMouseMove(event) {
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+            const mouseX = event.clientX - windowHalfX;
+            const mouseY = event.clientY - windowHalfY;
+
+            // Adjust camera position based on mouse position
+            const cameraPosition = this.$refs.camera.position;
+            cameraPosition.x = mouseX * 0.5;
+            cameraPosition.y = mouseY * 0.5;
+            cameraPosition.z = 300;
+        },
+        onLoad(object) {
+            this.mixer = new AnimationMixer(object);
+            const action = this.mixer.clipAction(object.animations[0]);
+            action.play();
+
+            object.traverse(function(child) {
+                if (child.isMesh) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            });
+
+            this.clock = new Clock();
+            this.$refs.renderer.onBeforeRender(this.updateMixer);
+        },
+        updateMixer() {
+            this.mixer.update(this.clock.getDelta());
+        },
     },
 };
 </script>
+  
 
-<style scoped>
-.webgl-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Space+Mono:wght@400;700&display=swap');
+@font-face {
+    font-family: 'uno';
+    src: url(../assets/unoestado.ttf);
+}
+
+.vr {
+    width: 210px !important;
+    left: unset !important;
+    right: 20px;
+    padding: 8px 8px !important;
+    font-family: 'uno' !important;
+    border-radius: unset !important;
+    border-width: 3px !important;
 }
 </style>
