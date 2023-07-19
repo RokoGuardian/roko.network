@@ -16,7 +16,7 @@
             <DirectionalLight :position="{ x: 50, y: 50, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
     
             <Plane :position="{ x: 0, y: -50, z: 0 }" :width="2000" :height="2000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
-                <PhongMaterial color="#555" :props="{ depthWrite: false }" />
+                <PhongMaterial color="#777" :props="{ depthWrite: false }" />
             </Plane>
     
             <Torus :tube="1" :arc="6.283185307179586" :radius="100" :radialSegments="2" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 40 }" cast-shadow="true" receive-shadow>
