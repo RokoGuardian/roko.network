@@ -11,12 +11,12 @@
             </Plane>
     
     
-            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 40 }" cast-shadow="true" receive-shadow>
+            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 40 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial color="#000000" :props="{ depthWrite: true }" />
             </Torus>
     
     
-            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc , y: arc * 1.5,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: -40 }" cast-shadow="true" receive-shadow>
+            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc , y: arc * 1.5,  z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: -40 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
     
