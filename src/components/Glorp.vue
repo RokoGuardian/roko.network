@@ -179,7 +179,7 @@ export default {
         const scene = this.$refs.scene.scene;
         scene.fog = new Fog(0xAAAAAA, 200, 1000);
 
-        const grid = this.createEquilateralTriangleGrid(2000, 6, 0x000000);
+        const grid = this.createEquilateralTriangleGrid(2000, 6, 0xaaaaaa);
         grid.position.y = -50; // Set the y position to -50 units
         grid.position.z = -300; // Set the y position to -50 units
         grid.rotation.x = 1.570796326794897;
@@ -223,7 +223,7 @@ export default {
         },
         createEquilateralTriangleGrid(size, divisions, color) {
             const halfSize = (size * 1.5) / 2;
-            const triangleHeight = (Math.sqrt(4) * size) / 12;
+            const triangleHeight = (Math.sqrt(7) * size) / 15.9;
             const step = size / divisions;
             const grid = new LineSegments(new BufferGeometry(), new LineBasicMaterial({ color }));
 
