@@ -16,7 +16,7 @@
     
             <DirectionalLight :position="{ x: 50, y: 50, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
     
-            <Plane :width="2000" :height="2000" :rotation="{  x: -Math.PI / 2 }" receive-shadow>
+            <Plane :position="{ x: 0, y: -50, z: 0 }" :width="2000" :height="2000" :rotation="{  x: -Math.PI / 2 }" receive-shadow>
                 <PhongMaterial color="#555" :props="{ depthWrite: false }" />
             </Plane>
     
@@ -172,6 +172,7 @@ export default {
 
         const grid = new GridHelper(2000, 20, 0x000000, 0x000000);
         grid.material.opacity = 0.5;
+        grid.position.y = -50; // Set the y position to -200 units
         grid.material.transparent = true;
         this.$refs.scene.add(grid);
         const renderer = this.$refs.renderer;
