@@ -169,9 +169,12 @@ p {
 .socials {
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin: 0;position:fixed;
+    top: 20px;
+    left: 20px;
     height: 0px !important;
-    filter: invert(0);gap:1rem;
+    filter: invert(0);
+    gap: 1rem;
     a {
         display: flex;
         position: relative;

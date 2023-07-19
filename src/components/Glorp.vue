@@ -15,15 +15,12 @@
                 <PhongMaterial color="#000000" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc * 1.5, y: -arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 80 }" cast-shadow="true" receive-shadow>
-                <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
-            </Torus>
     
             <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc , y: arc * 1.5,  z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: -40 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus :arc="6.283185307179586" :radius="150" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100,  y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 0 }" cast-shadow="true" receive-shadow>
+            <Torus :arc="6.283185307179586" :radius="120" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100,  y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 0 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial :color="boxColor6" opacity="0.5" :props="{ depthWrite: true }" />
             </Torus>
             <Group :ref="group" :position="{x: 0, y: 150, z: 0 }" :rotation="groupRotation">
@@ -58,17 +55,20 @@
             </Group>
     
             <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="true">
-                                                                                                                                                                                                                                                                                    <PhongMaterial :color="boxColor1"  />
-                                                                                                                                                                                                                                                                                  </Text>
+        <PhongMaterial :color="boxColor1"  />
+        </Text>
             <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="true">
-                                                                                                                                                                                                                                                                                    <PhongMaterial :color="boxColor2"  />
-                                                                                                                                                                                                                                                                                  </Text>
+        <PhongMaterial :color="boxColor2"  />
+        </Text>
             <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="true">
-                                                                                                                                                                                                                                                                                    <PhongMaterial :color="boxColor3"  />
-                                                                                                                                                                                                                                                                                  </Text>
+        <PhongMaterial :color="boxColor3"  />
+        </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="true">
-                                                                                                                                                                                                                                                                                <PhongMaterial :color="boxColor4"  />
-                                                                                                                                                                                                                                                                              </Text>
+        <PhongMaterial :color="boxColor4"  />
+        </Text>
+            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/UnoEstado_Regular.json" align="center" :size="10" :height="3" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="true">
+        <PhongMaterial :color="boxColor4"  />
+        </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer>
@@ -102,7 +102,7 @@ import {
     UnrealBloomPass,
 } from 'troisjs';
 import VRButton from 'troisjs/src/components/misc/VRButton.vue'
-import {  GlitchPass } from 'postprocessing';
+import { GlitchPass } from 'postprocessing';
 
 export default {
     components: {
@@ -283,6 +283,8 @@ export default {
     width: 210px !important;
     left: unset !important;
     right: 20px;
+    box-shadow: 0px 0px 10px;
+    text-shadow: 0px 0px 10px;
     padding: 8px 8px !important;
     font-family: 'uno' !important;
     border-radius: unset !important;
