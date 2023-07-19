@@ -171,7 +171,7 @@ p {
     justify-content: center;
     margin: 0;
     height: 0px !important;
-    filter: invert(1);gap:1rem;
+    filter: invert(0);gap:1rem;
     a {
         display: flex;
         position: relative;
