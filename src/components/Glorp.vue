@@ -1,26 +1,38 @@
 <template>
-    <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{autoRotate: false, enableDamping: true, target }" resize shadow>
-        <Camera :position="{ x: 0, y: 130, z: 400 }" :lookAt="Group" />
+    <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{
+                autoRotate: false,
+                enableDamping: true,
+                target,
+                minPolarAngle: -Math.PI / 3,  // Limit vertical rotation to -30 degrees
+                maxPolarAngle: Math.PI / 1.8,   // Limit vertical rotation to 30 degrees
+                minAzimuthAngle: -Math.PI / 3,  // Limit horizontal rotation to -90 degrees
+                maxAzimuthAngle: Math.PI / 3,   // Limit horizontal rotation to 90 degrees
+                minDistance: 300,   // Limit the maximum zoom to a distance of 300 units
+                maxDistance: 600   // Limit the maximum zoom to a distance of 300 units
+              }" resize shadow>
+        <Camera :position="{ x: 0, y: 220, z: 400 }" :lookAt="Group" />
         <Scene ref="scene" background="#AAAAAA">
             <HemisphereLight />
     
             <DirectionalLight :position="{ x: 50, y: 50, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
     
-            <Plane :width="2000" :height="2000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
+            <Plane :width="2000" :height="2000" :rotation="{  x: -Math.PI / 2 }" receive-shadow>
                 <PhongMaterial color="#555" :props="{ depthWrite: false }" />
             </Plane>
     
     
-            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 40 }" cast-shadow="true" receive-shadow>
+            <Torus :tube="1" :arc="6.283185307179586" :radius="100" :radialSegments="2" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc,  z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 40 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial color="#000000" :props="{ depthWrite: true }" />
             </Torus>
     
     
-            <Torus :arc="6.283185307179586" :radius="100" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc , y: arc * 1.5,  z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: -40 }" cast-shadow="true" receive-shadow>
+            <Torus :tube="2" :arc="6.283185307179586" :radius="100" :radialSegments="2" :tubularSegments="3" :scale="{ x:scale1, y: scale1, z: scale1}" :rotation="{ x: -arc , y: arc * 1.5,  z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: -40 }" cast-shadow="true"
+                receive-shadow>
                 <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus :arc="6.283185307179586" :radius="130" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100,  y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 0 }" cast-shadow="true" receive-shadow>
+            <Torus :tube="3" :arc="6.283185307179586" :radialSegments="2" :radius="130" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100,  y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 0 }" cast-shadow="true"
+                receive-shadow>
                 <PhongMaterial :color="boxColor6" opacity="0.5" :props="{ depthWrite: true }" />
             </Torus>
             <Group :ref="group" :position="{x: 0, y: 150, z: 0 }" :rotation="groupRotation">
@@ -54,27 +66,27 @@
     
             </Group>
     
-            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="true">
-        <PhongMaterial :color="boxColor1"  />
-        </Text>
-            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="true">
-        <PhongMaterial :color="boxColor2"  />
-        </Text>
-            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="true">
-        <PhongMaterial :color="boxColor3"  />
-        </Text>
-            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="true">
-        <PhongMaterial :color="boxColor4"  />
-        </Text>
-            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/poppins.json" align="center" :size="13" :height="10" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="true">
-        <PhongMaterial :color="boxColor4"  />
-        </Text>
+            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="false">
+                                <PhongMaterial :color="boxColor1"  />
+                                </Text>
+            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="false">
+                                <PhongMaterial :color="boxColor2"  />
+                                </Text>
+            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="false">
+                                <PhongMaterial :color="boxColor3"  />
+                                </Text>
+            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="false">
+                                <PhongMaterial :color="boxColor4"  />
+                                </Text>
+            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/poppins.json" align="center" :size="13" :height="10" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="false">
+                                <PhongMaterial :color="boxColor4"  />
+                                </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer>
             <RenderPass />
             <FXAAPass />
-            <UnrealBloomPass :radius="0.05" :strength="0.4" />
+            <UnrealBloomPass :radius="0.005" :strength="0.5" />
             <GlitchPass :mode="1" :dtSize="33" :dtInterval="3000" :dtThreshold="0.9" />
             <ZoomBlurPass :strength="0.0001" :center="{ x: -mouseX  / 4, y: mouseY / 4 }" />
     
@@ -138,6 +150,8 @@ export default {
             arc: 0,
             mouseX: 0,
             mouseY: 0,
+            maxHorizontalRotation: 90,
+            maxVerticalRotation: 30
         };
     },
     mounted() {
@@ -191,8 +205,8 @@ export default {
             const gamma = event.gamma || 0;
 
             // Calculate the adjusted mouseX and mouseY values based on device orientation
-            const adjustedMouseX = (beta - 90) * 2;
-            const adjustedMouseY = (gamma - 90) * 2;
+            const adjustedMouseX = Math.max(Math.min((beta - 90) * 2, this.maxHorizontalRotation), -this.maxHorizontalRotation);
+            const adjustedMouseY = Math.max(Math.min((gamma - 90) * 2, this.maxVerticalRotation), -this.maxVerticalRotation);
 
             this.mouseX = adjustedMouseX;
             this.mouseY = adjustedMouseY;
@@ -206,25 +220,26 @@ export default {
             //const accelerationZ = event.accelerationIncludingGravity.z || 0;
 
             // Calculate the adjusted mouseX and mouseY values based on device acceleration
-            const adjustedMouseX = accelerationX * 2;
-            const adjustedMouseY = accelerationY * 2;
+            const adjustedMouseX = Math.max(Math.min(accelerationX * 2, this.maxHorizontalRotation), -this.maxHorizontalRotation);
+            const adjustedMouseY = Math.max(Math.min(accelerationY * 2, this.maxVerticalRotation), -this.maxVerticalRotation);
+
 
             this.mouseX = adjustedMouseX;
             this.mouseY = adjustedMouseY;
         },
         boxOver1({ over }) {
-            this.boxColor1 = over ? '#aaaaaa' : '#000000';
-            this.boxColor6 = over ? '#aaaaaa' : '#000000';
+            this.boxColor1 = over ? '#333333' : '#000000';
+            this.boxColor6 = over ? '#333333' : '#000000';
         },
         boxOver2({ over }) {
-            this.boxColor2 = over ? '#aaaaaa' : '#000000';
+            this.boxColor2 = over ? '#333333' : '#000000';
         },
         boxOver3({ over }) {
-            this.boxColor3 = over ? '#aaaaaa' : '#000000';
-            this.boxColor6 = over ? '#aaaaaa' : '#000000';
+            this.boxColor3 = over ? '#333333' : '#000000';
+            this.boxColor6 = over ? '#333333' : '#000000';
         },
         boxOver4({ over }) {
-            this.boxColor4 = over ? '#aaaaaa' : '#000000';
+            this.boxColor4 = over ? '#333333' : '#000000';
         },
 
         boxClick(e) {
@@ -246,8 +261,12 @@ export default {
         onMouseMove(event) {
             const windowHalfX = window.innerWidth / 2;
             const windowHalfY = window.innerHeight / 2;
-            this.mouseX = (event.clientX - windowHalfX) * 0.5;
-            this.mouseY = (event.clientY - windowHalfY) * 0.5;
+            const mouseX = (event.clientX - windowHalfX) * 0.5;
+            const mouseY = (event.clientY - windowHalfY) * 0.5;
+
+            // Apply range limits to mouseX and mouseY
+            this.mouseX = Math.max(Math.min(mouseX, this.maxHorizontalRotation), -this.maxHorizontalRotation);
+            this.mouseY = Math.max(Math.min(mouseY, this.maxVerticalRotation), -this.maxVerticalRotation);
         },
         onLoad(object) {
             this.mixer = new AnimationMixer(object);
@@ -286,8 +305,8 @@ export default {
     box-shadow: 0px 0px 10px;
     text-shadow: 0px 0px 10px;
     padding: 8px 8px !important;
-    font-weight:400;
-    font-family: 'Poppins', sans-serif!important;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif !important;
     border-radius: unset !important;
     border-width: 3px !important;
 }
