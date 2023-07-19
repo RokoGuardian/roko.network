@@ -173,7 +173,7 @@ p {
     top: 20px;
     left: 20px;
     height: 0px !important;
-    filter: invert(0);
+    filter: invert(0.5);
     gap: 1rem;
     a {
         display: flex;
