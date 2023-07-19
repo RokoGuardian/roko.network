@@ -20,7 +20,7 @@
                 <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus :arc="6.283185307179586" :radius="120" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100,  y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 150, z: 0 }" cast-shadow="true" receive-shadow>
+            <Torus :arc="6.283185307179586" :radius="130" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100,  y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 0 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial :color="boxColor6" opacity="0.5" :props="{ depthWrite: true }" />
             </Torus>
             <Group :ref="group" :position="{x: 0, y: 150, z: 0 }" :rotation="groupRotation">
@@ -54,19 +54,19 @@
     
             </Group>
     
-            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="true">
+            <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor1"  />
         </Text>
-            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="true">
+            <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor2"  />
         </Text>
-            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="true">
+            <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor3"  />
         </Text>
-            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/UnoEstado_Regular.json" align="center" :size="30" :height="5" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="true">
+            <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor4"  />
         </Text>
-            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/UnoEstado_Regular.json" align="center" :size="10" :height="5" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="true">
+            <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/poppins.json" align="center" :size="13" :height="10" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="true">
         <PhongMaterial :color="boxColor4"  />
         </Text>
             <VRButton class="vr" ref="vrbutton" />

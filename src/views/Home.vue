@@ -13,8 +13,8 @@
             </div>
     
         </div>
-        <div class="perspective">
-            <Glorp />
+        <div class="perspective"  style="cursor:none!important;">
+            <Glorp  />
     
         </div>
     </div>
