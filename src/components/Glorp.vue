@@ -15,7 +15,7 @@
             <HemisphereLight />
             <DirectionalLight :position="{ x: 50, y: 50, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
     
-            <Plane :position="{ x: 0, y: -50, z: 0 }" :width="2000" :height="2000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
+            <Plane :position="{ x: 0, y: -100, z: 0 }" :width="5000" :height="5000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
                 <PhongMaterial color="#777" :props="{ depthWrite: false }" />
             </Plane>
     
@@ -177,10 +177,10 @@ export default {
 
         this.$refs.vrbutton.init(this.$refs.renderer.renderer);
         const scene = this.$refs.scene.scene;
-        scene.fog = new Fog(0xAAAAAA, 200, 1000);
+        scene.fog = new Fog(0xAAAAAA, 200, 2000);
 
         const grid = this.createEquilateralTriangleGrid(2000, 6, 0xaaaaaa);
-        grid.position.y = -50; // Set the y position to -50 units
+        grid.position.y = 150; // Set the y position to -50 units
         grid.position.z = -300; // Set the y position to -50 units
         grid.rotation.x = 1.570796326794897;
         this.$refs.scene.add(grid);
