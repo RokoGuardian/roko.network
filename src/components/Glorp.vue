@@ -1,15 +1,15 @@
 <template>
     <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{
-                                                                        autoRotate: false,
-                                                                        enableDamping: true,
-                                                                        target,
-                                                                        minPolarAngle: -Math.PI / 3,
-                                                                        maxPolarAngle: Math.PI / 1.8,
-                                                                        minAzimuthAngle: -Math.PI / 3,
-                                                                        maxAzimuthAngle: Math.PI / 3,
-                                                                        minDistance: 300,
-                                                                        maxDistance: 600,
-                                                                      }" resize shadow>
+                                                                                        autoRotate: false,
+                                                                                        enableDamping: true,
+                                                                                        target,
+                                                                                        minPolarAngle: -Math.PI / 3,
+                                                                                        maxPolarAngle: Math.PI / 1.8,
+                                                                                        minAzimuthAngle: -Math.PI / 3,
+                                                                                        maxAzimuthAngle: Math.PI / 3,
+                                                                                        minDistance: 300,
+                                                                                        maxDistance: 600,
+                                                                                      }" resize shadow>
         <Camera :position="{ x: 0, y: 220, z: 400 }" :lookAt="Group" />
         <Scene ref="scene" background="#AAAAAA">
             <HemisphereLight />
@@ -64,28 +64,27 @@
             </Group>
     
             <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="false">
-                                                                          <PhongMaterial :color="boxColor1" />
-                                                                        </Text>
+                                                                                          <PhongMaterial :color="boxColor1" />
+                                                                                        </Text>
             <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="false">
-                                                                          <PhongMaterial :color="boxColor2" />
-                                                                        </Text>
+                                                                                          <PhongMaterial :color="boxColor2" />
+                                                                                        </Text>
             <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="false">
-                                                                          <PhongMaterial :color="boxColor3" />
-                                                                        </Text>
+                                                                                          <PhongMaterial :color="boxColor3" />
+                                                                                        </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="false">
-                                                                          <PhongMaterial :color="boxColor4" />
-                                                                        </Text>
+                                                                                          <PhongMaterial :color="boxColor4" />
+                                                                                        </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/poppins.json" align="center" :size="13" :height="10" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="false">
-                                                                          <PhongMaterial :color="boxColor4" />
-                                                                        </Text>
+                                                                                          <PhongMaterial :color="boxColor4" />
+                                                                                        </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer ref="composer">
-
-            <RenderPass />
-            <UnrealBloomPass :radius="0.0" :strength="0.5" />
             <FXAAPass />
-
+            <RenderPass />
+            <UnrealBloomPass :strength="0.4" />
+            <SMAAPass />
     
         </EffectComposer>
     </Renderer>
@@ -115,9 +114,8 @@ import {
     Scene,
     EffectComposer,
     RenderPass,
-    FXAAPass,
-    Text,
     UnrealBloomPass,
+    Text,
 } from "troisjs";
 import { ChromaticAberrationEffect } from "postprocessing";
 import VRButton from "troisjs/src/components/misc/VRButton.vue";
@@ -133,7 +131,6 @@ export default {
         Scene,
         EffectComposer,
         RenderPass,
-        FXAAPass,
         Text,
         UnrealBloomPass,
         VRButton,
