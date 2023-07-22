@@ -174,7 +174,7 @@ p {
     left: 20px;
     height: 0px !important;
     filter: invert(0.5);
-    gap: 1rem;
+    gap: 0.5rem;
     a {
         display: flex;
         position: relative;
@@ -185,7 +185,7 @@ p {
         }
     }
     img {
-        height: 32px;
+        height: 24px;
         transition: all 0.5s ease;
         &:nth-child(2) {
             position: absolute;
