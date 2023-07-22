@@ -1,19 +1,19 @@
 <template>
     <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{
-                                                                                        autoRotate: false,
-                                                                                        enableDamping: true,
-                                                                                        target,
-                                                                                        minPolarAngle: -Math.PI / 3,
-                                                                                        maxPolarAngle: Math.PI / 1.8,
-                                                                                        minAzimuthAngle: -Math.PI / 3,
-                                                                                        maxAzimuthAngle: Math.PI / 3,
-                                                                                        minDistance: 300,
-                                                                                        maxDistance: 600,
-                                                                                      }" resize shadow>
+                                                                                            autoRotate: false,
+                                                                                            enableDamping: true,
+                                                                                            target,
+                                                                                            minPolarAngle: -Math.PI / 3,
+                                                                                            maxPolarAngle: Math.PI / 1.8,
+                                                                                            minAzimuthAngle: -Math.PI / 3,
+                                                                                            maxAzimuthAngle: Math.PI / 3,
+                                                                                            minDistance: 300,
+                                                                                            maxDistance: 600,
+                                                                                          }" resize shadow>
         <Camera :position="{ x: 0, y: 220, z: 400 }" :lookAt="Group" />
         <Scene ref="scene" background="#AAAAAA">
             <HemisphereLight />
-            <DirectionalLight :position="{ x: 50, y: 50, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
+            <DirectionalLight :position="{ x: 20, y: 10, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
     
             <Plane :position="{ x: 0, y: -100, z: 0 }" :width="5000" :height="5000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
                 <PhongMaterial color="#777" :props="{ depthWrite: false }" />
@@ -64,26 +64,27 @@
             </Group>
     
             <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                          <PhongMaterial :color="boxColor1" />
-                                                                                        </Text>
+                                                                                              <PhongMaterial :color="boxColor1" />
+                                                                                            </Text>
             <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                          <PhongMaterial :color="boxColor2" />
-                                                                                        </Text>
+                                                                                              <PhongMaterial :color="boxColor2" />
+                                                                                            </Text>
             <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                          <PhongMaterial :color="boxColor3" />
-                                                                                        </Text>
+                                                                                              <PhongMaterial :color="boxColor3" />
+                                                                                            </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                          <PhongMaterial :color="boxColor4" />
-                                                                                        </Text>
+                                                                                              <PhongMaterial :color="boxColor4" />
+                                                                                            </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/poppins.json" align="center" :size="13" :height="10" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="false">
-                                                                                          <PhongMaterial :color="boxColor4" />
-                                                                                        </Text>
+                                                                                              <PhongMaterial :color="boxColor4" />
+                                                                                            </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer ref="composer">
             <FXAAPass />
+            <SSAOPass />
             <RenderPass />
-            <UnrealBloomPass :strength="0.4" />
+            <UnrealBloomPass :strength="0.5" :radius="0.002" />
             <SMAAPass />
     
         </EffectComposer>
