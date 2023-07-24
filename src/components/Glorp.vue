@@ -1,34 +1,34 @@
 <template>
-    <Renderer @mouseover="onMouseMove" ref="renderer" antialias :orbit-ctrl="{
-                                                                                            autoRotate: false,
-                                                                                            enableDamping: true,
-                                                                                            target,
-                                                                                            minPolarAngle: -Math.PI / 3,
-                                                                                            maxPolarAngle: Math.PI / 1.8,
-                                                                                            minAzimuthAngle: -Math.PI / 3,
-                                                                                            maxAzimuthAngle: Math.PI / 3,
-                                                                                            minDistance: 300,
-                                                                                            maxDistance: 600,
-                                                                                          }" resize shadow>
+    <Renderer :alpha="true" @mouseover="onMouseMove" ref="renderer" :antialias="true" :orbit-ctrl="{
+                                                                                                                                autoRotate: false,
+                                                                                                                                enableDamping: true,
+                                                                                                                                target,
+                                                                                                                                minPolarAngle: -Math.PI / 3,
+                                                                                                                                maxPolarAngle: Math.PI / 1.8,
+                                                                                                                                minAzimuthAngle: -Math.PI / 3,
+                                                                                                                                maxAzimuthAngle: Math.PI / 3,
+                                                                                                                                minDistance: 300,
+                                                                                                                                maxDistance: 600,
+                                                                                                                              }" resize shadow>
         <Camera :position="{ x: 0, y: 220, z: 400 }" :lookAt="Group" />
-        <Scene ref="scene" background="#AAAAAA">
+        <Scene ref="scene" background="#EEEEEE">
             <HemisphereLight />
-            <DirectionalLight :position="{ x: 20, y: 10, z: 100 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
+            <DirectionalLight :position="{ x: 40, y: 500, z: 500 }" cast-shadow :shadow-camera="{ top: 180, bottom: -120, left: -120, right: 120 }" />
     
             <Plane :position="{ x: 0, y: -100, z: 0 }" :width="5000" :height="5000" :rotation="{ x: -Math.PI / 2 }" receive-shadow>
-                <PhongMaterial color="#777" :props="{ depthWrite: false }" />
+                <PhongMaterial color="#aaa" :props="{ depthWrite: false }" />
             </Plane>
     
-            <Torus :tube="1" :arc="6.283185307179586" :radius="100" :radialSegments="2" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 40 }" cast-shadow="true" receive-shadow>
+            <Torus :tube="1" :arc="6.283185307179586" :radius="100" :radialSegments="3" :tubularSegments="3" :scale="{ x: scale2, y: scale2, z: scale2 }" :rotation="{ x: arc, y: arc, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 40 }" cast-shadow="true" receive-shadow>
                 <PhongMaterial color="#000000" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus :tube="2" :arc="6.283185307179586" :radius="100" :radialSegments="2" :tubularSegments="3" :scale="{ x: scale1, y: scale1, z: scale1 }" :rotation="{ x: -arc, y: arc * 1.5, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: -40 }" cast-shadow="true"
+            <Torus :tube="2" :arc="6.283185307179586" :radius="100" :radialSegments="3" :tubularSegments="3" :scale="{ x: scale1, y: scale1, z: scale1 }" :rotation="{ x: -arc, y: arc * 1.5, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: -40 }" cast-shadow="true"
                 receive-shadow>
                 <PhongMaterial :color="boxColor3" :props="{ depthWrite: true }" />
             </Torus>
     
-            <Torus :tube="3" :arc="6.283185307179586" :radialSegments="2" :radius="130" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100, y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 0 }" cast-shadow="true"
+            <Torus :tube="3" :arc="6.283185307179586" :radialSegments="3" :radius="130" :tubularSegments="seg" :scale="{ x: 1.2, y: 1.2, z: 1.2 }" :rotation="{ x: mouseY / arc / 100, y: mouseX / arc / 100, z: -Math.PI / 2 }" :position="{ x: 0, y: 130, z: 0 }" cast-shadow="true"
                 receive-shadow>
                 <PhongMaterial :color="boxColor6" opacity="0.5" :props="{ depthWrite: true }" />
             </Torus>
@@ -64,35 +64,31 @@
             </Group>
     
             <Text @pointerOver="boxOver1" @click="boxClick" text="R" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -60, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                              <PhongMaterial :color="boxColor1" />
-                                                                                            </Text>
+                                                                                                                                  <PhongMaterial :color="boxColor1" />
+                                                                                                                                </Text>
             <Text @pointerOver="boxOver2" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: -20, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                              <PhongMaterial :color="boxColor2" />
-                                                                                            </Text>
+                                                                                                                                  <PhongMaterial :color="boxColor2" />
+                                                                                                                                </Text>
             <Text @pointerOver="boxOver3" @click="boxClick" text="K" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 20, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                              <PhongMaterial :color="boxColor3" />
-                                                                                            </Text>
+                                                                                                                                  <PhongMaterial :color="boxColor3" />
+                                                                                                                                </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="O" font-src="/poppins.json" align="center" :size="30" :height="10" :position="{ x: 60, y: 140, z: 0 }" :cast-shadow="false">
-                                                                                              <PhongMaterial :color="boxColor4" />
-                                                                                            </Text>
+                                                                                                                                  <PhongMaterial :color="boxColor4" />
+                                                                                                                                </Text>
             <Text @pointerOver="boxOver4" @click="boxClick" text="N  E  T  W  O  R  K" font-src="/poppins.json" align="center" :size="13" :height="10" :position="{ x: 0, y: 110, z: 0 }" :cast-shadow="false">
-                                                                                              <PhongMaterial :color="boxColor4" />
-                                                                                            </Text>
+                                                                                                                                  <PhongMaterial :color="boxColor4" />
+                                                                                                                                </Text>
             <VRButton class="vr" ref="vrbutton" />
         </Scene>
         <EffectComposer ref="composer">
             <FXAAPass />
-            <SSAOPass />
+
             <RenderPass />
-            <UnrealBloomPass :strength="0.5" :radius="0.002" />
-            <SMAAPass />
-    
         </EffectComposer>
     </Renderer>
 </template>
   
 <script>
-// Model from mixamo.com
 import {
     AnimationMixer,
     Clock,
@@ -115,7 +111,6 @@ import {
     Scene,
     EffectComposer,
     RenderPass,
-    UnrealBloomPass,
     Text,
 } from "troisjs";
 import { ChromaticAberrationEffect } from "postprocessing";
@@ -133,7 +128,6 @@ export default {
         EffectComposer,
         RenderPass,
         Text,
-        UnrealBloomPass,
         VRButton,
     },
     data() {
@@ -157,8 +151,6 @@ export default {
         };
     },
     mounted() {
-
-
         this.chromaticAberrationEffect = new ChromaticAberrationEffect();
         this.chromaticAberrationEffect.strength = 1.5; // Adjust the strength as needed
 
@@ -187,9 +179,9 @@ export default {
 
         this.$refs.vrbutton.init(this.$refs.renderer.renderer);
         const scene = this.$refs.scene.scene;
-        scene.fog = new Fog(0xAAAAAA, 200, 2000);
+        scene.fog = new Fog(0XEEEEEE, 200, 2000);
 
-        const grid = this.createEquilateralTriangleGrid(3000, 12, 0xaaaaaa);
+        const grid = this.createEquilateralTriangleGrid(3000, 12, 0xEEEEEE);
         grid.position.y = -50; // Set the y position to -50 units
         grid.position.z = -1200; // Set the y position to -50 units
         grid.rotation.x = 1.570796326794897;
