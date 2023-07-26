@@ -13,35 +13,49 @@
             </div>
     
         </div>
-        <div class="perspective"  style="cursor:crosshair!important;">
-            <Glorp  />
+        <div class="perspective" style="cursor:crosshair!important;">
+            <a-scene webxr="requiredFeatures: hit-test,local-floor;
+                                optionalFeatures: dom-overlay,unbounded;
+                                overlayElement: #overlay;">
+                <a-sky :src="currentURL" scale="1 0.5 -1" rotation="0 -130 0"></a-sky>
     
+                <div class="segmentbutton" @click="toggleURL()"></div>
+                <div class="screenshot" @click="screenshot()"></div>
+    
+            </a-scene>
         </div>
     </div>
 </template>
 
 <script>
-import Glorp from '@/components/Glorp.vue';
-
-
 export default {
     name: 'app',
     data() {
         return {
-
+            currentURL: 'https://i.imgur.com/Ih1YFSy.jpeg',
         }
     },
     mounted() {
 
     },
     methods: {
-
+        screenshot() {
+            document.querySelector('a-scene').components.screenshot.capture('equirectangular')
+        },
+        toggleURL() {
+            console.log("Button clicked! Trigger your method here.");
+            if (this.currentURL === 'https://i.imgur.com/EQlNW3K.jpg') {
+                this.currentURL = 'https://i.imgur.com/Ih1YFSy.jpg';
+            } else {
+                this.currentURL = 'https://i.imgur.com/EQlNW3K.jpg';
+            }
+        },
     },
     computed: {
 
     },
     watch: {},
-    components: { Glorp, },
+    components: {},
 };
 </script>
 
@@ -56,6 +70,64 @@ h1 {}
 
 p {
     font-family: 'Space Mono', monospace;
+}
+
+.segmentbutton {
+    border: 0;
+    bottom: 1.2rem;
+    cursor: pointer;
+    min-width: 100px;
+    background: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    &:after {
+        font-family: 'Space Mono', monospace;
+        content: 'SEGMENT';
+        color: black;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+    min-height: 34px;
+    padding-right: 0;
+    padding-top: 0;
+    position: fixed;
+    right: 90px;
+    z-index: 9999;
+    border-radius: 8px;
+    &:hover {
+        filter: invert(1);
+    }
+}
+
+.screenshot {
+    border: 0;
+    bottom: 1.2rem;
+    cursor: pointer;
+    min-width: 120px;
+    background: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    &:after {
+        font-family: 'Space Mono', monospace;
+        content: 'SCREENSHOT';
+        color: black;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+    min-height: 34px;
+    padding-right: 0;
+    padding-top: 0;
+    position: fixed;
+    right: 205px;
+    z-index: 9999;
+    border-radius: 8px;
+    &:hover {
+        filter: invert(1);
+    }
 }
 
 .perspective {
@@ -169,11 +241,12 @@ p {
 .socials {
     display: flex;
     justify-content: center;
-    margin: 0;position:fixed;
+    margin: 0;
+    position: fixed;
     top: 20px;
     left: 20px;
     height: 0px !important;
-    filter: invert(0.5);
+    filter: invert(1);
     gap: 0.5rem;
     a {
         display: flex;
