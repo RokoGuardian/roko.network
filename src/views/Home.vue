@@ -15,15 +15,15 @@
         </div>
         <div class="perspective" style="cursor:crosshair!important;">
             <a-scene webxr="requiredFeatures: hit-test,local-floor;
-                                                                        optionalFeatures: dom-overlay,unbounded;
-                                                                        overlayElement: #overlay;">
+                                                                            optionalFeatures: dom-overlay,unbounded;
+                                                                            overlayElement: #overlay;">
                 <a-entity environment="preset: starry; lighting: distant; groundColor: #445; grid: cross"></a-entity>
     
                 <a-entity camera look-controls position="0 5 0"></a-entity>
     
     
-                <a-curvedimage :visible="streamVisible" :src="currentURL" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
-                <a-curvedimage :visible="streamVisible" :src="currentURL2" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult2()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
+                <a-curvedimage :visible="streamVisible" :src="currentURL" :height="10.0 * streamSizeMult" :radius="5 * streamSizeMult" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
+                <a-curvedimage :visible="streamVisible" :src="currentURL2" :height="10.0 * streamSizeMult" :radius="5 * streamSizeMult" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult2()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
     
     
             </a-scene>
@@ -32,11 +32,12 @@
             <div class="segmentbutton" :style="[streamVisible ? {'filter' : 'invert(1)'} : {'filter' : 'invert(0)'}]" @click="streamVisible = !streamVisible"></div>
             <div class="screenshot" @click="screenshot()"></div>
             <div style="position:fixed;opacity:0.5;z-index:1000;width:240px;left:20px;bottom:80px;">
-                <p>Classification</p>
-                <vue3-slider v-model="classificationOpacity" height="10" color="#ff5500" track-color="#FEFEFE" />
-            </div> <div style="position:fixed;z-index:1000;width:240px;left:20px;bottom:150px;">
+                <p>Scale</p>
+                <vue3-slider v-model="streamSizeMult" height="10" color="#ff5500" track-color="#FEFEFE" />
+            </div>
+            <div style="position:fixed;z-index:1000;width:240px;left:20px;bottom:150px;">
                 <p>Segmentation</p>
-                <vue3-slider v-model="streamOpacity" height="10" color="#00aaff" track-color="#FEFEFE" />
+                <vue3-slider v-model="classificationOpacity" height="10" color="#00aaff" track-color="#FEFEFE" />
             </div>
             <div class="roko"></div>
         </div>
@@ -52,6 +53,7 @@ export default {
         return {
             streamOpacity: 50,
             classificationOpacity: 0,
+            streamSizeMult: 1,
             streamVisible: true,
             currentURL: 'https://i.imgur.com/EQlNW3K.jpeg',
             currentURL2: 'https://i.imgur.com/Ih1YFSy.jpeg',
@@ -128,6 +130,27 @@ h1 {}
 
 p {
     font-family: 'Space Mono', monospace;
+}
+
+.a-dialog-text {        font-family: 'Space Mono', monospace!important;
+
+    color: black !important;
+}
+
+.a-dialog-allow-button {        font-family: 'Space Mono', monospace!important;
+
+    color: black !important;
+    background-color: white!important;
+}
+.a-dialog-button {        font-family: 'Space Mono', monospace!important;
+
+    color: black !important;
+    border:1px solid black!important;
+}
+.a-dialog-deny-button {        font-family: 'Space Mono', monospace!important;
+
+    color: white !important;
+    background-color:black!important;
 }
 
 .segmentbutton {
