@@ -15,30 +15,64 @@
         </div>
         <div class="perspective" style="cursor:crosshair!important;">
             <a-scene webxr="requiredFeatures: hit-test,local-floor;
-                                optionalFeatures: dom-overlay,unbounded;
-                                overlayElement: #overlay;">
-                <a-sky :src="currentURL" scale="1 0.5 -1" rotation="0 -130 0"></a-sky>
+                                                                        optionalFeatures: dom-overlay,unbounded;
+                                                                        overlayElement: #overlay;">
+                <a-entity environment="preset: starry; lighting: distant; groundColor: #445; grid: cross"></a-entity>
     
-                <div class="segmentbutton" @click="toggleURL()"></div>
-                <div class="screenshot" @click="screenshot()"></div>
+                <a-entity camera look-controls position="0 5 0"></a-entity>
+    
+    
+                <a-curvedimage :visible="streamVisible" :src="currentURL" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
+                <a-curvedimage :visible="streamVisible" :src="currentURL2" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult2()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
+    
     
             </a-scene>
+    
+    
+            <div class="segmentbutton" :style="[streamVisible ? {'filter' : 'invert(1)'} : {'filter' : 'invert(0)'}]" @click="streamVisible = !streamVisible"></div>
+            <div class="screenshot" @click="screenshot()"></div>
+            <div style="position:fixed;opacity:0.5;z-index:1000;width:240px;left:20px;bottom:80px;">
+                <p>Classification</p>
+                <vue3-slider v-model="classificationOpacity" height="10" color="#ff5500" track-color="#FEFEFE" />
+            </div> <div style="position:fixed;z-index:1000;width:240px;left:20px;bottom:150px;">
+                <p>Segmentation</p>
+                <vue3-slider v-model="streamOpacity" height="10" color="#00aaff" track-color="#FEFEFE" />
+            </div>
+            <div class="roko"></div>
         </div>
     </div>
 </template>
 
 <script>
+import slider from "vue3-slider"
+
 export default {
     name: 'app',
     data() {
         return {
-            currentURL: 'https://i.imgur.com/Ih1YFSy.jpeg',
+            streamOpacity: 50,
+            classificationOpacity: 0,
+            streamVisible: true,
+            currentURL: 'https://i.imgur.com/EQlNW3K.jpeg',
+            currentURL2: 'https://i.imgur.com/Ih1YFSy.jpeg',
         }
     },
     mounted() {
-
+        let recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', 'https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js')
+        document.head.appendChild(recaptchaScript)
     },
     methods: {
+        streamOpacityMult() {
+
+            const streamOpacityMultVal = this.streamOpacity * 0.01;
+            return streamOpacityMultVal
+        },
+        streamOpacityMult2() {
+
+            const streamOpacityMultVal2 = (100 - this.streamOpacity) * 0.01;
+            return streamOpacityMultVal2
+        },
         screenshot() {
             document.querySelector('a-scene').components.screenshot.capture('equirectangular')
         },
@@ -50,12 +84,36 @@ export default {
                 this.currentURL = 'https://i.imgur.com/EQlNW3K.jpg';
             }
         },
+        toggleURL2() {
+            console.log("Button clicked! Trigger your method here.");
+            if (this.currentURL2 === 'https://i.imgur.com/EQlNW3K.jpg') {
+                this.currentURL2 = 'https://i.imgur.com/Ih1YFSy.jpg';
+            } else {
+                this.currentURL2 = 'https://i.imgur.com/EQlNW3K.jpg';
+            }
+        },
     },
     computed: {
 
     },
     watch: {},
-    components: {},
+    components: { "vue3-slider": slider },
+    directives: {
+        aframeEnvironment: {
+            bind(el) {
+                // Initialize the <a-entity environment> when the element is bound to the directive
+                const entity = document.createElement('a-entity')
+                entity.setAttribute('environment', {}) // You can pass any options here
+                el.appendChild(entity)
+            },
+            unbind(el) {
+                // Clean up and remove the <a-entity environment> when the element is unbound from the directive
+                while (el.firstChild) {
+                    el.removeChild(el.firstChild)
+                }
+            }
+        }
+    }
 };
 </script>
 
@@ -74,7 +132,7 @@ p {
 
 .segmentbutton {
     border: 0;
-    bottom: 1.2rem;
+    bottom: 20px;
     cursor: pointer;
     min-width: 100px;
     background: white;
@@ -83,7 +141,7 @@ p {
     justify-content: center;
     &:after {
         font-family: 'Space Mono', monospace;
-        content: 'SEGMENT';
+        content: 'CAMERAS';
         color: black;
         position: absolute;
         text-align: center;
@@ -93,7 +151,7 @@ p {
     padding-right: 0;
     padding-top: 0;
     position: fixed;
-    right: 90px;
+    left: 20px;
     z-index: 9999;
     border-radius: 8px;
     &:hover {
@@ -103,7 +161,7 @@ p {
 
 .screenshot {
     border: 0;
-    bottom: 1.2rem;
+    bottom: 20px;
     cursor: pointer;
     min-width: 120px;
     background: white;
@@ -122,7 +180,7 @@ p {
     padding-right: 0;
     padding-top: 0;
     position: fixed;
-    right: 205px;
+    left: 140px;
     z-index: 9999;
     border-radius: 8px;
     &:hover {
@@ -238,6 +296,31 @@ p {
     }
 }
 
+.roko {
+    right: 20px;
+    top: 20px;
+    min-width: 40px;
+    height: auto;
+    min-height: 34px;
+    position: fixed;
+    gap: 0.5rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0px 10px;
+    background-color: white;
+    border-radius: 8px;
+    z-index: 10;
+    &:after {
+        content: 'ROKO';
+        font-family: 'Space Mono', monospace;
+        color: black;
+        position: absolute;
+        text-align: center;
+        width: auto;
+    }
+}
+
 .socials {
     display: flex;
     justify-content: center;
@@ -245,11 +328,17 @@ p {
     position: fixed;
     top: 20px;
     left: 20px;
-    height: 0px !important;
-    filter: invert(1);
+    height: auto;
+    min-height: 34px;
     gap: 0.5rem;
+    padding: 0px 10px;
+    background-color: white;
+    border-radius: 8px;
+    z-index: 10;
     a {
         display: flex;
+        flex-flow: column;
+        justify-content: center;
         position: relative;
         transition: all 0.5s ease;
         transform-origin: 50% 50%;
@@ -258,11 +347,10 @@ p {
         }
     }
     img {
-        height: 24px;
+        height: 20px;
         transition: all 0.5s ease;
         &:nth-child(2) {
-            position: absolute;
-            filter: blur(2px)brightness(2);
+            position: absolute; //filter: blur(2px)brightness(2);
         }
     }
 }
