@@ -37,7 +37,7 @@
             </div>
             <div style="position:fixed;z-index:1000;width:240px;left:20px;bottom:150px;">
                 <p>Segmentation</p>
-                <vue3-slider v-model="classificationOpacity" height="10" color="#00aaff" track-color="#FEFEFE" />
+                <vue3-slider v-model="streamOpacity" height="10" color="#00aaff" track-color="#FEFEFE" />
             </div>
             <div class="roko"></div>
         </div>
