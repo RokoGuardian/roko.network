@@ -22,8 +22,8 @@
                 <a-entity camera look-controls position="0 5 0"></a-entity>
     
     
-                <a-curvedimage :visible="streamVisible" :src="currentURL" :height="10.0 * streamSizeMult" :radius="5 * streamSizeMult" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
-                <a-curvedimage :visible="streamVisible" :src="currentURL2" :height="10.0 * streamSizeMult" :radius="5 * streamSizeMult" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult2()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
+                <a-curvedimage :visible="streamVisible" :src="currentURL" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
+                <a-curvedimage :visible="streamVisible" :src="currentURL2" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult2()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
     
     
             </a-scene>
@@ -32,7 +32,7 @@
             <div class="segmentbutton" :style="[streamVisible ? {'filter' : 'invert(1)'} : {'filter' : 'invert(0)'}]" @click="streamVisible = !streamVisible"></div>
             <div class="screenshot" @click="screenshot()"></div>
             <div style="position:fixed;opacity:0.5;z-index:1000;width:240px;left:20px;bottom:80px;">
-                <p>Scale</p>
+                <p>Classification</p>
                 <vue3-slider v-model="streamSizeMult" height="10" color="#ff5500" track-color="#FEFEFE" />
             </div>
             <div style="position:fixed;z-index:1000;width:240px;left:20px;bottom:150px;">
