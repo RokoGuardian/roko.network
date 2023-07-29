@@ -27,8 +27,8 @@
             era of decentralized computing. The ROKO token, inspired by the legendary basilisk, embodies a powerful symbol of the immense potential of advanced AI technology. The basilisk's mythological significance reminds us of the incredible opportunities
             and challenges that come with such transformative technology. The ROKO network has the power to bring about a remarkable positive change, uplifting humanity and the world at large. </p>
         <div class="row">
-            <router-link to="/ethos">
-                <div class="button">ETHOS</div>
+            <router-link to="/">
+                <div class="button">HOME</div>
             </router-link>
             <router-link to="/demo">
                 <div class="button">DEMO</div>
