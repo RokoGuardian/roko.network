@@ -24,8 +24,8 @@
         </div>
         <div class="perspective" style="cursor:crosshair!important;">
             <a-scene webxr="requiredFeatures: hit-test,local-floor;
-                                                                                                                                                                optionalFeatures: dom-overlay,unbounded;
-                                                                                                                                                                overlayElement: #overlay;">
+                                                                                                                                                                    optionalFeatures: dom-overlay,unbounded;
+                                                                                                                                                                    overlayElement: #overlay;">
                 <a-entity environment="preset: starry; lighting: distant; groundColor: #445; grid: cross"></a-entity>
     
                 <a-entity camera look-controls position="0 5 0"></a-entity>
@@ -229,7 +229,6 @@ p {
     position: fixed;
     left: 20px;
     z-index: 9999;
-    border-radius: 8px;
     &:hover {
         filter: invert(1);
     }
@@ -258,7 +257,6 @@ p {
     position: fixed;
     left: 140px;
     z-index: 9999;
-    border-radius: 8px;
     &:hover {
         filter: invert(1);
     }
@@ -385,7 +383,6 @@ p {
     justify-content: center;
     padding: 0px 10px;
     background-color: white;
-    border-radius: 8px;
     z-index: 10;
     &:after {
         content: 'ROKO';
@@ -409,7 +406,6 @@ p {
     gap: 0.5rem;
     padding: 0px 10px;
     background-color: white;
-    border-radius: 8px;
     z-index: 10;
     a {
         display: flex;
