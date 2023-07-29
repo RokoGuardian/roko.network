@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home" ref="homeContainer" @mousemove="moveBackground">
         <div class="socials">
             <a href="https://discord.gg/fZXkYMAchQ">   <img src="~/@/assets/Discordneedle.svg" alt="">  <img src="~/@/assets/Discordneedle.svg" alt=""></a>
             <a href="https://t.me/RokoNetwork">   <img src="~/@/assets/telegram.svg" alt=""> <img src="~/@/assets/telegram.svg" alt=""></a>
@@ -44,6 +44,19 @@ export default {
         document.head.appendChild(recaptchaScript)
     },
     methods: {
+        moveBackground(event) {
+            const container = this.$refs.homeContainer;
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            const moveX = (mouseX / containerWidth) * 50;
+            const moveY = (mouseY / containerHeight) * 50;
+
+            container.style.backgroundPosition = `${moveX}% ${moveY}%`;
+        },
         streamOpacityMult() {
 
             const streamOpacityMultVal = this.streamOpacity * 0.01;
@@ -147,7 +160,9 @@ export default {
     top: 0px;
     left: 0px;
     justify-content: center;
-    background-size: cover;
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
     overflow: hidden;
     width: 100vw;
     background-image: url(../assets/whitegeometry.jpg);
@@ -197,5 +212,7 @@ export default {
     }
 }
 
-@media screen and (max-width:600px) {}
+@media screen and (max-width:600px) {
+    .home{background-size:cover;}
+}
 </style>

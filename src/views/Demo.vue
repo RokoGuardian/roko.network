@@ -1,5 +1,14 @@
 <template>
     <div class="apparea">
+        <div class="demo-desc" v-if="modalActive">
+            <div class="infobox">
+    
+                <p>Please Note, This is a primitive demonstration of the roko-box. The roko-box is a custom configuration of 6 cameras arranged in at 60 degrees relative to one another, connected via GSLR to an Nvidia AGX ORIN, which has been purchased by the
+                    <a href="https://snapshot.org/#/rokonetwork.eth/proposal/0xe301c8afe741b3d29a2edc3bedb94e34f1f35e98006d5d833428395cf27e76dd">roko DAO</a> and is owned by the community, but is being developed by <a href="https://snapshot.org/#/rokonetwork.eth/proposal/0x10c1e8131270cb9690ab8e29c6090901cc05aa1a663b68106051924cb6f1b5e6">DAO appointed developers</a>                . We will be updating this section of the project and further features will be added soon!
+                </p>
+                <div class="button" @click="modalActive = !modalActive">I UNDERSTAND</div>
+            </div>
+        </div>
         <div class="centered">
             <div class="socials">
                 <a href="https://discord.gg/fZXkYMAchQ">   <img src="~/@/assets/Discordneedle.svg" alt="">  <img src="~/@/assets/Discordneedle.svg" alt=""></a>
@@ -15,8 +24,8 @@
         </div>
         <div class="perspective" style="cursor:crosshair!important;">
             <a-scene webxr="requiredFeatures: hit-test,local-floor;
-                                                                            optionalFeatures: dom-overlay,unbounded;
-                                                                            overlayElement: #overlay;">
+                                                                                                                                                                optionalFeatures: dom-overlay,unbounded;
+                                                                                                                                                                overlayElement: #overlay;">
                 <a-entity environment="preset: starry; lighting: distant; groundColor: #445; grid: cross"></a-entity>
     
                 <a-entity camera look-controls position="0 5 0"></a-entity>
@@ -39,7 +48,9 @@
                 <p>Segmentation</p>
                 <vue3-slider v-model="streamOpacity" height="10" color="#00aaff" track-color="#FEFEFE" />
             </div>
-            <div class="roko"></div>
+            <router-link to="/">
+                <div class="roko"></div>
+            </router-link>
         </div>
     </div>
 </template>
@@ -54,6 +65,7 @@ export default {
             streamOpacity: 50,
             classificationOpacity: 0,
             streamSizeMult: 1,
+            modalActive: true,
             streamVisible: true,
             currentURL: 'https://i.imgur.com/EQlNW3K.jpeg',
             currentURL2: 'https://i.imgur.com/Ih1YFSy.jpeg',
@@ -126,31 +138,72 @@ export default {
     src: url(../assets/unoestado.ttf);
 }
 
+.demo-desc {
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    font-family: 'Space Mono', monospace;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    backdrop-filter: blur(10px)brightness(0.5);
+    .infobox {
+        p {
+            user-select: none;
+            margin-top: unset;
+        }
+        .button {
+            cursor: pointer;
+            user-select: none;
+            padding: 1rem;
+            background: white;
+            color: rgb(109, 112, 126);
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+        position: relative;
+        margin: auto;
+        width: 600px;
+        z-index: 1000;
+        background: black;
+        color: white;
+        padding: 2rem;
+        a {
+            color: white;
+        }
+    }
+}
+
 h1 {}
 
 p {
     font-family: 'Space Mono', monospace;
 }
 
-.a-dialog-text {        font-family: 'Space Mono', monospace!important;
-
+.a-dialog-text {
+    font-family: 'Space Mono', monospace !important;
     color: black !important;
 }
 
-.a-dialog-allow-button {        font-family: 'Space Mono', monospace!important;
-
+.a-dialog-allow-button {
+    font-family: 'Space Mono', monospace !important;
     color: black !important;
-    background-color: white!important;
+    background-color: white !important;
 }
-.a-dialog-button {        font-family: 'Space Mono', monospace!important;
 
+.a-dialog-button {
+    font-family: 'Space Mono', monospace !important;
     color: black !important;
-    border:1px solid black!important;
+    border: 1px solid black !important;
 }
-.a-dialog-deny-button {        font-family: 'Space Mono', monospace!important;
 
+.a-dialog-deny-button {
+    font-family: 'Space Mono', monospace !important;
     color: white !important;
-    background-color:black!important;
+    background-color: black !important;
 }
 
 .segmentbutton {
