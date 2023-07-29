@@ -4,7 +4,7 @@
             <div class="infobox">
     
                 <p>Please Note, This is a primitive demonstration of the roko-box. The roko-box is a custom configuration of 6 cameras arranged in at 60 degrees relative to one another, connected via GSLR to an Nvidia AGX ORIN, which has been purchased by the
-                    <a href="https://snapshot.org/#/rokonetwork.eth/proposal/0xe301c8afe741b3d29a2edc3bedb94e34f1f35e98006d5d833428395cf27e76dd">roko DAO</a> and is owned by the community, but is being developed by <a href="https://snapshot.org/#/rokonetwork.eth/proposal/0x10c1e8131270cb9690ab8e29c6090901cc05aa1a663b68106051924cb6f1b5e6">DAO appointed developers</a>                . We will be updating this section of the project and further features will be added soon!
+                    <a href="https://snapshot.org/#/rokonetwork.eth/proposal/0xe301c8afe741b3d29a2edc3bedb94e34f1f35e98006d5d833428395cf27e76dd">roko DAO</a> and is owned by the community, but is being developed by <a href="https://snapshot.org/#/rokonetwork.eth/proposal/0x10c1e8131270cb9690ab8e29c6090901cc05aa1a663b68106051924cb6f1b5e6">DAO appointed developers</a>. <br> <br>We will be updating this section of the project and further features will be added soon, such as selection and labeling of segmented items!
                 </p>
                 <div class="button" @click="modalActive = !modalActive">I UNDERSTAND</div>
             </div>
@@ -24,8 +24,8 @@
         </div>
         <div class="perspective" style="cursor:crosshair!important;">
             <a-scene webxr="requiredFeatures: hit-test,local-floor;
-                                                                                                                                                                    optionalFeatures: dom-overlay,unbounded;
-                                                                                                                                                                    overlayElement: #overlay;">
+                                                                                                                                                                        optionalFeatures: dom-overlay,unbounded;
+                                                                                                                                                                        overlayElement: #overlay;">
                 <a-entity environment="preset: starry; lighting: distant; groundColor: #445; grid: cross"></a-entity>
     
                 <a-entity camera look-controls position="0 5 0"></a-entity>
@@ -164,6 +164,7 @@ export default {
                 opacity: 0.5;
             }
         }
+        max-width: calc(100vw - 4rem);
         position: relative;
         margin: auto;
         width: 600px;
