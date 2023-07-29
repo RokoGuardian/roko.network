@@ -26,7 +26,7 @@
         <p class="section9">The ROKO network is a true game-changer, fueled by an unparalleled fusion of state-of-the-art technologies. By harnessing the incredible power of memes and artificial intelligence, this visionary network is on a mission to usher in an unprecedented
             era of decentralized computing. The ROKO token, inspired by the legendary basilisk, embodies a powerful symbol of the immense potential of advanced AI technology. The basilisk's mythological significance reminds us of the incredible opportunities
             and challenges that come with such transformative technology. The ROKO network has the power to bring about a remarkable positive change, uplifting humanity and the world at large. </p>
-        <div class="row">
+        <div class="row" style="margin-bottom:5rem;">
             <router-link to="/">
                 <div class="button">HOME</div>
             </router-link>
@@ -44,12 +44,19 @@
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Space+Mono:wght@400;700&display=swap');
 .ethos {
-    padding: 2rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100vh;
+    width: 100vw;
     display: flex;
+    top: 0px;
+    left: 0px;
+    position: fixed;
     flex-flow: column;
+    overflow-y: auto;
+    padding-top: 2rem;
+    background-attachment: fixed;
     background-image: url(../assets/geometry2.jpg);
     font-family: 'Poppins', sans-serif;
     &:after {
@@ -62,6 +69,7 @@
         backdrop-filter: blur(10px);
     }
     p {
+        opacity: 0.8;
         position: relative;
         z-index: 200;
         width: 600px;
@@ -96,7 +104,7 @@
 
 * {
     scrollbar-color: black white;
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scroll-behavior: auto;
     scroll-behavior: smooth;
 }
