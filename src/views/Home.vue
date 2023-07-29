@@ -217,6 +217,7 @@ export default {
 
 @media screen and (max-width:600px) {
     .home {
+        perspective: unset;
         background-size: cover;
     }
 }
