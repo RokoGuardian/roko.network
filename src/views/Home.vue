@@ -14,7 +14,7 @@
             <h1 style="color:white;font-weight:100;">ROKO NETWORK</h1>
             <p>Subverting the basalisk with open source, decentralized dataset creation, compute sharing, group batched training and more, with an emphasis on transparency and zero-knowledge data privacy.</p>
             <div class="row">
-                <router-link to="/demo">
+                <router-link to="/ethos">
                     <div class="button">ETHOS</div>
                 </router-link>
                 <router-link to="/demo">
