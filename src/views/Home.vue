@@ -57,7 +57,7 @@ export default {
             const moveY = (mouseY / containerHeight) * 50;
 
             container.style.backgroundPosition = `${moveX}% ${moveY}%`;
-            desc.style.transform = `rotateY(${(moveX- 25) * 0.5}deg)rotateX(${(-moveY+ 25) * 0.5}deg)`;
+            desc.style.transform = `translateZ(50px)rotateY(${(moveX- 25) * 0.5}deg)rotateX(${(-moveY+ 25) * 0.5}deg)`;
         },
         streamOpacityMult() {
 

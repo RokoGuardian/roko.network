@@ -28,7 +28,7 @@
                                                                                                                                                                         overlayElement: #overlay;">
                 <a-entity environment="preset: starry; lighting: distant; groundColor: #445; grid: cross"></a-entity>
     
-                <a-entity camera look-controls position="0 5 0"></a-entity>
+                <a-entity camera look-controls reverseMouseDrag="true" position="0 5 0"></a-entity>
     
     
                 <a-curvedimage :visible="streamVisible" :src="currentURL" height="10.0" radius="5" segments="6" position="0 5 0" theta-length="360" :opacity="streamOpacityMult()" rotation="0 100 0" scale="1 1 1 "></a-curvedimage>
