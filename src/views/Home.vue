@@ -128,10 +128,12 @@ export default {
     padding: 2rem;
     max-width: calc(100vw - 4rem);
     h1 {
+        user-select: none;
         margin: unset;
         font-size: calc(2rem + 1vw);
     }
     p {
+        user-select: none;
         margin-bottom: 2rem;
         color: white;
     }
