@@ -10,7 +10,7 @@
             <a href="https://snapshot.org/#/rokonetwork.eth">  <img src="~/@/assets/snapshot.svg" alt=""> <img src="~/@/assets/snapshot.svg" alt=""></a>
     
         </div>
-        <div class="center-home">
+        <div ref="homeDesc" class="center-home">
             <h1 style="color:white;font-weight:100;">ROKO NETWORK</h1>
             <p>Subverting the basalisk with open source, decentralized dataset creation, compute sharing, group batched training and more, with an emphasis on transparency and zero-knowledge data privacy.</p>
             <div class="row">
@@ -46,6 +46,7 @@ export default {
     methods: {
         moveBackground(event) {
             const container = this.$refs.homeContainer;
+            const desc = this.$refs.homeDesc;
             const containerWidth = container.clientWidth;
             const containerHeight = container.clientHeight;
 
@@ -56,6 +57,7 @@ export default {
             const moveY = (mouseY / containerHeight) * 50;
 
             container.style.backgroundPosition = `${moveX}% ${moveY}%`;
+            desc.style.transform = `rotateY(${(moveX- 25) * 0.5}deg)rotateX(${(-moveY+ 25) * 0.5}deg)`;
         },
         streamOpacityMult() {
 
@@ -153,6 +155,7 @@ export default {
 }
 
 .home {
+    perspective: 600px;
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     display: flex;
@@ -213,6 +216,8 @@ export default {
 }
 
 @media screen and (max-width:600px) {
-    .home{background-size:cover;}
+    .home {
+        background-size: cover;
+    }
 }
 </style>
